@@ -3,12 +3,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
-  <title>LK SMART STUDIES | Smart Conceptual Learning Platform</title>
-  <meta name="description" content="LK SMART STUDIES (lksmartstudies) by Lalan Kumar Kushwaha - Premier Online Learning Portal for Board Exams, Polytechnic, Technical Subjects, Free Smart PDF Notes & Live Mock Tests." />
   
+  <!-- ==================== GOOGLE SEO & META TAGS ==================== -->
+  <title>LK SMART STUDIES | Smart Conceptual Learning Platform</title>
+  <meta name="title" content="LK SMART STUDIES | Smart Conceptual Learning Platform">
+  <meta name="description" content="LK SMART STUDIES (lksmartstudies) by Lalan Kumar Kushwaha - Premier Online Learning Portal for Board Exams, Polytechnic, Electrical Engineering, Free Smart PDF Notes & Live Mock Tests." />
+  <meta name="keywords" content="LK Smart Studies, lksmartstudies, Lalan Kumar Kushwaha, Board Exams Prep, Polytechnic Classes, Electrical Engineering Notes, Free PDF Study Material, Online Learning Portal" />
+  <meta name="author" content="Lalan Kumar Kushwaha" />
+  <meta name="robots" content="index, follow" />
+  
+  <!-- Open Graph / Social Media SEO -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://lksmartstudies.vercel.app/">
+  <meta property="og:title" content="LK SMART STUDIES | Smart Conceptual Learning Platform">
+  <meta property="og:description" content="Master Board Exams, Polytechnic, and Technical Subjects with Lalan Kumar Kushwaha. Free smart notes, interactive quizzes and live classes.">
+  <meta property="og:image" content="logo.gif">
+
   <!-- ==================== PWA & MANIFEST LINKS ==================== -->
   <link rel="manifest" href="manifest.json" />
-  <meta name="theme-color" content="#090d16" />
+  <meta name="theme-color" content="#070a12" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -19,7 +32,7 @@
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   
-  <!-- Google Fonts: Space Grotesk, Outfit & Plus Jakarta Sans for Premium Typography -->
+  <!-- Google Fonts: Space Grotesk, Outfit & Plus Jakarta Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
@@ -55,13 +68,12 @@
   </script>
 
   <style>
-    /* Global Typography Polish */
     body {
       font-feature-settings: "cv02", "cv03", "cv04", "cv11";
       -webkit-font-smoothing: antialiased;
     }
 
-    /* ==================== SPLASH SCREEN STYLES ==================== */
+    /* SPLASH SCREEN STYLES */
     #splashScreen {
       background-color: #070a12;
       transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.6s cubic-bezier(0.4, 0, 0.2, 1);
@@ -96,7 +108,7 @@
       animation: splashBar 1.7s cubic-bezier(0.4, 0, 0.2, 1) forwards;
     }
 
-    /* Clean White Background with Subtle Architectural Grid */
+    /* Clean White Background Pattern */
     .bg-dot-grid {
       background-color: #ffffff;
       background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
@@ -106,7 +118,7 @@
       background: radial-gradient(circle at 12% 18%, rgba(37, 99, 235, 0.08) 0%, rgba(245, 158, 11, 0.05) 45%, rgba(255, 255, 255, 1) 100%);
     }
 
-    /* Scroll Reveal Animations */
+    /* Scroll Reveal */
     .reveal {
       opacity: 0;
       transform: translateY(30px);
@@ -120,19 +132,13 @@
     .delay-200 { transition-delay: 200ms; }
     .delay-300 { transition-delay: 300ms; }
 
-    /* Floating Animation for Hero Badges */
     @keyframes floatSlow {
       0%, 100% { transform: translateY(0px); }
       50% { transform: translateY(-10px); }
     }
-    .animate-float {
-      animation: floatSlow 4s ease-in-out infinite;
-    }
-    .animate-float-delayed {
-      animation: floatSlow 5s ease-in-out 1.5s infinite;
-    }
+    .animate-float { animation: floatSlow 4s ease-in-out infinite; }
+    .animate-float-delayed { animation: floatSlow 5s ease-in-out 1.5s infinite; }
 
-    /* Interactive Card Lift */
     .interactive-card {
       transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     }
@@ -141,7 +147,6 @@
       box-shadow: 0 22px 35px -10px rgba(37, 99, 235, 0.12), 0 8px 15px -6px rgba(15, 23, 42, 0.04);
     }
 
-    /* Infinite Marquee Animation */
     @keyframes marquee {
       0% { transform: translateX(0%); }
       100% { transform: translateX(-50%); }
@@ -151,41 +156,38 @@
       width: max-content;
       animation: marquee 28s linear infinite;
     }
-    .animate-marquee:hover {
-      animation-play-state: paused;
+    .animate-marquee:hover { animation-play-state: paused; }
+
+    /* ==================== STYLISH BACK TO TOP BUTTON ==================== */
+    #backToTopBtn {
+      background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+      box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.5);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    #backToTopBtn:hover {
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 15px 30px -5px rgba(37, 99, 235, 0.7);
     }
   </style>
 </head>
 <body class="bg-white text-slate-800 font-sans antialiased selection:bg-brand-600 selection:text-white overflow-x-hidden">
 
-  <!-- ==================== 1. SPLASH SCREEN (LOGO #1) ==================== -->
+  <!-- ==================== SPLASH SCREEN (LOGO #1) ==================== -->
   <div id="splashScreen" class="fixed inset-0 z-[100] flex flex-col items-center justify-between p-6 select-none">
-    <!-- Top Progress Loader Bar -->
     <div class="w-full max-w-md h-1 bg-slate-800/80 rounded-full overflow-hidden">
       <div class="h-full bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-500 animate-splash-bar"></div>
     </div>
 
-    <!-- Center Logo & Multi-Color Aura -->
     <div class="relative flex flex-col items-center justify-center my-auto">
-      <!-- Colorful Blurred Glow Behind Logo -->
       <div class="w-64 h-64 sm:w-72 sm:h-72 rounded-full splash-aura absolute -z-10"></div>
-
-      <!-- White Rounded Squircle Box with logo.gif -->
       <div class="w-36 h-36 sm:w-40 sm:h-40 bg-white rounded-[2.25rem] p-3 shadow-2xl flex items-center justify-center border border-white/20 transform transition-transform duration-500 hover:scale-105">
-        <img 
-          src="logo.gif" 
-          alt="LK SMART STUDIES" 
-          class="w-full h-full object-contain rounded-2xl"
-          onerror="this.onerror=null; this.src='https://placehold.co/160x160/ffffff/2563eb?text=LK+SMART';"
-        />
+        <img src="logo.gif" alt="LK SMART STUDIES" class="w-full h-full object-contain rounded-2xl" onerror="this.onerror=null; this.src='https://placehold.co/160x160/ffffff/2563eb?text=LK+SMART';" />
       </div>
 
-      <!-- Brand Title & Founder Pill -->
       <div class="text-center mt-10 space-y-3.5">
-        <h2 class="font-heading font-extrabold text-3xl sm:text-4xl tracking-tight text-white">
+        <h1 class="font-heading font-extrabold text-3xl sm:text-4xl tracking-tight text-white">
           lksmart<span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-blue-500">studies</span>
-        </h2>
-
+        </h1>
         <div class="inline-flex items-center px-5 py-1.5 rounded-full bg-slate-900/90 border border-slate-700/80 shadow-inner">
           <span class="font-display text-xs sm:text-sm font-bold tracking-[0.18em] uppercase text-white">
             LALAN <span class="text-sky-400">KUMAR KUSHWAHA</span>
@@ -194,7 +196,6 @@
       </div>
     </div>
 
-    <!-- Bottom Subtle Tag -->
     <p class="text-[11px] font-semibold tracking-widest uppercase text-slate-500">
       Smart Learning Ecosystem
     </p>
@@ -205,7 +206,7 @@
     <div id="scrollProgress" class="h-full bg-gradient-to-r from-brand-600 via-indigo-500 to-brand-accent w-0 transition-all duration-75"></div>
   </div>
 
-  <!-- TOP ANNOUNCEMENT BAR (Highlight Banner) -->
+  <!-- TOP ANNOUNCEMENT BANNER -->
   <aside aria-label="Announcement" class="bg-gradient-to-r from-slate-950 via-brand-800 to-indigo-950 text-white text-xs sm:text-sm py-3 px-4 text-center font-medium flex flex-wrap items-center justify-center gap-2.5 border-b border-white/10">
     <span class="inline-flex items-center px-2.5 py-0.5 rounded-full bg-brand-accent text-slate-950 font-heading font-extrabold text-[11px] uppercase tracking-wider shadow-sm">
       Live 2026-27
@@ -219,20 +220,14 @@
     </a>
   </aside>
 
-  <!-- ==================== 2. STICKY WHITE NAVBAR (LOGO #2) ==================== -->
+  <!-- ==================== STICKY NAVBAR (LOGO #2) ==================== -->
   <header id="navbar" class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/80 transition-all duration-300">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-20">
         
-        <!-- BRAND LOGO (Header Logo) -->
         <a href="#home" class="flex items-center gap-3.5 group focus:outline-none">
           <div class="relative w-12 h-12 rounded-2xl overflow-hidden shadow-md border-2 border-brand-500/25 bg-white flex items-center justify-center flex-shrink-0 transition-transform duration-300 group-hover:scale-105">
-            <img 
-              src="logo.gif" 
-              alt="LK SMART STUDIES Logo" 
-              class="w-full h-full object-cover"
-              onerror="this.onerror=null; this.src='https://placehold.co/100x100/2563eb/ffffff?text=LK';"
-            />
+            <img src="logo.gif" alt="LK SMART STUDIES Logo" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://placehold.co/100x100/2563eb/ffffff?text=LK';" />
           </div>
           <div class="flex flex-col">
             <span class="font-heading font-black text-xl sm:text-2xl text-slate-900 tracking-tight flex items-center gap-1">
@@ -244,7 +239,6 @@
           </div>
         </a>
 
-        <!-- DESKTOP NAVIGATION LINKS -->
         <nav class="hidden lg:flex items-center gap-7 font-bold text-slate-600 text-sm">
           <a href="#home" class="hover:text-brand-600 transition-colors">Home</a>
           <a href="#categories" class="hover:text-brand-600 transition-colors">Categories</a>
@@ -255,7 +249,6 @@
           <a href="#faq" class="hover:text-brand-600 transition-colors">FAQs</a>
         </nav>
 
-        <!-- ACTION BUTTONS -->
         <div class="hidden md:flex items-center gap-3">
           <button id="pwaInstallBtn" class="hidden items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-extrabold text-brand-700 bg-brand-50 hover:bg-brand-100 border border-brand-200 transition">
             <i data-lucide="smartphone" class="w-4 h-4"></i>
@@ -273,7 +266,6 @@
           </a>
         </div>
 
-        <!-- MOBILE HAMBURGER BUTTON -->
         <div class="md:hidden flex items-center">
           <button id="mobileMenuBtn" aria-label="Toggle Menu" class="p-2.5 rounded-xl text-slate-700 hover:bg-slate-100 border border-slate-200 focus:outline-none">
             <i data-lucide="menu" class="w-6 h-6"></i>
@@ -282,7 +274,6 @@
       </div>
     </div>
 
-    <!-- MOBILE DROPDOWN MENU -->
     <div id="mobileMenu" class="hidden md:hidden border-t border-slate-100 bg-white px-4 pt-3 pb-6 shadow-2xl">
       <div class="flex flex-col space-y-1.5 font-bold text-slate-700 text-sm">
         <a href="#home" onclick="toggleMenu()" class="px-3 py-2.5 rounded-xl hover:bg-slate-50 hover:text-brand-600 flex items-center gap-2.5"><i data-lucide="home" class="w-4 h-4 text-brand-600"></i> Home</a>
@@ -303,31 +294,29 @@
   </header>
 
   <main>
-    <!-- ==================== HERO SECTION ==================== -->
+    <!-- HERO SECTION -->
     <section id="home" class="relative overflow-hidden hero-mesh bg-dot-grid pt-10 pb-20 md:py-24 border-b border-slate-200/70">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
-          <!-- Left Hero Column -->
           <div class="lg:col-span-7 text-center lg:text-left space-y-6 reveal active">
             <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-brand-200 shadow-sm text-brand-700 text-xs sm:text-sm font-extrabold tracking-wide">
               <span class="w-2.5 h-2.5 rounded-full bg-brand-600 animate-ping"></span>
               <span>India's Smartest Conceptual Learning Portal</span>
             </div>
 
-            <h1 class="font-heading font-black text-4xl sm:text-5xl lg:text-[3.6rem] text-slate-900 tracking-tight leading-[1.1]">
+            <h2 class="font-heading font-black text-4xl sm:text-5xl lg:text-[3.6rem] text-slate-900 tracking-tight leading-[1.1]">
               Master Every Concept, <br class="hidden sm:inline" />
               Score Higher with <br />
               <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 via-indigo-600 to-brand-accent">
                 LK SMART STUDIES
               </span>
-            </h1>
+            </h2>
 
             <p class="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto lg:mx-0 font-medium leading-relaxed">
               Experience high-clarity video lectures, visual mindmaps, practical engineering & science demonstrations, and chapter-wise mock tests crafted to turn learners into toppers.
             </p>
 
-            <!-- Hero Interactive Search Bar -->
             <div class="max-w-xl mx-auto lg:mx-0 pt-1">
               <div class="flex items-center bg-white p-2 rounded-2xl border-2 border-slate-200 focus-within:border-brand-500 shadow-lg shadow-slate-200/50 transition-all">
                 <i data-lucide="search" class="w-5 h-5 text-slate-400 ml-3 mr-2 flex-shrink-0"></i>
@@ -344,7 +333,6 @@
               </div>
             </div>
 
-            <!-- Primary CTA Buttons -->
             <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
               <a href="#courses" class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-slate-900 hover:bg-brand-600 text-white font-bold text-sm shadow-xl shadow-slate-900/10 flex items-center justify-center gap-2 group transition-all">
                 <span>Browse All Batches</span>
@@ -358,7 +346,6 @@
               </button>
             </div>
 
-            <!-- Animated Statistics Counters -->
             <div class="pt-8 border-t border-slate-200/80 grid grid-cols-2 sm:grid-cols-4 gap-4 text-center lg:text-left">
               <div class="bg-white/90 p-3.5 rounded-2xl border border-slate-200/70 shadow-sm">
                 <p class="font-display text-2xl sm:text-3xl font-bold text-slate-900"><span class="counter" data-target="25000">0</span>+</p>
@@ -379,9 +366,7 @@
             </div>
           </div>
 
-          <!-- Right Hero Interactive Showcase (Clean Icons - No Duplicate Logos) -->
           <div class="lg:col-span-5 relative reveal delay-200">
-            <!-- Floating Badge 1 -->
             <div class="hidden sm:flex items-center gap-2.5 bg-white px-4 py-2.5 rounded-2xl shadow-xl border border-slate-100 absolute -top-5 -left-6 z-20 animate-float">
               <div class="w-9 h-9 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center">
                 <i data-lucide="shield-check" class="w-5 h-5"></i>
@@ -392,7 +377,6 @@
               </div>
             </div>
 
-            <!-- Floating Badge 2 -->
             <div class="hidden sm:flex items-center gap-2 bg-white px-4 py-2.5 rounded-2xl shadow-xl border border-slate-100 absolute -bottom-5 -right-4 z-20 animate-float-delayed">
               <div class="w-9 h-9 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center">
                 <i data-lucide="flame" class="w-5 h-5"></i>
@@ -403,7 +387,6 @@
               </div>
             </div>
 
-            <!-- Main Interactive Hero Card -->
             <div class="relative bg-white p-6 sm:p-8 rounded-3xl shadow-2xl border border-slate-200/90">
               <div class="flex items-center justify-between pb-5 border-b border-slate-100">
                 <div class="flex items-center gap-3">
@@ -420,7 +403,6 @@
                 <span class="font-display px-3 py-1 text-xs font-bold bg-brand-50 text-brand-700 rounded-full border border-brand-200">2026-27</span>
               </div>
 
-              <!-- Interactive Module Selector inside Card -->
               <div class="space-y-3.5 my-6">
                 <a href="#courses" class="p-4 rounded-2xl bg-slate-50 hover:bg-brand-50/60 border border-slate-200/70 hover:border-brand-300 flex items-center justify-between transition group">
                   <div class="flex items-center gap-3.5">
@@ -467,7 +449,7 @@
       </div>
     </section>
 
-    <!-- ==================== INFINITE SCROLLING TICKER ==================== -->
+    <!-- INFINITE TICKER -->
     <div class="bg-slate-900 text-white py-3.5 overflow-hidden border-b border-slate-800">
       <div class="animate-marquee flex items-center gap-10 text-xs sm:text-sm font-bold tracking-wide">
         <span class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-emerald-400"></i> Class 10th & 12th Board Topper Batches</span>
@@ -475,7 +457,6 @@
         <span class="flex items-center gap-2"><i data-lucide="file-text" class="w-4 h-4 text-blue-400"></i> 100% Free Chapter-Wise Formula PDFs</span>
         <span class="flex items-center gap-2"><i data-lucide="cpu" class="w-4 h-4 text-purple-400"></i> Practical Electrical & Science Concepts</span>
         <span class="flex items-center gap-2"><i data-lucide="code" class="w-4 h-4 text-emerald-400"></i> Python & Web Development Foundation</span>
-        <!-- Duplicate for seamless loop -->
         <span class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-emerald-400"></i> Class 10th & 12th Board Topper Batches</span>
         <span class="flex items-center gap-2"><i data-lucide="zap" class="w-4 h-4 text-amber-400"></i> Polytechnic & Engineering Entrance Mastery</span>
         <span class="flex items-center gap-2"><i data-lucide="file-text" class="w-4 h-4 text-blue-400"></i> 100% Free Chapter-Wise Formula PDFs</span>
@@ -484,14 +465,14 @@
       </div>
     </div>
 
-    <!-- ==================== LEARNING CATEGORIES SECTION ==================== -->
+    <!-- CATEGORIES -->
     <section id="categories" class="py-20 bg-white">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-3xl mx-auto mb-14 reveal">
           <span class="text-xs font-extrabold uppercase tracking-widest text-brand-600 bg-brand-50 px-3.5 py-1.5 rounded-full border border-brand-100">Academic Streams</span>
-          <h2 class="font-heading font-black text-3xl sm:text-4xl text-slate-900 mt-3 tracking-tight">
+          <h3 class="font-heading font-black text-3xl sm:text-4xl text-slate-900 mt-3 tracking-tight">
             Choose Your Learning Path
-          </h2>
+          </h3>
           <p class="text-slate-600 text-sm sm:text-base mt-2 font-medium">
             Structured study tracks tailored for school boards, diploma engineering, and modern digital skills.
           </p>
@@ -504,7 +485,7 @@
                 <i data-lucide="book-open" class="w-7 h-7"></i>
               </div>
               <span class="text-xs font-extrabold text-brand-600 uppercase tracking-wider">Class 9th & 10th</span>
-              <h3 class="font-heading font-extrabold text-xl text-slate-900 mt-1">Secondary Board Prep</h3>
+              <h4 class="font-heading font-extrabold text-xl text-slate-900 mt-1">Secondary Board Prep</h4>
               <p class="text-xs text-slate-500 mt-2 leading-relaxed font-medium">
                 Complete syllabus coverage for Science, Mathematics, Social Studies, and English with VVI question banks.
               </p>
@@ -521,7 +502,7 @@
                 <i data-lucide="atom" class="w-7 h-7"></i>
               </div>
               <span class="text-xs font-extrabold text-purple-600 uppercase tracking-wider">Class 11th & 12th</span>
-              <h3 class="font-heading font-extrabold text-xl text-slate-900 mt-1">Senior Science (PCM)</h3>
+              <h4 class="font-heading font-extrabold text-xl text-slate-900 mt-1">Senior Science (PCM)</h4>
               <p class="text-xs text-slate-500 mt-2 leading-relaxed font-medium">
                 In-depth derivations, step-by-step numerical problem solving, and board-focused revision modules.
               </p>
@@ -538,7 +519,7 @@
                 <i data-lucide="cpu" class="w-7 h-7"></i>
               </div>
               <span class="text-xs font-extrabold text-amber-600 uppercase tracking-wider">Polytechnic & Diploma</span>
-              <h3 class="font-heading font-extrabold text-xl text-slate-900 mt-1">Technical & Electrical</h3>
+              <h4 class="font-heading font-extrabold text-xl text-slate-900 mt-1">Technical & Electrical</h4>
               <p class="text-xs text-slate-500 mt-2 leading-relaxed font-medium">
                 Polytechnic entrance prep, Basic Electrical Engineering, Circuit Theorems, and Measurement systems.
               </p>
@@ -555,7 +536,7 @@
                 <i data-lucide="code-2" class="w-7 h-7"></i>
               </div>
               <span class="text-xs font-extrabold text-emerald-600 uppercase tracking-wider">Coding & Tech</span>
-              <h3 class="font-heading font-extrabold text-xl text-slate-900 mt-1">Python & Web Skills</h3>
+              <h4 class="font-heading font-extrabold text-xl text-slate-900 mt-1">Python & Web Skills</h4>
               <p class="text-xs text-slate-500 mt-2 leading-relaxed font-medium">
                 Practical coding foundations in Python, HTML5, CSS3, and modern web application development for students.
               </p>
@@ -569,14 +550,14 @@
       </div>
     </section>
 
-    <!-- ==================== WHY CHOOSE US (FEATURES) ==================== -->
+    <!-- FEATURES -->
     <section id="features" class="py-20 bg-slate-50 border-y border-slate-200/70">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-3xl mx-auto space-y-3 mb-16 reveal">
           <span class="text-xs font-extrabold uppercase tracking-widest text-brand-600">The LK Smart Advantage</span>
-          <h2 class="font-heading font-black text-3xl sm:text-4xl text-slate-900 tracking-tight">
+          <h3 class="font-heading font-black text-3xl sm:text-4xl text-slate-900 tracking-tight">
             Built for Clarity, Speed & High Scores
-          </h2>
+          </h3>
           <p class="text-slate-600 text-sm sm:text-base font-medium">
             We replace rote memorization with visual understanding, practical examples, and structured revision.
           </p>
@@ -587,7 +568,7 @@
             <div class="w-12 h-12 rounded-2xl bg-brand-50 text-brand-600 flex items-center justify-center mb-5">
               <i data-lucide="presentation" class="w-6 h-6"></i>
             </div>
-            <h3 class="font-heading font-extrabold text-lg text-slate-900 mb-2">Smart Visual Lectures</h3>
+            <h4 class="font-heading font-extrabold text-lg text-slate-900 mb-2">Smart Visual Lectures</h4>
             <p class="text-sm text-slate-600 leading-relaxed font-medium">
               Interactive digital whiteboard sessions breaking down complex theorems and circuits into simple steps.
             </p>
@@ -597,7 +578,7 @@
             <div class="w-12 h-12 rounded-2xl bg-amber-50 text-brand-accent flex items-center justify-center mb-5">
               <i data-lucide="file-spreadsheet" class="w-6 h-6"></i>
             </div>
-            <h3 class="font-heading font-extrabold text-lg text-slate-900 mb-2">One-Page Formula Maps</h3>
+            <h4 class="font-heading font-extrabold text-lg text-slate-900 mb-2">One-Page Formula Maps</h4>
             <p class="text-sm text-slate-600 leading-relaxed font-medium">
               High-yield revision sheets, mindmaps, and crisp bullet notes engineered for rapid pre-exam recall.
             </p>
@@ -607,7 +588,7 @@
             <div class="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center mb-5">
               <i data-lucide="check-square" class="w-6 h-6"></i>
             </div>
-            <h3 class="font-heading font-extrabold text-lg text-slate-900 mb-2">Real-Pattern Test Series</h3>
+            <h4 class="font-heading font-extrabold text-lg text-slate-900 mb-2">Real-Pattern Test Series</h4>
             <p class="text-sm text-slate-600 leading-relaxed font-medium">
               Chapter-wise objective MCQs and full-length model papers aligned with the latest exam marking schemes.
             </p>
@@ -617,7 +598,7 @@
             <div class="w-12 h-12 rounded-2xl bg-purple-50 text-purple-600 flex items-center justify-center mb-5">
               <i data-lucide="messages-square" class="w-6 h-6"></i>
             </div>
-            <h3 class="font-heading font-extrabold text-lg text-slate-900 mb-2">Direct Mentor Guidance</h3>
+            <h4 class="font-heading font-extrabold text-lg text-slate-900 mb-2">Direct Mentor Guidance</h4>
             <p class="text-sm text-slate-600 leading-relaxed font-medium">
               Instant doubt resolution and personalized study roadmaps to keep your preparation on the winning track.
             </p>
@@ -626,16 +607,16 @@
       </div>
     </section>
 
-    <!-- ==================== COURSES / PROGRAMS SECTION ==================== -->
+    <!-- COURSES -->
     <section id="courses" class="py-20 md:py-24 bg-white">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4 reveal">
           <div>
             <span class="text-xs font-extrabold uppercase tracking-widest text-brand-600">Featured Programs</span>
-            <h2 class="font-heading font-black text-3xl sm:text-4xl text-slate-900 mt-1 tracking-tight">
+            <h3 class="font-heading font-black text-3xl sm:text-4xl text-slate-900 mt-1 tracking-tight">
               Explore Our Smart Batches
-            </h2>
+            </h3>
           </div>
           
           <div class="flex items-center gap-2 overflow-x-auto pb-2 md:pb-0">
@@ -648,7 +629,6 @@
 
         <div id="coursesGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           
-          <!-- Course Card 1 -->
           <div class="course-card board bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-sm interactive-card flex flex-col reveal">
             <div class="relative h-48 bg-gradient-to-br from-blue-600 to-indigo-800 p-6 flex flex-col justify-between text-white">
               <div class="flex justify-between items-start">
@@ -657,7 +637,7 @@
               </div>
               <div>
                 <p class="text-xs text-blue-200 uppercase tracking-wider font-bold">Target 2026-27</p>
-                <h3 class="text-2xl font-extrabold font-heading mt-0.5">Smart Board Topper Batch</h3>
+                <h4 class="text-2xl font-extrabold font-heading mt-0.5">Smart Board Topper Batch</h4>
               </div>
             </div>
             <div class="p-6 flex-1 flex flex-col justify-between space-y-5">
@@ -678,7 +658,6 @@
             </div>
           </div>
 
-          <!-- Course Card 2 -->
           <div class="course-card technical bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-sm interactive-card flex flex-col reveal delay-100">
             <div class="relative h-48 bg-gradient-to-br from-emerald-600 to-teal-800 p-6 flex flex-col justify-between text-white">
               <div class="flex justify-between items-start">
@@ -687,7 +666,7 @@
               </div>
               <div>
                 <p class="text-xs text-emerald-100 uppercase tracking-wider font-bold">Technical Foundation</p>
-                <h3 class="text-2xl font-extrabold font-heading mt-0.5">Polytechnic & Electrical Mastery</h3>
+                <h4 class="text-2xl font-extrabold font-heading mt-0.5">Polytechnic & Electrical Mastery</h4>
               </div>
             </div>
             <div class="p-6 flex-1 flex flex-col justify-between space-y-5">
@@ -708,7 +687,6 @@
             </div>
           </div>
 
-          <!-- Course Card 3 -->
           <div class="course-card board skills bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-sm interactive-card flex flex-col reveal delay-200">
             <div class="relative h-48 bg-gradient-to-br from-purple-700 to-indigo-900 p-6 flex flex-col justify-between text-white">
               <div class="flex justify-between items-start">
@@ -717,7 +695,7 @@
               </div>
               <div>
                 <p class="text-xs text-purple-200 uppercase tracking-wider font-bold">Science + Tech Skills</p>
-                <h3 class="text-2xl font-extrabold font-heading mt-0.5">Physics, Math & Python Sprint</h3>
+                <h4 class="text-2xl font-extrabold font-heading mt-0.5">Physics, Math & Python Sprint</h4>
               </div>
             </div>
             <div class="p-6 flex-1 flex flex-col justify-between space-y-5">
@@ -742,15 +720,15 @@
       </div>
     </section>
 
-    <!-- ==================== DAILY CLASS SCHEDULE TIMETABLE ==================== -->
+    <!-- SCHEDULE -->
     <section id="schedule" class="py-16 bg-slate-50 border-y border-slate-200/70">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
         <div class="flex flex-col md:flex-row md:items-center justify-between mb-10 gap-4">
           <div>
             <span class="text-xs font-extrabold uppercase tracking-widest text-brand-600">Structured Routine</span>
-            <h2 class="font-heading font-black text-3xl text-slate-900 mt-1 tracking-tight">
+            <h3 class="font-heading font-black text-3xl text-slate-900 mt-1 tracking-tight">
               Daily Live Class Schedule
-            </h2>
+            </h3>
             <p class="text-slate-600 text-sm mt-1 font-medium">Stay consistent with our disciplined daily learning timetable.</p>
           </div>
           <span class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white border border-slate-200 text-xs font-bold text-slate-700 self-start shadow-sm">
@@ -801,16 +779,16 @@
       </div>
     </section>
 
-    <!-- ==================== FREE STUDY MATERIAL / DOWNLOADS ==================== -->
+    <!-- FREE NOTES LIBRARY -->
     <section id="notes" class="py-20 md:py-24 bg-white">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4 reveal">
           <div>
             <span class="text-xs font-extrabold uppercase tracking-widest text-brand-600">Open Digital Library</span>
-            <h2 class="font-heading font-black text-3xl sm:text-4xl text-slate-900 mt-1 tracking-tight">
+            <h3 class="font-heading font-black text-3xl sm:text-4xl text-slate-900 mt-1 tracking-tight">
               Free Smart Notes & Formula PDFs
-            </h2>
+            </h3>
             <p class="text-slate-600 text-sm sm:text-base mt-1 font-medium">
               Instant access to verified revision sheets, mindmaps, and past year question papers.
             </p>
@@ -924,7 +902,7 @@
       </div>
     </section>
 
-    <!-- ==================== MULTI-QUESTION INTERACTIVE QUIZ ==================== -->
+    <!-- INTERACTIVE QUIZ -->
     <section id="quiz" class="py-20 bg-slate-50 border-t border-slate-200/70">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
         <div class="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200 shadow-xl">
@@ -965,7 +943,7 @@
       </div>
     </section>
 
-    <!-- ==================== FOUNDER & MENTOR SPOTLIGHT (Clean Badge - No Extra Logo) ==================== -->
+    <!-- FOUNDER & MENTOR SPOTLIGHT -->
     <section class="py-20 bg-white border-t border-slate-200/70">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
         <div class="bg-gradient-to-br from-slate-50 via-white to-brand-50/50 rounded-3xl p-8 sm:p-12 border border-slate-200 shadow-sm grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
@@ -975,7 +953,7 @@
               <i data-lucide="award" class="w-12 h-12 text-amber-300 mb-1"></i>
               <span class="font-display font-bold text-xs tracking-widest uppercase">Founder</span>
             </div>
-            <h3 class="font-heading font-black text-2xl text-slate-900 mt-4">Lalan Kumar Kushwaha</h3>
+            <h4 class="font-heading font-black text-2xl text-slate-900 mt-4">Lalan Kumar Kushwaha</h4>
             <p class="font-display text-xs font-bold uppercase tracking-widest text-brand-600 mt-1">Chief Mentor • lksmartstudies</p>
           </div>
 
@@ -983,9 +961,9 @@
             <span class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-brand-50 text-brand-700 text-xs font-extrabold border border-brand-100">
               <i data-lucide="sparkles" class="w-3.5 h-3.5"></i> Vision & Commitment
             </span>
-            <h4 class="font-heading font-extrabold text-2xl sm:text-3xl text-slate-900 leading-snug">
+            <h3 class="font-heading font-extrabold text-2xl sm:text-3xl text-slate-900 leading-snug">
               "Empowering every student with practical knowledge, modern digital tools, and fearless exam confidence."
-            </h4>
+            </h3>
             <p class="text-slate-600 text-sm sm:text-base leading-relaxed font-medium">
               At <strong>LK SMART STUDIES</strong>, our mission goes beyond textbook memorization. Whether you are preparing for Board Examinations, Polytechnic & Engineering studies, or exploring modern programming, we deliver structured, high-clarity resources that make learning effortless and enjoyable.
             </p>
@@ -1000,15 +978,15 @@
       </div>
     </section>
 
-    <!-- ==================== STUDENT SUCCESS STORIES ==================== -->
+    <!-- TESTIMONIALS -->
     <section id="testimonials" class="py-20 bg-slate-50 border-t border-slate-200/70">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div class="text-center max-w-2xl mx-auto mb-14 reveal">
           <span class="text-xs font-extrabold uppercase tracking-widest text-brand-600">Wall of Love</span>
-          <h2 class="font-heading font-black text-3xl sm:text-4xl text-slate-900 mt-1 tracking-tight">
+          <h3 class="font-heading font-black text-3xl sm:text-4xl text-slate-900 mt-1 tracking-tight">
             Stories from Our Top Scorers
-          </h2>
+          </h3>
           <p class="text-slate-600 text-sm sm:text-base mt-2 font-medium">
             Discover how students across India boosted their academic performance with LK SMART STUDIES.
           </p>
@@ -1086,14 +1064,14 @@
       </div>
     </section>
 
-    <!-- ==================== INTERACTIVE FAQ ACCORDION ==================== -->
+    <!-- FAQ -->
     <section id="faq" class="py-20 bg-white border-t border-slate-200/70">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
         <div class="text-center mb-12">
           <span class="text-xs font-extrabold uppercase tracking-widest text-brand-600">Got Questions?</span>
-          <h2 class="font-heading font-black text-3xl text-slate-900 mt-1 tracking-tight">
+          <h3 class="font-heading font-black text-3xl text-slate-900 mt-1 tracking-tight">
             Frequently Asked Questions
-          </h2>
+          </h3>
         </div>
 
         <div class="space-y-4">
@@ -1130,16 +1108,16 @@
       </div>
     </section>
 
-    <!-- ==================== CONTACT & ENQUIRY SECTION ==================== -->
+    <!-- CONTACT -->
     <section id="contact" class="py-20 md:py-24 bg-slate-50 border-t border-slate-200/70">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 bg-white rounded-3xl p-8 sm:p-12 border border-slate-200 shadow-xl">
           
           <div class="lg:col-span-5 space-y-6">
             <span class="text-xs font-extrabold uppercase tracking-widest text-brand-600">Connect With Us</span>
-            <h2 class="font-heading font-black text-3xl text-slate-900 leading-tight tracking-tight">
+            <h3 class="font-heading font-black text-3xl text-slate-900 leading-tight tracking-tight">
               Need Academic Guidance or Batch Details?
-            </h2>
+            </h3>
             <p class="text-slate-600 text-sm leading-relaxed font-medium">
               Drop your details in the form and our academic team will help you choose the right learning track, notes, and study schedule.
             </p>
@@ -1177,9 +1155,8 @@
             </div>
           </div>
 
-          <!-- Right Form -->
           <div class="lg:col-span-7 bg-slate-50 p-6 sm:p-8 rounded-2xl border border-slate-200/80">
-            <h3 class="font-heading font-extrabold text-xl text-slate-900 mb-6">Request Callback / Free Study Kit</h3>
+            <h4 class="font-heading font-extrabold text-xl text-slate-900 mb-6">Request Callback / Free Study Kit</h4>
             
             <form id="contactForm" onsubmit="handleContactSubmit(event)" class="space-y-4">
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -1230,21 +1207,15 @@
     </section>
   </main>
 
-  <!-- ==================== 3. CLEAN WHITE FOOTER (LOGO #3) ==================== -->
+  <!-- ==================== 3. FOOTER (LOGO #3) ==================== -->
   <footer class="bg-white text-slate-600 py-12 border-t border-slate-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
         
         <div class="space-y-4 md:col-span-1">
           <div class="flex items-center gap-3">
-            <!-- Footer Logo (Strictly 3rd & Final Logo) -->
             <div class="w-11 h-11 rounded-2xl overflow-hidden border border-slate-200 bg-white flex items-center justify-center shadow-sm">
-              <img 
-                src="logo.gif" 
-                alt="LK Smart Studies" 
-                class="w-full h-full object-cover"
-                onerror="this.onerror=null; this.src='https://placehold.co/100x100/2563eb/ffffff?text=LK';"
-              />
+              <img src="logo.gif" alt="LK Smart Studies" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://placehold.co/100x100/2563eb/ffffff?text=LK';" />
             </div>
             <div>
               <span class="font-heading font-black text-lg text-slate-900 block leading-none">LK SMART STUDIES</span>
@@ -1304,14 +1275,12 @@
     </div>
   </footer>
 
-  <!-- BACK TO TOP FLOATING BUTTON -->
-  <button id="backToTopBtn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="Back to top" class="fixed bottom-6 left-6 z-40 hidden w-11 h-11 rounded-2xl bg-white border border-slate-200 text-slate-700 hover:bg-brand-600 hover:text-white shadow-lg items-center justify-center transition-all">
-    <i data-lucide="arrow-up" class="w-5 h-5"></i>
+  <!-- ==================== STYLISH BACK TO TOP FLOATING BUTTON ==================== -->
+  <button id="backToTopBtn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="Back to top" class="fixed bottom-6 left-6 z-40 hidden w-12 h-12 rounded-2xl text-white shadow-xl items-center justify-center group cursor-pointer">
+    <i data-lucide="arrow-up" class="w-6 h-6 transition-transform group-hover:-translate-y-1"></i>
   </button>
 
-  <!-- ==================== MODALS (Clean Icons Only) ==================== -->
-
-  <!-- DEMO VIDEO MODAL -->
+  <!-- ==================== MODALS ==================== -->
   <div id="demoVideoModal" class="fixed inset-0 z-50 hidden bg-slate-900/70 backdrop-blur-sm flex items-center justify-center p-4">
     <div class="bg-white rounded-3xl max-w-2xl w-full p-6 shadow-2xl relative">
       <button onclick="closeModal('demoVideoModal')" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600">
@@ -1320,10 +1289,10 @@
       
       <div class="flex items-center gap-3 mb-4">
         <div class="w-10 h-10 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center">
-          <i data-lucide="MonitorPlay" class="w-5 h-5"></i>
+          <i data-lucide="monitor-play" class="w-5 h-5"></i>
         </div>
         <div>
-          <h3 class="font-heading font-extrabold text-lg text-slate-900">LK SMART STUDIES — Interactive Demo</h3>
+          <h4 class="font-heading font-extrabold text-lg text-slate-900">LK SMART STUDIES — Interactive Demo</h4>
           <p class="text-xs text-slate-500 font-medium">Visual Concept Breakdown: Mathematics & Electrical Science</p>
         </div>
       </div>
@@ -1344,8 +1313,7 @@
     </div>
   </div>
 
-  <!-- COUNSELLING MODAL -->
-  <div id="quickRegisterModal" class="fixed inset-0 z-50 hidden bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4">
+    <div id="quickRegisterModal" class="fixed inset-0 z-50 hidden bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4">
     <div class="bg-white rounded-3xl max-w-md w-full p-6 sm:p-8 shadow-2xl relative">
       <button onclick="closeModal('quickRegisterModal')" class="absolute top-5 right-5 text-slate-400 hover:text-slate-600">
         <i data-lucide="x" class="w-5 h-5"></i>
@@ -1355,7 +1323,7 @@
         <div class="w-12 h-12 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center mx-auto mb-3">
           <i data-lucide="sparkles" class="w-6 h-6"></i>
         </div>
-        <h3 class="font-heading font-extrabold text-xl text-slate-900">Book Free 1-on-1 Counselling</h3>
+        <h4 class="font-heading font-extrabold text-xl text-slate-900">Book Free 1-on-1 Counselling</h4>
         <p class="text-xs text-slate-500 mt-1 font-medium">Get a personalized study roadmap from our academic team</p>
       </div>
 
