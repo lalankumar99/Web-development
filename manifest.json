@@ -1,0 +1,51 @@
+{
+  "name": "LK SMART STUDIES | Smart Learning Platform",
+  "short_name": "LK Smart Studies",
+  "description": "Smart Conceptual Learning Platform by Lalan Kumar Kushwaha for Board Exams, Polytechnic, Electrical Engineering, Free PDF Notes & Live Mock Tests.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#070a12",
+  "theme_color": "#2563eb",
+  "lang": "en-IN",
+  "dir": "ltr",
+  "categories": ["education", "books", "productivity"],
+  "icons": [
+    {
+      "src": "logo.gif",
+      "sizes": "192x192",
+      "type": "image/gif",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "logo.gif",
+      "sizes": "512x512",
+      "type": "image/gif",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Explore Courses",
+      "short_name": "Courses",
+      "description": "Browse Smart Board & Polytechnic Batches",
+      "url": "./index.html#courses",
+      "icons": [{ "src": "logo.gif", "sizes": "192x192", "type": "image/gif" }]
+    },
+    {
+      "name": "Free PDF Notes",
+      "short_name": "Free Notes",
+      "description": "Download Formula Sheets & Mindmaps",
+      "url": "./index.html#notes",
+      "icons": [{ "src": "logo.gif", "sizes": "192x192", "type": "image/gif" }]
+    },
+    {
+      "name": "Daily Live Quiz",
+      "short_name": "Live Quiz",
+      "description": "Test Your Conceptual Speed",
+      "url": "./index.html#quiz",
+      "icons": [{ "src": "logo.gif", "sizes": "192x192", "type": "image/gif" }]
+    }
+  ]
+}
