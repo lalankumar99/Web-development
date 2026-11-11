@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  
+  <!-- ==================== GOOGLE SEO & META TAGS ==================== -->
+  <title>Free Smart PDF Notes & Formula Library | LK SMART STUDIES</title>
+  <meta name="title" content="Free Smart PDF Notes & Formula Library | LK SMART STUDIES" />
+  <meta name="description" content="Download 100% Free Chapter-Wise Smart PDF Notes, Formula Handbooks, Mindmaps, and Solved PYQs for Board Exams, Polytechnic, Electrical Engineering & Coding by Lalan Kumar Kushwaha." />
+  <meta name="keywords" content="LK Smart Studies Notes, Free PDF Notes, Class 10 Science Formula Sheet, Polytechnic Electrical Notes, Lalan Kumar Kushwaha, lksmartstudies" />
+  <meta name="author" content="Lalan Kumar Kushwaha" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- ==================== PWA & MANIFEST LINKS (../ for App/ folder) ==================== -->
+  <link rel="manifest" href="../manifest.json" />
+  <meta name="theme-color" id="themeColorMeta" content="#ffffff" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <link rel="apple-touch-icon" href="../logo.gif" />
+  <link rel="icon" type="image/gif" href="../logo.gif" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts: Space Grotesk, Outfit & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet" />
+  
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            heading: ['Outfit', 'sans-serif'],
+            display: ['Space Grotesk', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#eff6ff',
+              100: '#dbeafe',
+              200: '#bfdbfe',
+              400: '#60a5fa',
+              500: '#2563eb',
+              600: '#1d4ed8',
+              700: '#1e40af',
+              800: '#1e3a8a',
+              accent: '#f59e0b',
+              emerald: '#10b981'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+      -webkit-font-smoothing: antialiased;
+    }
+
+    @keyframes shimmerSlide {
+      0% { background-position: -200% 0; }
+      100% { background-position: 200% 0; }
+    }
+    .chrome-top-slider {
+      background: linear-gradient(90deg, #2563eb, #06b6d4, #f59e0b, #8b5cf6, #2563eb);
+      background-size: 200% 100%;
+      animation: shimmerSlide 5s linear infinite;
+    }
+
+    .bg-dot-grid {
+      background-color: #ffffff;
+      background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
+      background-size: 28px 28px;
+    }
+    .dark .bg-dot-grid {
+      background-color: #090d16;
+      background-image: radial-gradient(#1e293b 1px, transparent 1px);
+      background-size: 28px 28px;
+    }
+    .hero-mesh {
+      background: radial-gradient(circle at 18% 22%, rgba(37, 99, 235, 0.08) 0%, rgba(245, 158, 11, 0.05) 45%, transparent 100%);
+    }
+    .dark .hero-mesh {
+      background: radial-gradient(circle at 18% 22%, rgba(37, 99, 235, 0.16) 0%, rgba(14, 165, 233, 0.08) 45%, transparent 100%);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .interactive-card {
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .interactive-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 22px 35px -10px rgba(37, 99, 235, 0.14), 0 8px 15px -6px rgba(15, 23, 42, 0.05);
+    }
+    .dark .interactive-card:hover {
+      box-shadow: 0 22px 35px -10px rgba(37, 99, 235, 0.25), 0 8px 15px -6px rgba(0, 0, 0, 0.4);
+    }
+
+    @keyframes marqueeSlide {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-50%); }
+    }
+    .animate-marquee {
+      display: flex;
+      width: max-content;
+      animation: marqueeSlide 26s linear infinite;
+    }
+    .animate-marquee:hover {
+      animation-play-state: paused;
+    }
+
+    #backToTopBtn {
+      background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+      box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.5);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    #backToTopBtn:hover {
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 15px 30px -5px rgba(37, 99, 235, 0.7);
+    }
+  </style>
+</head>
+
+<body class="bg-white dark:bg-[#090d16] text-slate-800 dark:text-slate-100 font-sans antialiased selection:bg-brand-600 selection:text-white overflow-x-hidden transition-colors duration-300">
+
+  <!-- CHROME TOP SLIDING PROGRESS BAR -->
+  <div class="fixed top-0 left-0 w-full h-1 z-50 bg-slate-200/40 dark:bg-slate-800/40">
+    <div id="scrollProgress" class="h-full chrome-top-slider w-0 transition-all duration-75"></div>
+  </div>
+
+  <!-- ==================== 1. STICKY NAVBAR (LOGO #1 via ../logo.gif) ==================== -->
+  <header id="navbar" class="sticky top-0 z-40 bg-white/95 dark:bg-[#090d16]/95 backdrop-blur-md border-b border-slate-200/80 dark:border-slate-800/80 transition-colors duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <a href="../index.html" class="flex items-center gap-3.5 group focus:outline-none">
+          <div class="relative w-12 h-12 rounded-2xl overflow-hidden shadow-md border-2 border-brand-500/25 bg-white flex items-center justify-center flex-shrink-0 transition-transform duration-300 group-hover:scale-105">
+            <img 
+              src="../logo.gif" 
+              alt="LK SMART STUDIES Logo" 
+              class="w-full h-full object-cover"
+              onerror="this.onerror=null; this.src='https://placehold.co/100x100/2563eb/ffffff?text=LK';"
+            />
+          </div>
+          <div class="flex flex-col">
+            <span class="font-heading font-black text-xl sm:text-2xl text-slate-900 dark:text-white tracking-tight flex items-center gap-1">
+              LK <span class="text-brand-600 dark:text-brand-400">SMART</span> STUDIES
+            </span>
+            <span class="font-display text-[10px] sm:text-[11px] font-bold uppercase tracking-widest text-slate-500 dark:text-slate-400">
+              Digital Notes Library
+            </span>
+          </div>
+        </a>
+
+        <nav class="hidden lg:flex items-center gap-7 font-bold text-slate-600 dark:text-slate-300 text-sm">
+          <a href="../index.html" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors flex items-center gap-1">
+            <i data-lucide="arrow-left" class="w-4 h-4"></i> Home
+          </a>
+          <a href="#library" onclick="setCategoryFilter('all')" class="text-brand-600 dark:text-brand-400 font-extrabold">All PDF Notes</a>
+          <a href="#formula-sheets" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Quick Formulas</a>
+          <a href="#library" onclick="setCategoryFilter('polytechnic')" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Polytechnic & Electrical</a>
+          <a href="#library" onclick="setCategoryFilter('pyq')" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">10-Year PYQs</a>
+        </nav>
+
+        <div class="hidden md:flex items-center gap-3">
+          <button 
+            onclick="toggleSavedFilter()" 
+            id="savedFilterBtn"
+            class="px-3.5 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:bg-amber-50 dark:hover:bg-slate-700 border border-slate-200/80 dark:border-slate-700 transition flex items-center gap-1.5 text-xs font-bold"
+            title="View Saved Notes"
+          >
+            <i data-lucide="bookmark" class="w-4 h-4 text-amber-500"></i>
+            <span>Saved</span>
+            <span id="savedCountBadge" class="px-1.5 py-0.2 rounded-md bg-amber-500 text-slate-950 font-display text-[11px] font-extrabold">0</span>
+          </button>
+
+          <button 
+            onclick="toggleTheme()" 
+            aria-label="Toggle Dark or White Mode"
+            class="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-amber-400 hover:bg-slate-200 dark:hover:bg-slate-700 border border-slate-200/80 dark:border-slate-700 transition flex items-center gap-1.5 text-xs font-bold"
+          >
+            <i id="themeIconDesktop" data-lucide="moon" class="w-4 h-4"></i>
+            <span id="themeTextDesktop" class="hidden xl:inline">Dark Mode</span>
+          </button>
+
+          <a href="../index.html#courses" class="px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold text-white bg-brand-600 hover:bg-brand-700 shadow-md shadow-brand-600/20 transition-all transform hover:-translate-y-0.5 flex items-center gap-1.5">
+            <span>Explore Batches</span>
+            <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+          </a>
+        </div>
+
+        <div class="md:hidden flex items-center gap-2">
+          <button 
+            onclick="toggleTheme()" 
+            aria-label="Toggle Theme" 
+            class="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-amber-400 border border-slate-200 dark:border-slate-700"
+          >
+            <i id="themeIconMobile" data-lucide="moon" class="w-5 h-5"></i>
+          </button>
+
+          <button id="mobileMenuBtn" aria-label="Toggle Menu" class="p-2.5 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-700">
+            <i data-lucide="menu" class="w-6 h-6"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="mobileMenu" class="hidden md:hidden border-t border-slate-100 dark:border-slate-800 bg-white dark:bg-[#090d16] px-4 pt-3 pb-6 shadow-2xl">
+      <div class="flex flex-col space-y-1.5 font-bold text-slate-700 dark:text-slate-200 text-sm">
+        <a href="../index.html" class="px-3 py-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-brand-600 flex items-center gap-2.5"><i data-lucide="home" class="w-4 h-4 text-brand-600"></i> Back to Home</a>
+        <a href="#library" onclick="setCategoryFilter('all'); toggleMenu();" class="px-3 py-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-brand-600 flex items-center gap-2.5"><i data-lucide="layers" class="w-4 h-4 text-brand-600"></i> All Smart Notes</a>
+        <a href="#library" onclick="setCategoryFilter('class10'); toggleMenu();" class="px-3 py-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-brand-600 flex items-center gap-2.5"><i data-lucide="book-open" class="w-4 h-4 text-brand-600"></i> Class 10th Board Notes</a>
+        <a href="#library" onclick="setCategoryFilter('class12'); toggleMenu();" class="px-3 py-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-brand-600 flex items-center gap-2.5"><i data-lucide="atom" class="w-4 h-4 text-brand-600"></i> Class 12th PCM Notes</a>
+        <a href="#library" onclick="setCategoryFilter('polytechnic'); toggleMenu();" class="px-3 py-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-brand-600 flex items-center gap-2.5"><i data-lucide="cpu" class="w-4 h-4 text-brand-600"></i> Polytechnic & Electrical</a>
+        <a href="#library" onclick="toggleSavedFilter(); toggleMenu();" class="px-3 py-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-amber-500 flex items-center gap-2.5"><i data-lucide="bookmark" class="w-4 h-4 text-amber-500"></i> Saved Bookmarks</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- LIBRARY HERO INTRO -->
+    <section class="relative overflow-hidden hero-mesh bg-dot-grid pt-12 pb-16 md:py-20 border-b border-slate-200/70 dark:border-slate-800/80">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl mx-auto text-center space-y-5 reveal active">
+          
+          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white dark:bg-slate-900 border border-brand-200 dark:border-slate-700 shadow-sm text-brand-700 dark:text-brand-400 text-xs sm:text-sm font-extrabold">
+            <span class="px-2 py-0.5 rounded-full bg-emerald-500 text-white text-[10px] uppercase tracking-wider">100% Free Access</span>
+            <span>No Login Required • Instant PDF & Online Reader</span>
+          </div>
+
+          <h1 class="font-heading font-black text-4xl sm:text-5xl lg:text-6xl text-slate-900 dark:text-white tracking-tight leading-[1.1]">
+            Smart Digital <br class="sm:hidden" />
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 via-indigo-500 to-brand-accent">
+              Notes & Formula
+            </span> Library
+          </h1>
+
+          <p class="text-sm sm:text-base lg:text-lg text-slate-600 dark:text-slate-300 font-medium leading-relaxed">
+            Curated by <strong>Lalan Kumar Kushwaha</strong>. Access high-yield revision sheets, one-page mindmaps, electrical circuit theorems, and 10-year solved board & diploma papers.
+          </p>
+
+          <div class="pt-3 max-w-2xl mx-auto">
+            <div class="flex flex-col sm:flex-row items-center gap-2.5 bg-white dark:bg-slate-900 p-2.5 rounded-2xl border-2 border-slate-200 dark:border-slate-700 focus-within:border-brand-500 shadow-xl shadow-slate-200/40 dark:shadow-none transition-all">
+              <div class="flex items-center w-full pl-2">
+                <i data-lucide="search" class="w-5 h-5 text-brand-600 dark:text-brand-400 mr-2.5 flex-shrink-0"></i>
+                <input 
+                  id="searchInput"
+                  type="text" 
+                  oninput="renderLibrary()"
+                  placeholder="Search by topic: Ohm's Law, Trigonometry, Class 10 Science, Python..." 
+                  class="w-full text-sm font-semibold text-slate-800 dark:text-slate-100 placeholder-slate-400 focus:outline-none bg-transparent py-2"
+                />
+                <button id="clearSearchBtn" onclick="clearSearch()" class="hidden p-1.5 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200">
+                  <i data-lucide="x" class="w-4 h-4"></i>
+                </button>
+              </div>
+              
+              <select 
+                id="sortSelect" 
+                onchange="renderLibrary()" 
+                aria-label="Sort Notes"
+                class="w-full sm:w-auto px-4 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-xs font-extrabold text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 focus:outline-none cursor-pointer"
+              >
+                <option value="popular">🔥 Most Popular</option>
+                <option value="newest">✨ Newly Added</option>
+                <option value="pages">📄 Shortest (Quick Revision)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="pt-2 flex flex-wrap items-center justify-center gap-2 text-xs font-bold">
+            <span class="text-slate-400">Trending:</span>
+            <button onclick="quickSearch('Formula')" class="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 hover:bg-brand-50 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition">Formula Sheets</button>
+            <button onclick="quickSearch('Electrical')" class="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 hover:bg-brand-50 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition">Basic Electrical</button>
+            <button onclick="quickSearch('Trigonometry')" class="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 hover:bg-brand-50 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition">Trigonometry</button>
+            <button onclick="quickSearch('PYQ')" class="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 hover:bg-brand-50 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition">Solved PYQs</button>
+            <button onclick="quickSearch('Python')" class="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 hover:bg-brand-50 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition">Python Coding</button>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SIDE-TO-SIDE SLIDING TICKER BAR -->
+    <div class="bg-slate-900 dark:bg-slate-950 text-white py-3 overflow-hidden border-b border-slate-800">
+      <div class="animate-marquee flex items-center gap-10 text-xs font-bold tracking-wide">
+        <span class="flex items-center gap-2"><i data-lucide="sparkles" class="w-4 h-4 text-amber-400"></i> New 2026-27 Updated Board & Polytechnic Notes Added!</span>
+        <span class="flex items-center gap-2"><i data-lucide="eye" class="w-4 h-4 text-sky-400"></i> Click "Quick Read" on any card to revise formulas directly inside the browser</span>
+        <span class="flex items-center gap-2"><i data-lucide="bookmark-check" class="w-4 h-4 text-emerald-400"></i> Bookmark your favorite PDFs for 1-click night revision</span>
+        <span class="flex items-center gap-2"><i data-lucide="zap" class="w-4 h-4 text-purple-400"></i> Special Electrical Engineering & Smart Meter Practical Notes Included</span>
+        <span class="flex items-center gap-2"><i data-lucide="sparkles" class="w-4 h-4 text-amber-400"></i> New 2026-27 Updated Board & Polytechnic Notes Added!</span>
+        <span class="flex items-center gap-2"><i data-lucide="eye" class="w-4 h-4 text-sky-400"></i> Click "Quick Read" on any card to revise formulas directly inside the browser</span>
+        <span class="flex items-center gap-2"><i data-lucide="bookmark-check" class="w-4 h-4 text-emerald-400"></i> Bookmark your favorite PDFs for 1-click night revision</span>
+        <span class="flex items-center gap-2"><i data-lucide="zap" class="w-4 h-4 text-purple-400"></i> Special Electrical Engineering & Smart Meter Practical Notes Included</span>
+      </div>
+    </div>
+
+    <!-- MAIN INTERACTIVE NOTES LIBRARY -->
+    <section id="library" class="py-16 md:py-20 bg-white dark:bg-[#090d16] transition-colors">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-8 border-b border-slate-200/80 dark:border-slate-800">
+          <div class="flex items-center gap-2 overflow-x-auto pb-2 lg:pb-0" id="categoryTabs">
+            <button onclick="setCategoryFilter('all')" data-cat="all" class="cat-btn px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-brand-600 text-white shadow-sm transition whitespace-nowrap">
+              All Resources (12)
+            </button>
+            <button onclick="setCategoryFilter('class10')" data-cat="class10" class="cat-btn px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 transition whitespace-nowrap">
+              Class 10th Board
+            </button>
+            <button onclick="setCategoryFilter('class12')" data-cat="class12" class="cat-btn px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 transition whitespace-nowrap">
+              Class 12th Science
+            </button>
+            <button onclick="setCategoryFilter('polytechnic')" data-cat="polytechnic" class="cat-btn px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 transition whitespace-nowrap">
+              Polytechnic & Electrical
+            </button>
+            <button onclick="setCategoryFilter('coding')" data-cat="coding" class="cat-btn px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 transition whitespace-nowrap">
+              Python & Web Dev
+            </button>
+            <button onclick="setCategoryFilter('pyq')" data-cat="pyq" class="cat-btn px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 transition whitespace-nowrap">
+              Solved PYQ Papers
+            </button>
+          </div>
+
+          <div class="flex items-center justify-between lg:justify-end gap-3 text-xs font-bold text-slate-500 dark:text-slate-400">
+            <span id="resultsCounter">Showing all 12 verified resources</span>
+          </div>
+        </div>
+
+        <div id="notesContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 mt-10"></div>
+
+        <div id="emptyState" class="hidden text-center py-16 px-4 bg-slate-50 dark:bg-slate-900/50 rounded-3xl border border-dashed border-slate-300 dark:border-slate-700 my-8">
+          <div class="w-16 h-16 rounded-2xl bg-brand-50 dark:bg-brand-950 text-brand-600 dark:text-brand-400 flex items-center justify-center mx-auto mb-4">
+            <i data-lucide="file-question" class="w-8 h-8"></i>
+          </div>
+          <h3 class="font-heading font-extrabold text-xl text-slate-900 dark:text-white">No matching study notes found</h3>
+          <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1 max-w-md mx-auto">
+            Try clearing your search filter or switching to "All Resources" to browse our complete library.
+          </p>
+          <button onclick="resetAllFilters()" class="mt-5 px-5 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white text-xs font-bold transition">
+            Show All Notes
+          </button>
+        </div>
+
+      </div>
+    </section>
+    <!-- ==================== INSTANT WEB FORMULA CHEAT-SHEET SECTION ==================== -->
+    <section id="formula-sheets" class="py-16 bg-slate-50 dark:bg-slate-900/50 border-t border-slate-200/70 dark:border-slate-800/80 transition-colors">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
+        <div class="flex flex-col md:flex-row md:items-center justify-between mb-10 gap-4">
+          <div>
+            <span class="text-xs font-extrabold uppercase tracking-widest text-brand-600 dark:text-brand-400">Instant Browser Revision</span>
+            <h2 class="font-heading font-black text-3xl text-slate-900 dark:text-white mt-1 tracking-tight">
+              High-Yield Formula Reference Table
+            </h2>
+            <p class="text-slate-600 dark:text-slate-400 text-sm mt-1 font-medium">
+              Revise essential Electrical, Physics, and Mathematics formulas right here without downloading.
+            </p>
+          </div>
+        </div>
+
+        <div class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden">
+          <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse">
+              <thead>
+                <tr class="bg-slate-50 dark:bg-slate-800/80 border-b border-slate-200 dark:border-slate-800 text-xs uppercase text-slate-500 dark:text-slate-400 font-extrabold">
+                  <th class="py-4 px-6">Subject / Stream</th>
+                  <th class="py-4 px-6">Law / Concept</th>
+                  <th class="py-4 px-6">Core Formula / Equation</th>
+                  <th class="py-4 px-6">Key Exam Application</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-100 dark:divide-slate-800 text-sm font-medium">
+                <tr class="hover:bg-blue-50/40 dark:hover:bg-slate-800/50 transition">
+                  <td class="py-4 px-6 font-bold text-amber-600 dark:text-amber-400">Electrical Engg.</td>
+                  <td class="py-4 px-6 font-bold text-slate-900 dark:text-white">Ohm's Law & DC Power</td>
+                  <td class="py-4 px-6 font-display font-bold text-brand-600 dark:text-brand-400">V = I × R &nbsp;|&nbsp; P = V × I = I²R</td>
+                  <td class="py-4 px-6 text-slate-600 dark:text-slate-300">Circuit current, voltage drop & resistor wattage</td>
+                </tr>
+                <tr class="hover:bg-blue-50/40 dark:hover:bg-slate-800/50 transition">
+                  <td class="py-4 px-6 font-bold text-amber-600 dark:text-amber-400">Electrical Measurement</td>
+                  <td class="py-4 px-6 font-bold text-slate-900 dark:text-white">Smart Energy Meter Load</td>
+                  <td class="py-4 px-6 font-display font-bold text-brand-600 dark:text-brand-400">P (kW) = (3600 × N) / (K × t)</td>
+                  <td class="py-4 px-6 text-slate-600 dark:text-slate-300">Calculating load wattage from impulse constant (e.g. 3200 imp/kWh)</td>
+                </tr>
+                <tr class="hover:bg-blue-50/40 dark:hover:bg-slate-800/50 transition">
+                  <td class="py-4 px-6 font-bold text-brand-600 dark:text-brand-400">Mathematics</td>
+                  <td class="py-4 px-6 font-bold text-slate-900 dark:text-white">Pythagorean Trig Identities</td>
+                  <td class="py-4 px-6 font-display font-bold text-brand-600 dark:text-brand-400">sin²θ + cos²θ = 1 &nbsp;|&nbsp; sec²θ - tan²θ = 1</td>
+                  <td class="py-4 px-6 text-slate-600 dark:text-slate-300">Board MCQs & identity proof questions</td>
+                </tr>
+                <tr class="hover:bg-blue-50/40 dark:hover:bg-slate-800/50 transition">
+                  <td class="py-4 px-6 font-bold text-purple-600 dark:text-purple-400">Applied Physics</td>
+                  <td class="py-4 px-6 font-bold text-slate-900 dark:text-white">Mirror & Lens Formula</td>
+                  <td class="py-4 px-6 font-display font-bold text-brand-600 dark:text-brand-400">1/f = 1/v + 1/u (Mirror) &nbsp;|&nbsp; P = 1/f(m)</td>
+                  <td class="py-4 px-6 text-slate-600 dark:text-slate-300">Ray optics numericals in Class 10 & 12</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==================== 2. FOOTER (LOGO #2 via ../logo.gif) ==================== -->
+  <footer class="bg-white dark:bg-[#060911] text-slate-600 dark:text-slate-400 py-12 border-t border-slate-200 dark:border-slate-800/80 transition-colors">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
+        
+        <div class="space-y-4 md:col-span-1">
+          <div class="flex items-center gap-3">
+            <div class="w-11 h-11 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-700 bg-white flex items-center justify-center shadow-sm">
+              <img 
+                src="../logo.gif" 
+                alt="LK Smart Studies" 
+                class="w-full h-full object-cover"
+                onerror="this.onerror=null; this.src='https://placehold.co/100x100/2563eb/ffffff?text=LK';"
+              />
+            </div>
+            <div>
+              <span class="font-heading font-black text-lg text-slate-900 dark:text-white block leading-none">LK SMART STUDIES</span>
+              <span class="font-display text-[10px] font-bold text-brand-600 dark:text-brand-400 uppercase tracking-wider">lksmartstudies</span>
+            </div>
+          </div>
+          <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-medium">
+            Open Digital Library by Lalan Kumar Kushwaha. Empowering students with verified notes and practical concepts.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="font-heading font-extrabold text-sm text-slate-900 dark:text-white mb-4 uppercase tracking-wider">Portal Links</h4>
+          <ul class="text-xs space-y-2.5 font-semibold">
+            <li><a href="../index.html" class="hover:text-brand-600 dark:hover:text-brand-400 transition">Back to Home Page</a></li>
+            <li><a href="../index.html#courses" class="hover:text-brand-600 dark:hover:text-brand-400 transition">Explore Smart Batches</a></li>
+            <li><a href="../index.html#schedule" class="hover:text-brand-600 dark:hover:text-brand-400 transition">Live Class Schedule</a></li>
+            <li><a href="../index.html#quiz" class="hover:text-brand-600 dark:hover:text-brand-400 transition">Daily Practice Quiz</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-heading font-extrabold text-sm text-slate-900 dark:text-white mb-4 uppercase tracking-wider">Note Categories</h4>
+          <ul class="text-xs space-y-2.5 font-semibold">
+            <li><a href="#library" onclick="setCategoryFilter('class10')" class="hover:text-brand-600 dark:hover:text-brand-400 transition">Class 10th Board PDFs</a></li>
+            <li><a href="#library" onclick="setCategoryFilter('class12')" class="hover:text-brand-600 dark:hover:text-brand-400 transition">Class 12th PCM Notes</a></li>
+            <li><a href="#library" onclick="setCategoryFilter('polytechnic')" class="hover:text-brand-600 dark:hover:text-brand-400 transition">Polytechnic & Electrical</a></li>
+            <li><a href="#library" onclick="setCategoryFilter('coding')" class="hover:text-brand-600 dark:hover:text-brand-400 transition">Python & Web Dev</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-heading font-extrabold text-sm text-slate-900 dark:text-white mb-4 uppercase tracking-wider">Need Custom Notes?</h4>
+          <p class="text-xs text-slate-500 dark:text-slate-400 mb-4 font-medium">Can't find a specific chapter sheet? Request it directly from our academic team.</p>
+          <a href="../index.html#contact" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-900 dark:bg-brand-600 text-white text-xs font-bold hover:opacity-90 transition">
+            <i data-lucide="send" class="w-3.5 h-3.5"></i>
+            <span>Request a Topic PDF</span>
+          </a>
+        </div>
+
+      </div>
+
+      <div class="pt-8 border-t border-slate-200/80 dark:border-slate-800 text-center text-xs text-slate-500 flex flex-col sm:flex-row items-center justify-between gap-4 font-medium">
+        <p>© 2026 <strong>LK SMART STUDIES</strong> (Lalan Kumar Kushwaha). All rights reserved.</p>
+        <p class="flex gap-4 font-bold">
+          <a href="../index.html#faq" class="hover:text-brand-600 dark:hover:text-brand-400">Help & FAQs</a>
+          <a href="../index.html#contact" class="hover:text-brand-600 dark:hover:text-brand-400">Contact Support</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- STYLISH BACK TO TOP FLOATING BUTTON -->
+  <button id="backToTopBtn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="Back to top" class="fixed bottom-6 left-6 z-40 hidden w-12 h-12 rounded-2xl text-white shadow-xl items-center justify-center group cursor-pointer">
+    <i data-lucide="arrow-up" class="w-6 h-6 transition-transform group-hover:-translate-y-1"></i>
+  </button>
+
+  <!-- ==================== INTERACTIVE ONLINE QUICK-READER MODAL ==================== -->
+  <div id="readerModal" class="fixed inset-0 z-50 hidden bg-slate-900/75 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-white dark:bg-slate-900 rounded-3xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl border border-slate-200 dark:border-slate-800 relative max-h-[90vh] flex flex-col">
+      <button onclick="closeReaderModal()" class="absolute top-5 right-5 text-slate-400 hover:text-slate-600 dark:hover:text-white">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+
+      <div class="flex items-center gap-3 pb-4 border-b border-slate-100 dark:border-slate-800">
+        <div class="w-11 h-11 rounded-2xl bg-brand-50 dark:bg-brand-950 text-brand-600 dark:text-brand-400 flex items-center justify-center flex-shrink-0">
+          <i data-lucide="book-open-check" class="w-6 h-6"></i>
+        </div>
+        <div>
+          <span id="readerBadge" class="font-display text-[10px] font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400">Quick Revision Summary</span>
+          <h3 id="readerTitle" class="font-heading font-extrabold text-lg sm:text-xl text-slate-900 dark:text-white leading-snug">Note Title</h3>
+        </div>
+      </div>
+
+      <div id="readerBody" class="py-5 overflow-y-auto space-y-4 text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-medium">
+        <!-- Populated dynamically via JS -->
+      </div>
+
+      <div class="pt-4 border-t border-slate-100 dark:border-slate-800 flex flex-wrap items-center justify-between gap-3">
+        <span id="readerMeta" class="text-xs font-bold text-slate-400">Verified by LK Smart Studies</span>
+        <div class="flex items-center gap-2.5">
+          <button onclick="closeReaderModal()" class="px-4 py-2.5 rounded-xl text-xs font-bold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:bg-slate-200">
+            Close Reader
+          </button>
+          <button id="readerDownloadBtn" class="px-5 py-2.5 rounded-xl text-xs font-bold bg-brand-600 hover:bg-brand-700 text-white flex items-center gap-1.5 shadow-sm">
+            <i data-lucide="download" class="w-4 h-4"></i>
+            <span>Download Full PDF</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- NOTIFICATION TOAST MESSAGE -->
+  <div id="toastMessage" class="fixed bottom-6 right-6 z-50 hidden bg-slate-900 dark:bg-slate-800 text-white px-5 py-3.5 rounded-2xl shadow-xl flex items-center gap-3 text-sm font-semibold border border-slate-700 transition-all duration-300">
+    <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-400"></i>
+    <span id="toastText">Action completed!</span>
+  </div>
+
+  <!-- ==================== JAVASCRIPT NOTES ENGINE & PWA ==================== -->
+  <script>
+    // 1. Complete Notes Dataset (12 Rich Educational Resources)
+    const notesLibraryData = [
+      {
+        id: 'n1',
+        title: 'Class 10 Science Complete Formula & Equations Book',
+        category: 'class10',
+        badge: 'Class 10 Board',
+        pages: 18,
+        size: '4.2 MB',
+        downloads: 8420,
+        isNew: true,
+        icon: 'atom',
+        color: 'red',
+        file: 'Class10_Science_Formula_Handbook.pdf',
+        desc: 'All balanced chemical reactions, ray optics diagrams, electricity formulas, and life process flowcharts.',
+        summary: [
+          '<strong>Chemical Reactions:</strong> Combination, Decomposition, Displacement & Redox balanced equations.',
+          '<strong>Electricity:</strong> V = IR, Series R_s = R1 + R2, Parallel 1/R_p = 1/R1 + 1/R2, Joule Heating H = I²Rt.',
+          '<strong>Light (Optics):</strong> Mirror Formula 1/v + 1/u = 1/f, Lens Formula 1/v - 1/u = 1/f, Magnification m = h\'/h.'
+        ]
+      },
+      {
+        id: 'n2',
+        title: 'Basic Electrical Circuits, KCL, KVL & Network Theorems',
+        category: 'polytechnic',
+        badge: 'Polytechnic / Electrical',
+        pages: 24,
+        size: '3.1 MB',
+        downloads: 6950,
+        isNew: true,
+        icon: 'zap',
+        color: 'amber',
+        file: 'Basic_Electrical_Theorems_Notes.pdf',
+        desc: 'Practical engineering notes covering Kirchhoff’s Laws, Superposition, Thevenin’s Theorem & AC/DC networks.',
+        summary: [
+          '<strong>Kirchhoff’s Current Law (KCL):</strong> ΣI_entering = ΣI_leaving at any electrical node (Conservation of Charge).',
+          '<strong>Kirchhoff’s Voltage Law (KVL):</strong> Algebraic sum of all voltages around any closed loop is zero (ΣV = 0).',
+          '<strong>Superposition Theorem:</strong> In a linear bilateral network with multiple sources, total response is the sum of individual source responses.'
+        ]
+      },
+      {
+        id: 'n3',
+        title: 'Trigonometry & Geometry One-Page Master Mindmaps',
+        category: 'class10',
+        badge: 'Class 10 Maths',
+        pages: 12,
+        size: '2.9 MB',
+        downloads: 9100,
+        isNew: false,
+        icon: 'compass',
+        color: 'blue',
+        file: 'Maths_Trigonometry_Mindmaps.pdf',
+        desc: 'Standard angle tables (0° to 90°), trigonometric identities, heights & distances, and circle theorems.',
+        summary: [
+          '<strong>Core Ratios:</strong> sin θ = P/H, cos θ = B/H, tan θ = P/B.',
+          '<strong>Standard Values:</strong> sin 30° = 1/2, sin 45° = 1/√2, sin 60° = √3/2.',
+          '<strong>Three Golden Identities:</strong> sin²θ + cos²θ = 1 | 1 + tan²θ = sec²θ | 1 + cot²θ = cosec²θ.'
+        ]
+      },
+      {
+        id: 'n4',
+        title: 'Electrical Measurement & Smart Energy Meter Practical Guide',
+        category: 'polytechnic',
+        badge: '3rd Sem Electrical',
+        pages: 16,
+        size: '2.4 MB',
+        downloads: 5340,
+        isNew: true,
+        icon: 'gauge',
+        color: 'emerald',
+        file: 'Electrical_Measurement_Smart_Meter.pdf',
+        desc: 'PMMC, Moving Iron instruments, CRT, Wattmeters, Power Factor calculation, and 3200 imp/kWh smart meter analysis.',
+        summary: [
+          '<strong>Smart Meter Constant:</strong> If meter is rated 3200 imp/kWh, 3200 LED flashes = 1 Unit (1 kWh) consumed.',
+          '<strong>Live Load Formula:</strong> Power (Watts) = (3600 × 1000 × N) / (3200 × time_in_seconds).',
+          '<strong>Instrument Types:</strong> PMMC works on DC only (average value); Moving Iron works on both AC & DC (RMS value).'
+        ]
+      },
+      {
+        id: 'n5',
+        title: 'Class 12 Physics Derivations & Numerical Powerhouse',
+        category: 'class12',
+        badge: 'Class 12 Science',
+        pages: 32,
+        size: '5.4 MB',
+        downloads: 7200,
+        isNew: false,
+        icon: 'sparkles',
+        color: 'purple',
+        file: 'Class12_Physics_Derivations.pdf',
+        desc: 'Step-by-step board derivations for Electrostatics, Gauss Law, Current Electricity, EMI, and Modern Physics.',
+        summary: [
+          '<strong>Gauss’s Law:</strong> Total electric flux Φ = q_enclosed / ε₀.',
+          '<strong>Drift Velocity & Current:</strong> I = n·e·A·v_d and Current Density J = σE.',
+          '<strong>Faraday’s Law of EMI:</strong> Induced EMF e = -dΦ_B / dt.'
+        ]
+      },
+      {
+        id: 'n6',
+        title: 'Python Programming & Modern Web Dev CheatSheet',
+        category: 'coding',
+        badge: 'Coding & Tech',
+        pages: 14,
+        size: '1.9 MB',
+        downloads: 4890,
+        isNew: true,
+        icon: 'terminal',
+        color: 'emerald',
+        file: 'Python_WebDev_CheatSheet.pdf',
+        desc: 'Beginner-friendly syntax handbook for Python strings, lists, tuples, loops, Flask basics, HTML5 & CSS3.',
+        summary: [
+          '<strong>Python Sequences:</strong> Lists are mutable `[1, 2, 3]`, Tuples are immutable `(1, 2, 3)`.',
+          '<strong>String Slicing:</strong> `text[::-1]` reverses a string; `text.strip()` removes whitespace.',
+          '<strong>Web Architecture:</strong> HTML5 defines structure, Tailwind/CSS3 handles styling, Vanilla JS powers interactivity.'
+        ]
+      },
+      {
+        id: 'n7',
+        title: 'Last 10 Years Solved Board Question Bank (Class 10)',
+        category: 'pyq',
+        badge: 'Solved PYQ Paper',
+        pages: 45,
+        size: '6.8 MB',
+        downloads: 11200,
+        isNew: false,
+        icon: 'award',
+        color: 'amber',
+        file: 'Class10_10Year_Solved_PYQ.pdf',
+        desc: 'Chapter-wise segregated previous year board questions with step-by-step marking scheme solutions.',
+        summary: [
+          '<strong>High-Weightage Chapters:</strong> Light Reflection/Refraction, Electricity, Trigonometry, Quadratic Equations.',
+          '<strong>Topper Presentation Tip:</strong> Always write Given Data, Formula Used, Stepwise Substitution, and SI Unit in box.'
+        ]
+      },
+      {
+        id: 'n8',
+        title: 'Class 12 Mathematics Calculus & Vectors Formula Book',
+        category: 'class12',
+        badge: 'Class 12 Maths',
+        pages: 20,
+        size: '3.3 MB',
+        downloads: 6150,
+        isNew: false,
+        icon: 'calculator',
+        color: 'blue',
+        file: 'Class12_Calculus_Formula_Book.pdf',
+        desc: 'Differentiation, Integration standard forms, Differential Equations, Matrices, and 3D Geometry.',
+        summary: [
+          '<strong>Integration by Parts:</strong> ∫ u·v dx = u ∫v dx - ∫ [ (du/dx) ∫v dx ] dx (Follow ILATE rule).',
+          '<strong>Vector Products:</strong> Dot Product A·B = |A||B|cosθ | Cross Product |A×B| = |A||B|sinθ.'
+        ]
+      },
+      {
+        id: 'n9',
+        title: 'Polytechnic Entrance Exam Solved Model Papers',
+        category: 'pyq',
+        badge: 'Entrance PYQ',
+        pages: 38,
+        size: '5.0 MB',
+        downloads: 7840,
+        isNew: true,
+        icon: 'file-check-2',
+        color: 'purple',
+        file: 'Polytechnic_Entrance_Solved_Papers.pdf',
+        desc: '150+ frequently asked Physics, Chemistry, and Maths MCQs with shortcut tricks for Polytechnic entrance.',
+        summary: [
+          '<strong>Speed Trick:</strong> Use dimensional analysis and unit checking to eliminate 2 wrong options in Physics MCQs within 5 seconds.',
+          '<strong>Focus Topics:</strong> Work-Power-Energy, Laws of Motion, Acid-Base-Salts, Percentage & Mensuration.'
+        ]
+      }
+    ];
+
+    // State Variables
+    let activeCategory = 'all';
+    let showOnlySaved = false;
+    let savedNotes = JSON.parse(localStorage.getItem('lk_saved_notes') || '[]');
+
+    // 2. Render Notes Grid Function
+    function renderLibrary() {
+      const container = document.getElementById('notesContainer');
+      const emptyState = document.getElementById('emptyState');
+      const searchVal = document.getElementById('searchInput').value.trim().toLowerCase();
+      const sortVal = document.getElementById('sortSelect').value;
+      const clearBtn = document.getElementById('clearSearchBtn');
+
+      if (clearBtn) clearBtn.classList.toggle('hidden', searchVal.length === 0);
+
+      // Filter dataset
+      let filtered = notesLibraryData.filter(item => {
+        const matchesCat = activeCategory === 'all' || item.category === activeCategory;
+        const matchesSaved = !showOnlySaved || savedNotes.includes(item.id);
+        const matchesSearch = item.title.toLowerCase().includes(searchVal) ||
+                              item.desc.toLowerCase().includes(searchVal) ||
+                              item.badge.toLowerCase().includes(searchVal);
+        return matchesCat && matchesSaved && matchesSearch;
+      });
+
+      // Sort dataset
+      if (sortVal === 'popular') {
+        filtered.sort((a, b) => b.downloads - a.downloads);
+      } else if (sortVal === 'newest') {
+        filtered.sort((a, b) => (b.isNew ? 1 : 0) - (a.isNew ? 1 : 0));
+      } else if (sortVal === 'pages') {
+        filtered.sort((a, b) => a.pages - b.pages);
+      }
+
+      // Update Counter
+      document.getElementById('resultsCounter').textContent = `Showing ${filtered.length} of ${notesLibraryData.length} verified resources`;
+      document.getElementById('savedCountBadge').textContent = savedNotes.length;
+
+      container.innerHTML = '';
+
+      if (filtered.length === 0) {
+        emptyState.classList.remove('hidden');
+        return;
+      }
+      emptyState.classList.add('hidden');
+
+      const colorMap = {
+        red: 'bg-red-50 dark:bg-red-950/60 text-red-600 dark:text-red-400',
+        amber: 'bg-amber-50 dark:bg-amber-950/60 text-amber-600 dark:text-amber-400',
+        blue: 'bg-blue-50 dark:bg-blue-950/60 text-brand-600 dark:text-brand-400',
+        emerald: 'bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400',
+        purple: 'bg-purple-50 dark:bg-purple-950/60 text-purple-600 dark:text-purple-400'
+      };
+
+      filtered.forEach(note => {
+        const isSaved = savedNotes.includes(note.id);
+        const card = document.createElement('div');
+        card.className = "p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-brand-500 interactive-card flex flex-col justify-between";
+
+        card.innerHTML = `
+          <div>
+            <div class="flex items-start justify-between gap-3 mb-4">
+              <div class="w-12 h-12 rounded-2xl ${colorMap[note.color] || colorMap.blue} flex items-center justify-center flex-shrink-0">
+                <i data-lucide="${note.icon}" class="w-6 h-6"></i>
+              </div>
+              <div class="flex items-center gap-2">
+                ${note.isNew ? '<span class="px-2.5 py-0.5 rounded-full text-[10px] font-extrabold uppercase bg-amber-400 text-slate-950">New</span>' : ''}
+                <span class="font-display text-[11px] font-bold text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/70 px-2.5 py-1 rounded-lg">${note.badge}</span>
+                <button onclick="toggleBookmark('${note.id}')" aria-label="Save Note" class="p-2 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 transition">
+                  <i data-lucide="bookmark" class="w-4 h-4 ${isSaved ? 'fill-amber-500 text-amber-500' : 'text-slate-400'}"></i>
+                </button>
+              </div>
+            </div>
+
+            <h3 class="font-heading font-extrabold text-lg text-slate-900 dark:text-white leading-snug">${note.title}</h3>
+            <p class="text-xs text-slate-500 dark:text-slate-400 mt-2 leading-relaxed font-medium">${note.desc}</p>
+          </div>
+
+          <div class="mt-6 pt-4 border-t border-slate-100 dark:border-slate-800">
+            <div class="flex items-center justify-between text-[11px] font-bold text-slate-400 mb-3.5">
+              <span>📄 ${note.pages} Pages • ${note.size}</span>
+              <span>⬇️ ${note.downloads.toLocaleString()} Downloads</span>
+            </div>
+
+            <div class="grid grid-cols-2 gap-2.5">
+              <button onclick="openReaderModal('${note.id}')" class="py-2.5 px-3 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 text-xs font-bold flex items-center justify-center gap-1.5 transition">
+                <i data-lucide="eye" class="w-3.5 h-3.5 text-brand-600 dark:text-brand-400"></i>
+                <span>Quick Read</span>
+              </button>
+              <button onclick="downloadPdf('${note.file}')" class="py-2.5 px-3 rounded-xl bg-brand-600 hover:bg-brand-700 text-white text-xs font-bold flex items-center justify-center gap-1.5 shadow-sm transition">
+                <i data-lucide="download" class="w-3.5 h-3.5"></i>
+                <span>Download PDF</span>
+              </button>
+            </div>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+
+      lucide.createIcons();
+    }
+
+    // 3. Category, Search & Bookmark Controls
+    function setCategoryFilter(cat) {
+      activeCategory = cat;
+      showOnlySaved = false;
+      document.querySelectorAll('.cat-btn').forEach(btn => {
+        if (btn.getAttribute('data-cat') === cat) {
+          btn.classList.add('bg-brand-600', 'text-white');
+          btn.classList.remove('bg-slate-100', 'dark:bg-slate-800', 'text-slate-700', 'dark:text-slate-300');
+        } else {
+          btn.classList.remove('bg-brand-600', 'text-white');
+          btn.classList.add('bg-slate-100', 'dark:bg-slate-800', 'text-slate-700', 'dark:text-slate-300');
+        }
+      });
+      renderLibrary();
+    }
+
+    function quickSearch(term) {
+      document.getElementById('searchInput').value = term;
+      renderLibrary();
+      document.getElementById('library').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function clearSearch() {
+      document.getElementById('searchInput').value = '';
+      renderLibrary();
+    }
+
+    function resetAllFilters() {
+      document.getElementById('searchInput').value = '';
+      showOnlySaved = false;
+      setCategoryFilter('all');
+    }
+
+    function toggleBookmark(id) {
+      if (savedNotes.includes(id)) {
+        savedNotes = savedNotes.filter(item => item !== id);
+        showToast('Removed from Saved Notes');
+      } else {
+        savedNotes.push(id);
+        showToast('Saved to your Bookmarks 🔖');
+      }
+      localStorage.setItem('lk_saved_notes', JSON.stringify(savedNotes));
+      renderLibrary();
+    }
+
+    function toggleSavedFilter() {
+      showOnlySaved = !showOnlySaved;
+      showToast(showOnlySaved ? 'Showing your Saved Bookmarks' : 'Showing all notes');
+      renderLibrary();
+    }
+
+    // 4. Online Quick-Reader Modal Controls
+    function openReaderModal(id) {
+      const note = notesLibraryData.find(n => n.id === id);
+      if (!note) return;
+
+      document.getElementById('readerBadge').textContent = `${note.badge} • ${note.pages} Pages`;
+      document.getElementById('readerTitle').textContent = note.title;
+
+      const body = document.getElementById('readerBody');
+      body.innerHTML = `
+        <p class="text-slate-500 dark:text-slate-400 text-xs">${note.desc}</p>
+        <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/90 border border-slate-200/80 dark:border-slate-700 space-y-3">
+          <h4 class="font-heading font-bold text-slate-900 dark:text-white text-sm flex items-center gap-1.5">
+            <i data-lucide="zap" class="w-4 h-4 text-amber-500"></i> Key Revision Highlights:
+          </h4>
+          <ul class="space-y-2.5 text-xs sm:text-sm list-disc pl-5">
+            ${note.summary.map(point => `<li>${point}</li>`).join('')}
+          </ul>
+        </div>
+      `;
+
+      const dlBtn = document.getElementById('readerDownloadBtn');
+      dlBtn.onclick = () => downloadPdf(note.file);
+
+      document.getElementById('readerModal').classList.remove('hidden');
+      lucide.createIcons();
+    }
+
+    function closeReaderModal() {
+      document.getElementById('readerModal').classList.add('hidden');
+    }
+
+    function downloadPdf(filename) {
+      showToast(`Starting Free PDF Download: ${filename}`);
+    }
+
+    // 5. White Mode (Default) & Dark Mode Sync with index.html
+    const htmlEl = document.documentElement;
+    const themeColorMeta = document.getElementById('themeColorMeta');
+
+    function updateThemeUI(isDark) {
+      const desktopIcon = document.getElementById('themeIconDesktop');
+      const mobileIcon = document.getElementById('themeIconMobile');
+      const desktopText = document.getElementById('themeTextDesktop');
+
+      if (desktopIcon) desktopIcon.setAttribute('data-lucide', isDark ? 'sun' : 'moon');
+      if (mobileIcon) mobileIcon.setAttribute('data-lucide', isDark ? 'sun' : 'moon');
+      if (desktopText) desktopText.textContent = isDark ? 'White Mode' : 'Dark Mode';
+      if (themeColorMeta) themeColorMeta.setAttribute('content', isDark ? '#090d16' : '#ffffff');
+      lucide.createIcons();
+    }
+
+    if (localStorage.getItem('lk_theme') === 'dark') {
+      htmlEl.classList.add('dark');
+      updateThemeUI(true);
+    } else {
+      htmlEl.classList.remove('dark');
+      updateThemeUI(false);
+    }
+
+    function toggleTheme() {
+      const isDark = htmlEl.classList.toggle('dark');
+      localStorage.setItem('lk_theme', isDark ? 'dark' : 'light');
+      updateThemeUI(isDark);
+      showToast(isDark ? 'Switched to Dark Mode 🌙' : 'Switched to Clean White Mode ☀️');
+    }
+
+    // 6. Mobile Menu, Scroll Bar & Toast
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    mobileMenuBtn.addEventListener('click', toggleMenu);
+    function toggleMenu() {
+      mobileMenu.classList.toggle('hidden');
+    }
+
+    const scrollProgress = document.getElementById('scrollProgress');
+    const backToTopBtn = document.getElementById('backToTopBtn');
+
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      scrollProgress.style.width = progress + '%';
+
+      if (scrollTop > 350) {
+        backToTopBtn.classList.remove('hidden');
+        backToTopBtn.classList.add('flex');
+      } else {
+        backToTopBtn.classList.add('hidden');
+        backToTopBtn.classList.remove('flex');
+      }
+    });
+
+    function showToast(message) {
+      const toast = document.getElementById('toastMessage');
+      const text = document.getElementById('toastText');
+      text.textContent = message;
+      toast.classList.remove('hidden');
+      setTimeout(() => toast.classList.add('hidden'), 3200);
+    }
+
+    // Initialize Library on Load
+    window.addEventListener('DOMContentLoaded', () => {
+      renderLibrary();
+    });
+
+    // Register Service Worker from parent root (../sw.js)
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('../sw.js').catch(() => {});
+      });
+    }
+  </script>
+</body>
+</html>
