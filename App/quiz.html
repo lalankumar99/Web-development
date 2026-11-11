@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  
+  <!-- ==================== GOOGLE SEO & META TAGS ==================== -->
+  <title>Live Interactive Mock Test & Quiz Arena | LK SMART STUDIES</title>
+  <meta name="title" content="Live Interactive Mock Test & Quiz Arena | LK SMART STUDIES" />
+  <meta name="description" content="Test your conceptual speed with live interactive quizzes for Board Exams, Polytechnic Electrical Engineering, Physics, and Python Coding by Lalan Kumar Kushwaha." />
+  <meta name="keywords" content="LK Smart Studies Quiz, Mock Test Portal, Polytechnic Online Quiz, Class 10 Science MCQ Test, Lalan Kumar Kushwaha, lksmartstudies" />
+  <meta name="author" content="Lalan Kumar Kushwaha" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- ==================== PWA & MANIFEST LINKS ==================== -->
+  <link rel="manifest" href="../manifest.json" />
+  <meta name="theme-color" id="themeColorMeta" content="#ffffff" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <link rel="apple-touch-icon" href="../logo.gif" />
+  <link rel="icon" type="image/gif" href="../logo.gif" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts: Space Grotesk, Outfit & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet" />
+  
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            heading: ['Outfit', 'sans-serif'],
+            display: ['Space Grotesk', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#eff6ff',
+              100: '#dbeafe',
+              200: '#bfdbfe',
+              400: '#60a5fa',
+              500: '#2563eb',
+              600: '#1d4ed8',
+              700: '#1e40af',
+              800: '#1e3a8a',
+              accent: '#f59e0b',
+              emerald: '#10b981'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+      -webkit-font-smoothing: antialiased;
+    }
+
+    @keyframes shimmerSlide {
+      0% { background-position: -200% 0; }
+      100% { background-position: 200% 0; }
+    }
+    .chrome-top-slider {
+      background: linear-gradient(90deg, #2563eb, #06b6d4, #f59e0b, #8b5cf6, #2563eb);
+      background-size: 200% 100%;
+      animation: shimmerSlide 5s linear infinite;
+    }
+
+    .bg-dot-grid {
+      background-color: #ffffff;
+      background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
+      background-size: 28px 28px;
+    }
+    .dark .bg-dot-grid {
+      background-color: #090d16;
+      background-image: radial-gradient(#1e293b 1px, transparent 1px);
+      background-size: 28px 28px;
+    }
+    .hero-mesh {
+      background: radial-gradient(circle at 18% 22%, rgba(37, 99, 235, 0.08) 0%, rgba(245, 158, 11, 0.05) 45%, transparent 100%);
+    }
+    .dark .hero-mesh {
+      background: radial-gradient(circle at 18% 22%, rgba(37, 99, 235, 0.16) 0%, rgba(14, 165, 233, 0.08) 45%, transparent 100%);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .interactive-card {
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .interactive-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 30px -10px rgba(37, 99, 235, 0.12);
+    }
+
+    #backToTopBtn {
+      background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+      box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.5);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    #backToTopBtn:hover {
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 15px 30px -5px rgba(37, 99, 235, 0.7);
+    }
+  </style>
+</head>
+
+<body class="bg-white dark:bg-[#090d16] text-slate-800 dark:text-slate-100 font-sans antialiased selection:bg-brand-600 selection:text-white overflow-x-hidden transition-colors duration-300">
+
+  <!-- CHROME TOP SLIDING PROGRESS BAR -->
+  <div class="fixed top-0 left-0 w-full h-1 z-50 bg-slate-200/40 dark:bg-slate-800/40">
+    <div id="scrollProgress" class="h-full chrome-top-slider w-0 transition-all duration-75"></div>
+  </div>
+
+  <!-- ==================== STICKY NAVBAR (LOGO #1 via ../logo.gif) ==================== -->
+  <header id="navbar" class="sticky top-0 z-40 bg-white/95 dark:bg-[#090d16]/95 backdrop-blur-md border-b border-slate-200/80 dark:border-slate-800/80 transition-colors duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <a href="../index.html" class="flex items-center gap-3.5 group focus:outline-none">
+          <div class="relative w-12 h-12 rounded-2xl overflow-hidden shadow-md border-2 border-brand-500/25 bg-white flex items-center justify-center flex-shrink-0 transition-transform duration-300 group-hover:scale-105">
+            <img 
+              src="../logo.gif" 
+              alt="LK SMART STUDIES Logo" 
+              class="w-full h-full object-cover"
+              onerror="this.onerror=null; this.src='https://placehold.co/100x100/2563eb/ffffff?text=LK';"
+            />
+          </div>
+          <div class="flex flex-col">
+            <span class="font-heading font-black text-xl sm:text-2xl text-slate-900 dark:text-white tracking-tight flex items-center gap-1">
+              LK <span class="text-brand-600 dark:text-brand-400">SMART</span> STUDIES
+            </span>
+            <span class="font-display text-[10px] sm:text-[11px] font-bold uppercase tracking-widest text-slate-500 dark:text-slate-400">
+              Live Mock Test Arena
+            </span>
+          </div>
+        </a>
+
+        <nav class="hidden lg:flex items-center gap-7 font-bold text-slate-600 dark:text-slate-300 text-sm">
+          <a href="../index.html" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors flex items-center gap-1">
+            <i data-lucide="arrow-left" class="w-4 h-4"></i> Home
+          </a>
+          <a href="notes.html" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Free Notes</a>
+          <a href="#quiz-arena" class="text-brand-600 dark:text-brand-400 font-extrabold">Live Quiz Arena</a>
+        </nav>
+
+        <div class="hidden md:flex items-center gap-3">
+          <button 
+            onclick="toggleTheme()" 
+            aria-label="Toggle Dark or White Mode"
+            class="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-amber-400 hover:bg-slate-200 dark:hover:bg-slate-700 border border-slate-200/80 dark:border-slate-700 transition flex items-center gap-1.5 text-xs font-bold"
+          >
+            <i id="themeIconDesktop" data-lucide="moon" class="w-4 h-4"></i>
+            <span id="themeTextDesktop" class="hidden xl:inline">Dark Mode</span>
+          </button>
+
+          <a href="../index.html#courses" class="px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold text-white bg-brand-600 hover:bg-brand-700 shadow-md shadow-brand-600/20 transition-all transform hover:-translate-y-0.5 flex items-center gap-1.5">
+            <span>Explore Batches</span>
+            <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+          </a>
+        </div>
+
+        <div class="md:hidden flex items-center gap-2">
+          <button 
+            onclick="toggleTheme()" 
+            aria-label="Toggle Theme" 
+            class="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-amber-400 border border-slate-200 dark:border-slate-700"
+          >
+            <i id="themeIconMobile" data-lucide="moon" class="w-5 h-5"></i>
+          </button>
+
+          <button id="mobileMenuBtn" aria-label="Toggle Menu" class="p-2.5 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-700">
+            <i data-lucide="menu" class="w-6 h-6"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="mobileMenu" class="hidden md:hidden border-t border-slate-100 dark:border-slate-800 bg-white dark:bg-[#090d16] px-4 pt-3 pb-6 shadow-2xl">
+      <div class="flex flex-col space-y-1.5 font-bold text-slate-700 dark:text-slate-200 text-sm">
+        <a href="../index.html" class="px-3 py-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-brand-600 flex items-center gap-2.5"><i data-lucide="home" class="w-4 h-4 text-brand-600"></i> Back to Home</a>
+        <a href="notes.html" class="px-3 py-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-brand-600 flex items-center gap-2.5"><i data-lucide="file-text" class="w-4 h-4 text-brand-600"></i> Free PDF Notes</a>
+        <a href="#quiz-arena" onclick="toggleMenu()" class="px-3 py-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-brand-600 flex items-center gap-2.5"><i data-lucide="brain-circuit" class="w-4 h-4 text-brand-600"></i> Practice Quiz Arena</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- QUIZ HERO INTRO -->
+    <section class="relative overflow-hidden hero-mesh bg-dot-grid pt-12 pb-16 md:py-20 border-b border-slate-200/70 dark:border-slate-800/80">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl mx-auto text-center space-y-5 reveal active">
+          
+          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white dark:bg-slate-900 border border-brand-200 dark:border-slate-700 shadow-sm text-brand-700 dark:text-brand-400 text-xs sm:text-sm font-extrabold">
+            <span class="px-2 py-0.5 rounded-full bg-amber-500 text-slate-950 text-[10px] uppercase tracking-wider">Interactive Test Center</span>
+            <span>Instant Scorecard • Detailed Explanations</span>
+          </div>
+
+          <h1 class="font-heading font-black text-4xl sm:text-5xl lg:text-6xl text-slate-900 dark:text-white tracking-tight leading-[1.1]">
+            Live Mock Test & <br class="sm:hidden" />
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 via-indigo-500 to-brand-accent">
+              Quiz Arena
+            </span>
+          </h1>
+
+          <p class="text-sm sm:text-base lg:text-lg text-slate-600 dark:text-slate-300 font-medium leading-relaxed">
+            Select your target subject below and test your conceptual speed. Designed by <strong>Lalan Kumar Kushwaha</strong> for board aspirants and technical diploma students.
+          </p>
+
+          <!-- Subject Selection Buttons -->
+          <div class="pt-4 flex flex-wrap items-center justify-center gap-3">
+            <button onclick="switchQuizSubject('class10')" data-sub="class10" class="sub-tab px-5 py-3 rounded-2xl text-xs sm:text-sm font-bold bg-brand-600 text-white shadow-md transition">
+              📚 Class 10 Science & Maths
+            </button>
+            <button onclick="switchQuizSubject('polytechnic')" data-sub="polytechnic" class="sub-tab px-5 py-3 rounded-2xl text-xs sm:text-sm font-bold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 transition">
+              ⚡ Polytechnic & Electrical
+            </button>
+            <button onclick="switchQuizSubject('class12')" data-sub="class12" class="sub-tab px-5 py-3 rounded-2xl text-xs sm:text-sm font-bold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 transition">
+              ⚛️ Class 12 Physics & Calculus
+            </button>
+            <button onclick="switchQuizSubject('python')" data-sub="python" class="sub-tab px-5 py-3 rounded-2xl text-xs sm:text-sm font-bold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 transition">
+              🐍 Python & Web Basics
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== MAIN QUIZ ARENA CONTAINER ==================== -->
+    <section id="quiz-arena" class="py-16 md:py-24 bg-white dark:bg-[#090d16] transition-colors">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Quiz Box Container -->
+        <div id="quizCardBox" class="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-10 border border-slate-200 dark:border-slate-800 shadow-xl reveal active">
+          
+          <!-- Top Quiz Header Info -->
+          <div class="flex flex-wrap items-center justify-between gap-3 pb-6 border-b border-slate-100 dark:border-slate-800">
+            <div class="flex items-center gap-3">
+              <div class="w-12 h-12 rounded-2xl bg-brand-50 dark:bg-brand-950 text-brand-600 dark:text-brand-400 flex items-center justify-center">
+                <i data-lucide="brain-circuit" class="w-6 h-6"></i>
+              </div>
+              <div>
+                <span id="quizSubjectBadge" class="font-display text-xs font-extrabold uppercase tracking-wider text-brand-600 dark:text-brand-400">Class 10 Science & Maths</span>
+                <h3 id="quizTitleText" class="font-heading font-black text-xl sm:text-2xl text-slate-900 dark:text-white">Chapter-wise Concept Test</h3>
+              </div>
+            </div>
+            
+            <div class="flex items-center gap-2.5 font-display">
+              <div id="timerBadge" class="px-3.5 py-1.5 rounded-full bg-amber-50 dark:bg-amber-950/80 text-amber-700 dark:text-amber-400 text-xs font-bold flex items-center gap-1.5">
+                <i data-lucide="timer" class="w-3.5 h-3.5"></i>
+                <span id="timerCountdown">02:00</span>
+              </div>
+              <span id="quizCounterBadge" class="px-3.5 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 text-xs font-bold">Q 1/4</span>
+            </div>
+          </div>
+
+          <!-- Question & Options Area -->
+          <div class="my-6">
+            <p id="quizQuestionText" class="font-heading text-base sm:text-lg font-bold text-slate-900 dark:text-white leading-relaxed"></p>
+            <div id="quizOptionsContainer" class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mt-6"></div>
+            <div id="quizFeedbackBox" class="hidden mt-5 p-4 rounded-2xl text-sm font-medium"></div>
+          </div>
+
+          <!-- Bottom Quiz Controls -->
+          <div class="pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
+            <button onclick="restartActiveQuiz()" class="text-xs font-bold text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-white flex items-center gap-1">
+              <i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i> Restart Test
+            </button>
+            <button id="nextQuizBtn" onclick="nextQuizItem()" class="px-6 py-3 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs sm:text-sm transition flex items-center gap-1.5 shadow-sm">
+              <span>Next Question</span>
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </button>
+          </div>
+
+        </div>
+
+        <!-- Quiz Completion Scorecard Card (Hidden Initially) -->
+        <div id="scorecardBox" class="hidden bg-white dark:bg-slate-900 rounded-3xl p-8 sm:p-12 border border-slate-200 dark:border-slate-800 shadow-2xl text-center space-y-6">
+          <div class="w-20 h-20 rounded-3xl bg-emerald-50 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mx-auto shadow-inner">
+            <i data-lucide="award" class="w-10 h-10"></i>
+          </div>
+
+          <div>
+            <span class="font-display text-xs font-extrabold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">Mock Test Completed Successfully!</span>
+            <h3 class="font-heading font-black text-3xl sm:text-4xl text-slate-900 dark:text-white mt-1">Your Final Performance Scorecard</h3>
+            <p id="scorecardSubtitle" class="text-slate-500 dark:text-slate-400 text-sm mt-1 font-medium">Great effort! Review your performance below.</p>
+          </div>
+
+          <div class="grid grid-cols-3 gap-4 max-w-md mx-auto py-4">
+            <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700">
+              <p class="text-xs text-slate-400 font-bold uppercase">Correct</p>
+              <p id="statCorrect" class="font-display text-2xl font-black text-emerald-600 dark:text-emerald-400 mt-1">0</p>
+            </div>
+            <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700">
+              <p class="text-xs text-slate-400 font-bold uppercase">Incorrect</p>
+              <p id="statIncorrect" class="font-display text-2xl font-black text-red-500 mt-1">0</p>
+            </div>
+            <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700">
+              <p class="text-xs text-slate-400 font-bold uppercase">Accuracy</p>
+              <p id="statAccuracy" class="font-display text-2xl font-black text-brand-600 dark:text-brand-400 mt-1">0%</p>
+            </div>
+          </div>
+
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
+            <button onclick="restartActiveQuiz()" class="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm shadow-md transition flex items-center justify-center gap-2">
+              <i data-lucide="rotate-ccw" class="w-4 h-4"></i>
+              <span>Retake This Test</span>
+            </button>
+            <a href="notes.html" class="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 font-bold text-sm transition flex items-center justify-center gap-2">
+              <i data-lucide="book-open" class="w-4 h-4"></i>
+              <span>Study Related PDF Notes</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ==================== FOOTER (LOGO #2 via ../logo.gif) ==================== -->
+  <footer class="bg-white dark:bg-[#060911] text-slate-600 dark:text-slate-400 py-12 border-t border-slate-200 dark:border-slate-800/80 transition-colors">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
+        
+        <div class="space-y-4 md:col-span-1">
+          <div class="flex items-center gap-3">
+            <div class="w-11 h-11 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-700 bg-white flex items-center justify-center shadow-sm">
+              <img 
+                src="../logo.gif" 
+                alt="LK Smart Studies" 
+                class="w-full h-full object-cover"
+                onerror="this.onerror=null; this.src='https://placehold.co/100x100/2563eb/ffffff?text=LK';"
+              />
+            </div>
+            <div>
+              <span class="font-heading font-black text-lg text-slate-900 dark:text-white block leading-none">LK SMART STUDIES</span>
+              <span class="font-display text-[10px] font-bold text-brand-600 dark:text-brand-400 uppercase tracking-wider">lksmartstudies</span>
+            </div>
+          </div>
+          <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-medium">
+            Interactive Quiz Arena by Lalan Kumar Kushwaha. Test your conceptual speed and master your exams.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="font-heading font-extrabold text-sm text-slate-900 dark:text-white mb-4 uppercase tracking-wider">Portal Links</h4>
+          <ul class="text-xs space-y-2.5 font-semibold">
+            <li><a href="../index.html" class="hover:text-brand-600 dark:hover:text-brand-400 transition">Back to Home Page</a></li>
+            <li><a href="notes.html" class="hover:text-brand-600 dark:hover:text-brand-400 transition">Free Smart PDF Notes</a></li>
+            <li><a href="../index.html#courses" class="hover:text-brand-600 dark:hover:text-brand-400 transition">Explore Smart Batches</a></li>
+            <li><a href="../index.html#contact" class="hover:text-brand-600 dark:hover:text-brand-400 transition">Contact Support</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-heading font-extrabold text-sm text-slate-900 dark:text-white mb-4 uppercase tracking-wider">Quiz Categories</h4>
+          <ul class="text-xs space-y-2.5 font-semibold">
+            <li><a href="#quiz-arena" onclick="switchQuizSubject('class10')" class="hover:text-brand-600 dark:hover:text-brand-400 transition">Class 10 Science & Maths</a></li>
+            <li><a href="#quiz-arena" onclick="switchQuizSubject('polytechnic')" class="hover:text-brand-600 dark:hover:text-brand-400 transition">Polytechnic & Electrical</a></li>
+            <li><a href="#quiz-arena" onclick="switchQuizSubject('class12')" class="hover:text-brand-600 dark:hover:text-brand-400 transition">Class 12 Physics & Calculus</a></li>
+            <li><a href="#quiz-arena" onclick="switchQuizSubject('python')" class="hover:text-brand-600 dark:hover:text-brand-400 transition">Python & Web Dev</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-heading font-extrabold text-sm text-slate-900 dark:text-white mb-4 uppercase tracking-wider">Need Help?</h4>
+          <p class="text-xs text-slate-500 dark:text-slate-400 mb-4 font-medium">Have questions regarding test scoring or syllabus? Reach out to our mentors.</p>
+          <a href="../index.html#contact" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-900 dark:bg-brand-600 text-white text-xs font-bold hover:opacity-90 transition">
+            <i data-lucide="send" class="w-3.5 h-3.5"></i>
+            <span>Ask a Mentor</span>
+          </a>
+        </div>
+
+      </div>
+
+      <div class="pt-8 border-t border-slate-200/80 dark:border-slate-800 text-center text-xs text-slate-500 flex flex-col sm:flex-row items-center justify-between gap-4 font-medium">
+        <p>© 2026 <strong>LK SMART STUDIES</strong> (Lalan Kumar Kushwaha). All rights reserved.</p>
+        <p class="flex gap-4 font-bold">
+          <a href="../index.html#faq" class="hover:text-brand-600 dark:hover:text-brand-400">Help & FAQs</a>
+          <a href="../index.html#contact" class="hover:text-brand-600 dark:hover:text-brand-400">Support</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- STYLISH BACK TO TOP FLOATING BUTTON -->
+  <button id="backToTopBtn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="Back to top" class="fixed bottom-6 left-6 z-40 hidden w-12 h-12 rounded-2xl text-white shadow-xl items-center justify-center group cursor-pointer">
+    <i data-lucide="arrow-up" class="w-6 h-6 transition-transform group-hover:-translate-y-1"></i>
+  </button>
+
+  <!-- NOTIFICATION TOAST MESSAGE -->
+  <div id="toastMessage" class="fixed bottom-6 right-6 z-50 hidden bg-slate-900 dark:bg-slate-800 text-white px-5 py-3.5 rounded-2xl shadow-xl flex items-center gap-3 text-sm font-semibold border border-slate-700 transition-all duration-300">
+    <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-400"></i>
+    <span id="toastText">Action completed!</span>
+  </div>
+
+  <!-- ==================== JAVASCRIPT QUIZ ENGINE ==================== -->
+  <script>
+    // 1. Comprehensive Subject-Wise Quiz Datasets
+    const quizBanks = {
+      class10: {
+        title: 'Class 10th Science & Mathematics Chapter Test',
+        badge: 'Class 10 Board Spec',
+        questions: [
+          {
+            q: "Q1. According to Ohm's Law, if the voltage (V) across a circuit remains constant and the resistance (R) is reduced to half, what happens to the electric current (I)?",
+            options: [
+              { text: "A) Current becomes half", correct: false },
+              { text: "B) Current doubles", correct: true },
+              { text: "C) Current remains unchanged", correct: false },
+              { text: "D) Current becomes four times", correct: false }
+            ],
+            explanation: "By Ohm's Law (I = V / R), current is inversely proportional to resistance. Halving R doubles the current I."
+          },
+          {
+            q: "Q2. In Trigonometry, what is the exact numerical value of (sin² 45° + cos² 45°)?",
+            options: [
+              { text: "A) 0", correct: false },
+              { text: "B) 1 / √2", correct: false },
+              { text: "C) 1", correct: true },
+              { text: "D) 2", correct: false }
+            ],
+            explanation: "By the fundamental trigonometric identity sin²θ + cos²θ = 1, the value for θ = 45° is always 1."
+          },
+          {
+            q: "Q3. Which of the following is a displacement reaction between iron and copper sulfate solution?",
+            options: [
+              { text: "A) Fe + CuSO₄ → FeSO₄ + Cu", correct: true },
+              { text: "B) BaCl₂ + H₂SO₄ → BaSO₄ + 2HCl", correct: false },
+              { text: "C) 2H₂ + O₂ → 2H₂O", correct: false },
+              { text: "D) CaCO₃ → CaO + CO₂", correct: false }
+            ],
+            explanation: "Iron (Fe) is more reactive than copper (Cu), so it displaces copper from copper sulfate solution."
+          },
+          {
+            q: "Q4. What is the focal length of a convex lens if its optical power is +2.0 Dioptres?",
+            options: [
+              { text: "A) +50 cm", correct: true },
+              { text: "B) -50 cm", correct: false },
+              { text: "C) +200 cm", correct: false },
+              { text: "D) +2 cm", correct: false }
+            ],
+            explanation: "Power P = 1 / f(in meters). So f = 1 / 2.0 = 0.5 meters = +50 cm."
+          }
+        ]
+      },
+      polytechnic: {
+        title: 'Polytechnic & Electrical Engineering Entrance Mock',
+        badge: 'Technical & Diploma',
+        questions: [
+          {
+            q: "Q1. A household smart energy meter has an impulse constant of 3200 imp/kWh. How many LED flashes correspond to 0.5 kWh of energy consumption?",
+            options: [
+              { text: "A) 800 flashes", correct: false },
+              { text: "B) 1600 flashes", correct: true },
+              { text: "C) 3200 flashes", correct: false },
+              { text: "D) 6400 flashes", correct: false }
+            ],
+            explanation: "Total Impulses = Energy (kWh) × Meter Constant = 0.5 × 3200 = 1600 flashes."
+          },
+          {
+            q: "Q2. Kirchhoff's Current Law (KCL) at any electrical node is based on the law of conservation of:",
+            options: [
+              { text: "A) Energy", correct: false },
+              { text: "B) Momentum", correct: false },
+              { text: "C) Charge", correct: true },
+              { text: "D) Mass", correct: false }
+            ],
+            explanation: "KCL states that total current entering a node equals total current leaving, which is the conservation of electrical charge."
+          },
+          {
+            q: "Q3. What is the unit of electrical resistivity (specific resistance)?",
+            options: [
+              { text: "A) Ohm", correct: false },
+              { text: "B) Ohm-meter (Ω·m)", correct: true },
+              { text: "C) Siemens", correct: false },
+              { text: "D) Mho/meter", correct: false }
+            ],
+            explanation: "Resistivity ρ = (R·A) / l. Its SI unit is ohm-meter (Ω·m)."
+          },
+          {
+            q: "Q4. In a pure inductive AC circuit, what is the phase angle between voltage and current?",
+            options: [
+              { text: "A) Current is in phase with voltage", correct: false },
+              { text: "B) Current lags voltage by 90° (π/2 radians)", correct: true },
+              { text: "C) Current leads voltage by 90°", correct: false },
+              { text: "D) Current leads voltage by 180°", correct: false }
+            ],
+            explanation: "In a pure inductive circuit, current lags behind the applied voltage by exactly 90 degrees."
+          }
+        ]
+      },
+      class12: {
+        title: 'Class 12th Physics & Calculus Mock Test',
+        badge: 'Senior Science (PCM)',
+        questions: [
+          {
+            q: "Q1. What is the value of the line integral of electric field (∮ E·dl) around a closed loop in an electrostatic field?",
+            options: [
+              { text: "A) Always zero", correct: true },
+              { text: "B) Equal to total charge enclosed", correct: false },
+              { text: "C) Equal to magnetic flux", correct: false },
+              { text: "D) Infinity", correct: false }
+            ],
+            explanation: "Electrostatic fields are conservative in nature, hence the work done in moving a charge around a closed loop is zero."
+          },
+          {
+            q: "Q2. What is the derivative of y = e^(2x) with respect to x?",
+            options: [
+              { text: "A) e^(2x)", correct: false },
+              { text: "B) 2 e^(2x)", correct: true },
+              { text: "C) (1/2) e^(2x)", correct: false },
+              { text: "D) 2x e^(2x)", correct: false }
+            ],
+            explanation: "By the chain rule, d/dx [e^(2x)] = e^(2x) × d/dx(2x) = 2e^(2x)."
+          },
+          {
+            q: "Q3. According to Faraday's Law of Electromagnetic Induction, the induced EMF is proportional to:",
+            options: [
+              { text: "A) Rate of change of magnetic flux", correct: true },
+              { text: "B) Total magnetic flux itself", correct: false },
+              { text: "C) Resistance of the coil", correct: false },
+              { text: "D) Current in the circuit", correct: false }
+            ],
+            explanation: "Induced EMF e = -dΦ/dt, which means it is directly proportional to the time rate of change of magnetic flux."
+          },
+          {
+            q: "Q4. What is the SI unit of Electric Flux?",
+            options: [
+              { text: "A) Coulomb-meter", correct: false },
+              { text: "B) Newton-meter²/Coulomb (N·m²/C)", correct: true },
+              { text: "C) Joule/Coulomb", correct: false },
+              { text: "D) Volt/meter", correct: false }
+            ],
+            explanation: "Electric Flux Φ = E × A. Unit of E is N/C (or V/m) and Area is m², so unit is N·m²/C."
+          }
+        ]
+      },
+      python: {
+        title: 'Python Programming & Web Basics Test',
+        badge: 'Coding & Tech',
+        questions: [
+          {
+            q: "Q1. Which of the following data types in Python is mutable (can be modified after creation)?",
+            options: [
+              { text: "A) Tuple", correct: false },
+              { text: "B) String", correct: false },
+              { text: "C) List", correct: true },
+              { text: "D) Integer", correct: false }
+            ],
+            explanation: "Lists in Python are mutable `[1, 2, 3]`, whereas strings and tuples are immutable."
+          },
+          {
+            q: "Q2. What is the correct file extension for Python source code files?",
+            options: [
+              { text: "A) .pt", correct: false },
+              { text: "B) .py", correct: true },
+              { text: "C) .python", correct: false },
+              { text: "D) .ptx", correct: false }
+            ],
+            explanation: "All standard Python script files are saved with the `.py` extension."
+          },
+          {
+            q: "Q3. Which HTML5 tag is used to define an independent section or article of content?",
+            options: [
+              { text: "A) <section>", correct: false },
+              { text: "B) <article>", correct: true },
+              { text: "C) <div>", correct: false },
+              { text: "D) <main>", correct: false }
+            ],
+            explanation: "The `<article>` tag specifies independent, self-contained content such as a blog post or news story."
+          },
+          {
+            q: "Q4. In CSS, what property is used to change text color?",
+            options: [
+              { text: "A) text-style", correct: false },
+              { text: "B) font-color", correct: false },
+              { text: "C) color", correct: true },
+              { text: "D) background-color", correct: false }
+            ],
+            explanation: "The `color` property in CSS defines the foreground color of text content."
+          }
+        ]
+      }
+    };
+
+    let activeSubjectKey = 'class10';
+    let currentIdx = 0;
+    let scoreCorrect = 0;
+    let scoreIncorrect = 0;
+    let answeredCurrent = false;
+    let timerInterval = null;
+    let timeLeft = 120; // 2 minutes per quiz
+
+    // 2. Initialize & Switch Subject Function
+    function switchQuizSubject(subKey) {
+      activeSubjectKey = subKey;
+      currentIdx = 0;
+      scoreCorrect = 0;
+      scoreIncorrect = 0;
+      answeredCurrent = false;
+
+      // Update active tab buttons UI
+      document.querySelectorAll('.sub-tab').forEach(btn => {
+        if (btn.getAttribute('data-sub') === subKey) {
+          btn.classList.add('bg-brand-600', 'text-white', 'shadow-md');
+          btn.classList.remove('bg-slate-100', 'dark:bg-slate-800', 'text-slate-700', 'dark:text-slate-300');
+        } else {
+          btn.classList.remove('bg-brand-600', 'text-white', 'shadow-md');
+          btn.classList.add('bg-slate-100', 'dark:bg-slate-800', 'text-slate-700', 'dark:text-slate-300');
+        }
+      });
+
+      // Reset UI containers
+      document.getElementById('quizCardBox').classList.remove('hidden');
+      document.getElementById('scorecardBox').classList.add('hidden');
+
+      const bank = quizBanks[activeSubjectKey];
+      document.getElementById('quizSubjectBadge').textContent = bank.badge;
+      document.getElementById('quizTitleText').textContent = bank.title;
+
+      startTimer();
+      renderActiveQuestion();
+    }
+
+    // 3. Render Question & Options
+    function renderActiveQuestion() {
+      answeredCurrent = false;
+      const bank = quizBanks[activeSubjectKey];
+      const item = bank.questions[currentIdx];
+
+      document.getElementById('quizCounterBadge').textContent = `Q ${currentIdx + 1}/${bank.questions.length}`;
+      document.getElementById('quizQuestionText').textContent = item.q;
+
+      const optionsBox = document.getElementById('quizOptionsContainer');
+      optionsBox.innerHTML = '';
+
+      const feedbackBox = document.getElementById('quizFeedbackBox');
+      feedbackBox.classList.add('hidden');
+
+      item.options.forEach(opt => {
+        const btn = document.createElement('button');
+        btn.className = "text-left p-4 rounded-2xl border border-slate-200 dark:border-slate-700 hover:border-brand-500 font-semibold text-sm text-slate-700 dark:text-slate-200 transition flex items-center justify-between bg-white dark:bg-slate-800/90";
+        btn.innerHTML = `<span>${opt.text}</span>`;
+        btn.onclick = () => selectOption(btn, opt.correct, item.explanation);
+        optionsBox.appendChild(btn);
+      });
+    }
+
+    // 4. Handle Option Selection
+    function selectOption(btn, isCorrect, explanation) {
+      if (answeredCurrent) return;
+      answeredCurrent = true;
+
+      const feedbackBox = document.getElementById('quizFeedbackBox');
+      feedbackBox.classList.remove('hidden', 'bg-emerald-50', 'dark:bg-emerald-950/80', 'text-emerald-800', 'dark:text-emerald-300', 'bg-red-50', 'dark:bg-red-950/80', 'text-red-800', 'dark:text-red-300');
+
+      if (isCorrect) {
+        scoreCorrect++;
+        btn.classList.add('border-emerald-500', 'bg-emerald-50', 'dark:bg-emerald-950', 'text-emerald-900', 'dark:text-emerald-200');
+        feedbackBox.classList.add('bg-emerald-50', 'dark:bg-emerald-950/80', 'text-emerald-800', 'dark:text-emerald-300');
+        feedbackBox.innerHTML = `✅ <strong>Correct Answer!</strong> ${explanation}`;
+      } else {
+        scoreIncorrect++;
+        btn.classList.add('border-red-500', 'bg-red-50', 'dark:bg-red-950', 'text-red-900', 'dark:text-red-200');
+        feedbackBox.classList.add('bg-red-50', 'dark:bg-red-950/80', 'text-red-800', 'dark:text-red-300');
+        feedbackBox.innerHTML = `❌ <strong>Not quite right.</strong> ${explanation}`;
+      }
+    }
+
+    // 5. Next Question or Finish Quiz
+    function nextQuizItem() {
+      const bank = quizBanks[activeSubjectKey];
+      currentIdx++;
+      if (currentIdx < bank.questions.length) {
+        renderActiveQuestion();
+      } else {
+        finishQuiz();
+      }
+    }
+
+    // 6. Finish & Show Scorecard
+    function finishQuiz() {
+      if (timerInterval) clearInterval(timerInterval);
+      document.getElementById('quizCardBox').classList.add('hidden');
+      document.getElementById('scorecardBox').classList.remove('hidden');
+
+      const total = quizBanks[activeSubjectKey].questions.length;
+      const accuracy = Math.round((scoreCorrect / total) * 100);
+
+      document.getElementById('statCorrect').textContent = scoreCorrect;
+      document.getElementById('statIncorrect').textContent = scoreIncorrect;
+      document.getElementById('statAccuracy').textContent = `${accuracy}%`;
+
+      let praise = "Excellent performance! You have mastered these concepts.";
+      if (accuracy < 50) praise = "Good effort! Review our Free PDF Notes to strengthen your weak topics.";
+      document.getElementById('scorecardSubtitle').textContent = praise;
+      showToast('Mock test evaluated successfully!');
+    }
+
+    function restartActiveQuiz() {
+      switchQuizSubject(activeSubjectKey);
+      showToast('Test restarted.');
+    }
+
+    // 7. Timer Countdown
+    function startTimer() {
+      if (timerInterval) clearInterval(timerInterval);
+      timeLeft = 120;
+      updateTimerDisplay();
+
+      timerInterval = setInterval(() => {
+        timeLeft--;
+        updateTimerDisplay();
+        if (timeLeft <= 0) {
+          clearInterval(timerInterval);
+          showToast('Time is up! Submitting test...');
+          finishQuiz();
+        }
+      }, 1000);
+    }
+
+    function updateTimerDisplay() {
+      const mins = Math.floor(timeLeft / 60).toString().padStart(2, '0');
+      const secs = (timeLeft % 60).toString().padStart(2, '0');
+      document.getElementById('timerCountdown').textContent = `${mins}:${secs}`;
+    }
+
+    // 8. White Mode & Dark Mode Sync with index.html
+    const htmlEl = document.documentElement;
+    const themeColorMeta = document.getElementById('themeColorMeta');
+
+    function updateThemeUI(isDark) {
+      const desktopIcon = document.getElementById('themeIconDesktop');
+      const mobileIcon = document.getElementById('themeIconMobile');
+      const desktopText = document.getElementById('themeTextDesktop');
+
+      if (desktopIcon) desktopIcon.setAttribute('data-lucide', isDark ? 'sun' : 'moon');
+      if (mobileIcon) mobileIcon.setAttribute('data-lucide', isDark ? 'sun' : 'moon');
+      if (desktopText) desktopText.textContent = isDark ? 'White Mode' : 'Dark Mode';
+      if (themeColorMeta) themeColorMeta.setAttribute('content', isDark ? '#090d16' : '#ffffff');
+      lucide.createIcons();
+    }
+
+    if (localStorage.getItem('lk_theme') === 'dark') {
+      htmlEl.classList.add('dark');
+      updateThemeUI(true);
+    } else {
+      htmlEl.classList.remove('dark');
+      updateThemeUI(false);
+    }
+
+    function toggleTheme() {
+      const isDark = htmlEl.classList.toggle('dark');
+      localStorage.setItem('lk_theme', isDark ? 'dark' : 'light');
+      updateThemeUI(isDark);
+      showToast(isDark ? 'Switched to Dark Mode 🌙' : 'Switched to Clean White Mode ☀️');
+    }
+
+    // 9. Mobile Menu & Scroll
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    mobileMenuBtn.addEventListener('click', toggleMenu);
+    function toggleMenu() {
+      mobileMenu.classList.toggle('hidden');
+    }
+
+    const scrollProgress = document.getElementById('scrollProgress');
+    const backToTopBtn = document.getElementById('backToTopBtn');
+
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      scrollProgress.style.width = progress + '%';
+
+      if (scrollTop > 350) {
+        backToTopBtn.classList.remove('hidden');
+        backToTopBtn.classList.add('flex');
+      } else {
+        backToTopBtn.classList.add('hidden');
+        backToTopBtn.classList.remove('flex');
+      }
+    });
+
+    function showToast(message) {
+      const toast = document.getElementById('toastMessage');
+      const text = document.getElementById('toastText');
+      text.textContent = message;
+      toast.classList.remove('hidden');
+      setTimeout(() => toast.classList.add('hidden'), 3200);
+    }
+
+    // Initialize on Load
+    window.addEventListener('DOMContentLoaded', () => {
+      switchQuizSubject('class10');
+    });
+
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('../sw.js').catch(() => {});
+      });
+    }
+  </script>
+</body>
+</html>
