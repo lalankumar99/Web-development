@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
   
-  <!-- ==================== GOOGLE SEO & META TAGS ==================== -->
+  <!-- SEO & META -->
   <title>LK SMART STUDIES | India's Smartest Conceptual Learning Portal</title>
   <meta name="title" content="LK SMART STUDIES | Smart Conceptual Learning Platform" />
   <meta name="description" content="LK SMART STUDIES (lksmartstudies) by Lalan Kumar - Premier EdTech Portal for Board Exams, Polytechnic, Electrical Engineering, Free Smart PDF Notes & Live Test Series." />
@@ -12,14 +12,13 @@
   <meta name="author" content="Lalan Kumar" />
   <meta name="robots" content="index, follow" />
   
-  <!-- Open Graph / Social Media SEO -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://lk-study-studio.vercel.app/" />
   <meta property="og:title" content="LK SMART STUDIES | Smart Conceptual Learning Platform" />
   <meta property="og:description" content="Master Board Exams, Polytechnic, and Technical Subjects. Free smart notes, interactive quizzes and live batches." />
   <meta property="og:image" content="logo.gif" />
 
-  <!-- ==================== PWA & MANIFEST LINKS ==================== -->
+  <!-- PWA & ICONS -->
   <link rel="manifest" href="manifest.json" />
   <meta name="theme-color" id="themeColorMeta" content="#ffffff" />
   <meta name="mobile-web-app-capable" content="yes" />
@@ -27,15 +26,11 @@
   <link rel="apple-touch-icon" href="logo.gif" />
   <link rel="icon" type="image/gif" href="logo.gif" />
 
-  <!-- Tailwind CSS CDN -->
+  <!-- ASSETS -->
   <script src="https://cdn.tailwindcss.com"></script>
-  
-  <!-- Google Fonts: Outfit, Plus Jakarta Sans & Space Grotesk -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet" />
-  
-  <!-- Lucide Icons CDN -->
   <script src="https://unpkg.com/lucide@latest"></script>
 
   <script>
@@ -72,12 +67,12 @@
     body {
       font-feature-settings: "cv02", "cv03", "cv04", "cv11";
       -webkit-font-smoothing: antialiased;
+      -webkit-tap-highlight-color: transparent;
     }
 
-    /* ==================== SPLASH SCREEN ==================== */
     #splashScreen {
       background: radial-gradient(circle at center, #0f172a 0%, #030712 100%);
-      transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.6s;
+      transition: opacity 0.45s ease, visibility 0.45s;
     }
     #splashScreen.hide-splash {
       opacity: 0;
@@ -89,23 +84,21 @@
       100% { width: 100%; }
     }
     .animate-splash-bar {
-      animation: splashSlideBar 1.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+      animation: splashSlideBar 1.1s ease-out forwards;
     }
 
-    /* ==================== PW / KGS INSPIRED BACKGROUND & GLOWS ==================== */
     .bg-grid-pattern {
-      background-size: 32px 32px;
+      background-size: 28px 28px;
       background-image: 
-        linear-gradient(to right, rgba(226, 232, 240, 0.6) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(226, 232, 240, 0.6) 1px, transparent 1px);
+        linear-gradient(to right, rgba(226, 232, 240, 0.55) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(226, 232, 240, 0.55) 1px, transparent 1px);
     }
     .dark .bg-grid-pattern {
       background-image: 
-        linear-gradient(to right, rgba(30, 41, 59, 0.45) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(30, 41, 59, 0.45) 1px, transparent 1px);
+        linear-gradient(to right, rgba(30, 41, 59, 0.4) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(30, 41, 59, 0.4) 1px, transparent 1px);
     }
 
-    /* Shimmer Button Effect */
     .btn-shimmer {
       position: relative;
       overflow: hidden;
@@ -126,38 +119,26 @@
       40%, 100% { left: 130%; }
     }
 
-    /* Scroll Reveal Animations */
     .reveal {
       opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+      transform: translateY(18px);
+      transition: opacity 0.5s ease-out, transform 0.5s ease-out;
     }
     .reveal.active {
       opacity: 1;
       transform: translateY(0);
     }
 
-    /* Floating Badges */
-    @keyframes floatY {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-8px); }
-    }
-    .animate-float { animation: floatY 3.8s ease-in-out infinite; }
-    .animate-float-delay { animation: floatY 4.4s ease-in-out 1.2s infinite; }
-
-    /* Card Hover Lift */
     .ed-card {
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
-    .ed-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 20px 32px -10px rgba(37, 99, 235, 0.14), 0 8px 16px -6px rgba(15, 23, 42, 0.06);
-    }
-    .dark .ed-card:hover {
-      box-shadow: 0 20px 32px -10px rgba(37, 99, 235, 0.28), 0 8px 16px -6px rgba(0, 0, 0, 0.5);
+    @media (min-width: 768px) {
+      .ed-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 18px 28px -8px rgba(37, 99, 235, 0.14);
+      }
     }
 
-    /* Infinite Marquee */
     @keyframes marqueeSlide {
       0% { transform: translateX(0%); }
       100% { transform: translateX(-50%); }
@@ -165,24 +146,29 @@
     .animate-marquee {
       display: flex;
       width: max-content;
-      animation: marqueeSlide 28s linear infinite;
+      animation: marqueeSlide 24s linear infinite;
     }
-    .animate-marquee:hover {
-      animation-play-state: paused;
+
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
     }
   </style>
 </head>
 
-<body class="bg-slate-50/60 dark:bg-[#070b14] text-slate-800 dark:text-slate-100 font-sans antialiased selection:bg-brand-600 selection:text-white overflow-x-hidden transition-colors duration-300">
+<body class="bg-slate-50/70 dark:bg-[#070b14] text-slate-800 dark:text-slate-100 font-sans antialiased selection:bg-brand-600 selection:text-white overflow-x-hidden pb-20 md:pb-0 transition-colors duration-300">
 
-  <!-- ==================== 1. INTRO SPLASH SCREEN ==================== -->
+  <!-- SPLASH SCREEN -->
   <div id="splashScreen" class="fixed inset-0 z-[100] flex flex-col items-center justify-between p-6 select-none">
-    <div class="w-full max-w-md h-1 bg-slate-800 rounded-full overflow-hidden">
+    <div class="w-full max-w-xs h-1 bg-slate-800 rounded-full overflow-hidden">
       <div class="h-full bg-gradient-to-r from-sky-400 via-blue-500 to-amber-400 animate-splash-bar"></div>
     </div>
 
-    <div class="relative flex flex-col items-center justify-center my-auto">
-      <div class="w-32 h-32 sm:w-36 sm:h-36 bg-white rounded-3xl p-3 shadow-2xl flex items-center justify-center border-2 border-blue-500/30">
+    <div class="flex flex-col items-center justify-center my-auto">
+      <div class="w-28 h-28 sm:w-32 sm:h-32 bg-white rounded-3xl p-2.5 shadow-2xl flex items-center justify-center border-2 border-blue-500/30">
         <img 
           src="logo.gif" 
           alt="LK SMART STUDIES" 
@@ -191,12 +177,12 @@
         />
       </div>
 
-      <div class="text-center mt-7 space-y-2.5">
-        <h1 class="font-heading font-black text-3xl sm:text-4xl tracking-tight text-white">
+      <div class="text-center mt-6 space-y-2">
+        <h1 class="font-heading font-black text-2xl sm:text-4xl tracking-tight text-white">
           LK <span class="text-sky-400">SMART</span> STUDIES
         </h1>
-        <div class="inline-flex items-center px-4 py-1.5 rounded-full bg-slate-900/90 border border-slate-700">
-          <span class="font-display text-xs font-bold tracking-[0.16em] uppercase text-amber-400">
+        <div class="inline-flex items-center px-3.5 py-1 rounded-full bg-slate-900/90 border border-slate-700">
+          <span class="font-display text-[11px] font-bold tracking-[0.16em] uppercase text-amber-400">
             BY LALAN KUMAR
           </span>
         </div>
@@ -204,48 +190,40 @@
     </div>
 
     <p class="text-[11px] font-bold tracking-widest uppercase text-slate-400">
-      Loading Smart Study Portal...
+      Opening Smart Study Portal...
     </p>
   </div>
 
-  <!-- ==================== 2. TOP ANNOUNCEMENT BAR (PW / KGS STYLE) ==================== -->
-  <div class="bg-gradient-to-r from-slate-900 via-brand-800 to-slate-900 text-white text-xs py-2 px-4 border-b border-white/10">
-    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
-      <div class="flex items-center gap-2 font-semibold">
-        <span class="px-2 py-0.5 rounded bg-amber-400 text-slate-950 font-extrabold text-[10px] uppercase tracking-wider animate-pulse">New 2026-27</span>
-        <span class=" truncate">Admissions Open for Class 10th, 12th & Polytechnic Smart Batches!</span>
+  <!-- ANNOUNCEMENT BAR -->
+  <div class="bg-gradient-to-r from-slate-900 via-brand-800 to-slate-900 text-white text-[11px] sm:text-xs py-2 px-3 sm:px-4 border-b border-white/10">
+    <div class="max-w-7xl mx-auto flex items-center justify-between gap-2">
+      <div class="flex items-center gap-2 font-semibold min-w-0">
+        <span class="px-2 py-0.5 rounded bg-amber-400 text-slate-950 font-extrabold text-[10px] uppercase tracking-wider flex-shrink-0">2026-27</span>
+        <span class="truncate">Admissions Open: Class 10th, 12th & Polytechnic Smart Batches!</span>
       </div>
-      <div class="hidden sm:flex items-center gap-4 font-bold text-[11px]">
-        <!-- Multi-file Future Links using # -->
+      <div class="hidden sm:flex items-center gap-4 font-bold text-[11px] flex-shrink-0">
         <a href="#" data-page="scholarship.html" onclick="previewLink('scholarship.html')" class="text-amber-300 hover:underline flex items-center gap-1">
-          <i data-lucide="award" class="w-3.5 h-3.5"></i> Scholarship Test
+          <i data-lucide="award" class="w-3.5 h-3.5"></i> Scholarship
         </a>
-        <span class="text-slate-600">|</span>
         <a href="#" data-page="downloads.html" onclick="previewLink('downloads.html')" class="hover:text-sky-300 transition flex items-center gap-1">
-          <i data-lucide="download" class="w-3.5 h-3.5"></i> Free App / PDFs
-        </a>
-        <span class="text-slate-600">|</span>
-        <a href="#" data-page="helpdesk.html" onclick="previewLink('helpdesk.html')" class="hover:text-sky-300 transition flex items-center gap-1">
-          <i data-lucide="phone-call" class="w-3.5 h-3.5"></i> Student Helpdesk
+          <i data-lucide="download" class="w-3.5 h-3.5"></i> Free PDFs
         </a>
       </div>
     </div>
   </div>
 
-  <!-- ==================== 3. STICKY MAIN HEADER (PW / KGS MEGA NAVBAR) ==================== -->
+  <!-- STICKY HEADER -->
   <header id="navbar" class="sticky top-0 z-50 bg-white/95 dark:bg-[#090d16]/95 backdrop-blur-md border-b border-slate-200/80 dark:border-slate-800/80 transition-colors">
-    <!-- Top Scroll Progress Bar -->
     <div class="w-full h-0.5 bg-transparent">
       <div id="scrollProgress" class="h-full bg-gradient-to-r from-brand-600 via-sky-400 to-amber-500 w-0 transition-all duration-75"></div>
     </div>
 
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-20 gap-4">
+    <div class="max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 sm:h-20 gap-2">
         
-        <!-- Left: Logo + All Courses Dropdown Button -->
-        <div class="flex items-center gap-5">
-          <a href="#" class="flex items-center gap-3 group focus:outline-none">
-            <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl overflow-hidden shadow-md border-2 border-brand-500/20 bg-white flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
+        <div class="flex items-center gap-3 sm:gap-5 min-w-0">
+          <a href="#" class="flex items-center gap-2.5 sm:gap-3 group focus:outline-none min-w-0">
+            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl overflow-hidden shadow-sm border-2 border-brand-500/20 bg-white flex items-center justify-center flex-shrink-0">
               <img 
                 src="logo.gif" 
                 alt="LK SMART STUDIES" 
@@ -253,96 +231,94 @@
                 onerror="this.onerror=null; this.src='https://placehold.co/100x100/2563eb/ffffff?text=LK';"
               />
             </div>
-            <div>
-              <span class="font-heading font-black text-lg sm:text-xl text-slate-900 dark:text-white tracking-tight block leading-none">
+            <div class="truncate">
+              <span class="font-heading font-black text-base sm:text-xl text-slate-900 dark:text-white tracking-tight block leading-none truncate">
                 LK <span class="text-brand-600 dark:text-brand-400">SMART</span> STUDIES
               </span>
-              <span class="font-display text-[10px] font-bold uppercase tracking-widest text-slate-500 dark:text-slate-400 block mt-1">
+              <span class="font-display text-[9px] sm:text-[10px] font-bold uppercase tracking-widest text-slate-500 dark:text-slate-400 block mt-1">
                 Concept • Clarity • Rank
               </span>
             </div>
           </a>
 
-          <!-- PW Style "All Courses" Pill Button -->
           <a href="#" data-page="all-courses.html" onclick="previewLink('all-courses.html')" class="hidden xl:inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-brand-50 dark:bg-slate-800 text-brand-700 dark:text-brand-300 border border-brand-200 dark:border-slate-700 font-bold text-xs hover:bg-brand-600 hover:text-white transition">
             <i data-lucide="layout-grid" class="w-4 h-4"></i>
             <span>All Courses</span>
-            <i data-lucide="chevron-down" class="w-3.5 h-3.5"></i>
           </a>
         </div>
 
-        <!-- Center: Multi-Page Portal Links (All using # for future HTML files) -->
         <nav class="hidden lg:flex items-center gap-1 font-bold text-slate-700 dark:text-slate-200 text-sm">
           <a href="#" data-page="index.html" class="px-3.5 py-2 rounded-xl text-brand-600 dark:text-brand-400 bg-brand-50/70 dark:bg-slate-800/70">Home</a>
-          <a href="#" data-page="batches.html" onclick="previewLink('batches.html')" class="px-3.5 py-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-brand-600 transition flex items-center gap-1">
-            <span>Live Batches</span>
+          <a href="#" data-page="batches.html" onclick="previewLink('batches.html')" class="px-3.5 py-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition flex items-center gap-1.5">
+            <span>Batches</span>
             <span class="w-2 h-2 rounded-full bg-red-500 animate-ping"></span>
           </a>
-          <a href="#" data-page="notes.html" onclick="previewLink('notes.html')" class="px-3.5 py-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-brand-600 transition">Notes Library</a>
-          <a href="#" data-page="test-series.html" onclick="previewLink('test-series.html')" class="px-3.5 py-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-brand-600 transition">Test Series</a>
-          <a href="#" data-page="polytechnic.html" onclick="previewLink('polytechnic.html')" class="px-3.5 py-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-brand-600 transition">Polytechnic Hub</a>
-          <a href="#" data-page="pyq.html" onclick="previewLink('pyq.html')" class="px-3.5 py-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-brand-600 transition">PYQ Bank</a>
+          <a href="#" data-page="notes.html" onclick="previewLink('notes.html')" class="px-3.5 py-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition">Notes PDF</a>
+          <a href="#" data-page="test-series.html" onclick="previewLink('test-series.html')" class="px-3.5 py-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition">Tests</a>
+          <a href="#" data-page="polytechnic.html" onclick="previewLink('polytechnic.html')" class="px-3.5 py-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition">Polytechnic</a>
+          <a href="#" data-page="pyq.html" onclick="previewLink('pyq.html')" class="px-3.5 py-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition">PYQ Bank</a>
         </nav>
 
-        <!-- Right: Theme Toggle + Login / Study Studio Portal CTA -->
         <div class="hidden md:flex items-center gap-2.5">
           <button 
             onclick="toggleTheme()" 
             aria-label="Toggle Theme"
-            class="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-amber-400 hover:bg-slate-200 dark:hover:bg-slate-700 border border-slate-200/80 dark:border-slate-700 transition"
-            title="Switch Light / Dark Mode"
+            class="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-amber-400 border border-slate-200 dark:border-slate-700 transition"
           >
             <i id="themeIconDesktop" data-lucide="moon" class="w-4 h-4"></i>
           </button>
 
-          <a href="#" data-page="notes.html" onclick="previewLink('notes.html')" class="px-4 py-2.5 rounded-xl text-xs font-extrabold text-slate-700 dark:text-slate-200 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 border border-slate-200 dark:border-slate-700 transition flex items-center gap-1.5">
+          <a href="#" data-page="notes.html" onclick="previewLink('notes.html')" class="px-3.5 py-2.5 rounded-xl text-xs font-extrabold text-slate-700 dark:text-slate-200 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 transition flex items-center gap-1.5">
             <i data-lucide="file-text" class="w-4 h-4 text-brand-600 dark:text-brand-400"></i>
             <span>Free PDFs</span>
           </a>
 
-          <a href="#" data-page="login.html" onclick="previewLink('login.html')" class="btn-shimmer px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold text-white bg-brand-600 hover:bg-brand-700 shadow-md shadow-brand-600/25 transition flex items-center gap-1.5">
+          <a href="#" data-page="login.html" onclick="previewLink('login.html')" class="btn-shimmer px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold text-white bg-brand-600 hover:bg-brand-700 shadow-md shadow-brand-600/25 transition flex items-center gap-1.5">
             <i data-lucide="user-check" class="w-4 h-4"></i>
-            <span>Student Login</span>
+            <span>Login</span>
           </a>
         </div>
 
-        <!-- Mobile Menu & Theme Buttons -->
-        <div class="flex md:hidden items-center gap-2">
-          <button onclick="toggleTheme()" aria-label="Toggle Theme" class="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-amber-400 border border-slate-200 dark:border-slate-700">
-            <i id="themeIconMobile" data-lucide="moon" class="w-5 h-5"></i>
+        <!-- Mobile Right Controls -->
+        <div class="flex md:hidden items-center gap-1.5">
+          <a href="#" data-page="login.html" onclick="previewLink('login.html')" class="px-3 py-2 rounded-xl bg-brand-600 text-white font-extrabold text-xs shadow-sm">
+            Login
+          </a>
+          <button onclick="toggleTheme()" aria-label="Toggle Theme" class="p-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-amber-400 border border-slate-200 dark:border-slate-700">
+            <i id="themeIconMobile" data-lucide="moon" class="w-4 h-4"></i>
           </button>
-          <button id="mobileMenuBtn" aria-label="Open Menu" class="p-2.5 rounded-xl text-slate-700 dark:text-slate-200 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
-            <i data-lucide="menu" class="w-6 h-6"></i>
+          <button id="mobileMenuBtn" aria-label="Open Menu" class="p-2 rounded-xl text-slate-700 dark:text-slate-200 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+            <i data-lucide="menu" class="w-5 h-5"></i>
           </button>
         </div>
 
       </div>
     </div>
 
-    <!-- Mobile Navigation Drawer (All Links set to # for future pages) -->
-    <div id="mobileMenu" class="hidden md:hidden border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-[#090d16] px-4 pt-3 pb-6 shadow-2xl">
-      <div class="grid grid-cols-2 gap-2 mb-4">
-        <a href="#" data-page="batches.html" onclick="previewLink('batches.html')" class="p-3 rounded-xl bg-brand-50 dark:bg-slate-800/90 border border-brand-100 dark:border-slate-700 flex items-center gap-2.5 text-xs font-extrabold text-brand-700 dark:text-brand-300">
-          <i data-lucide="Tv" class="w-4 h-4"></i> Live Batches
+    <!-- MOBILE DRAWER MENU -->
+    <div id="mobileMenu" class="hidden md:hidden border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-[#090d16] px-4 pt-3 pb-6 shadow-2xl max-h-[80vh] overflow-y-auto">
+      <div class="grid grid-cols-2 gap-2 mb-3">
+        <a href="#" data-page="batches.html" onclick="previewLink('batches.html')" class="p-3 rounded-xl bg-brand-50 dark:bg-slate-800/90 border border-brand-100 dark:border-slate-700 flex items-center gap-2 text-xs font-extrabold text-brand-700 dark:text-brand-300">
+          <i data-lucide="tv" class="w-4 h-4 flex-shrink-0"></i> Live Batches
         </a>
-        <a href="#" data-page="notes.html" onclick="previewLink('notes.html')" class="p-3 rounded-xl bg-emerald-50 dark:bg-slate-800/90 border border-emerald-100 dark:border-slate-700 flex items-center gap-2.5 text-xs font-extrabold text-emerald-700 dark:text-emerald-300">
-          <i data-lucide="file-text" class="w-4 h-4"></i> Notes PDF
+        <a href="#" data-page="notes.html" onclick="previewLink('notes.html')" class="p-3 rounded-xl bg-emerald-50 dark:bg-slate-800/90 border border-emerald-100 dark:border-slate-700 flex items-center gap-2 text-xs font-extrabold text-emerald-700 dark:text-emerald-300">
+          <i data-lucide="file-text" class="w-4 h-4 flex-shrink-0"></i> Notes PDF
         </a>
-        <a href="#" data-page="test-series.html" onclick="previewLink('test-series.html')" class="p-3 rounded-xl bg-amber-50 dark:bg-slate-800/90 border border-amber-100 dark:border-slate-700 flex items-center gap-2.5 text-xs font-extrabold text-amber-700 dark:text-amber-300">
-          <i data-lucide="check-square" class="w-4 h-4"></i> Test Series
+        <a href="#" data-page="test-series.html" onclick="previewLink('test-series.html')" class="p-3 rounded-xl bg-amber-50 dark:bg-slate-800/90 border border-amber-100 dark:border-slate-700 flex items-center gap-2 text-xs font-extrabold text-amber-700 dark:text-amber-300">
+          <i data-lucide="check-square" class="w-4 h-4 flex-shrink-0"></i> Test Series
         </a>
-        <a href="#" data-page="polytechnic.html" onclick="previewLink('polytechnic.html')" class="p-3 rounded-xl bg-purple-50 dark:bg-slate-800/90 border border-purple-100 dark:border-slate-700 flex items-center gap-2.5 text-xs font-extrabold text-purple-700 dark:text-purple-300">
-          <i data-lucide="cpu" class="w-4 h-4"></i> Polytechnic
+        <a href="#" data-page="polytechnic.html" onclick="previewLink('polytechnic.html')" class="p-3 rounded-xl bg-purple-50 dark:bg-slate-800/90 border border-purple-100 dark:border-slate-700 flex items-center gap-2 text-xs font-extrabold text-purple-700 dark:text-purple-300">
+          <i data-lucide="cpu" class="w-4 h-4 flex-shrink-0"></i> Polytechnic
         </a>
       </div>
 
-      <div class="flex flex-col space-y-1 font-bold text-slate-700 dark:text-slate-200 text-sm border-t border-slate-100 dark:border-slate-800 pt-3">
+      <div class="flex flex-col space-y-1 font-bold text-slate-700 dark:text-slate-200 text-xs sm:text-sm border-t border-slate-100 dark:border-slate-800 pt-2">
         <a href="#" data-page="pyq.html" onclick="previewLink('pyq.html')" class="px-3 py-2.5 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 flex items-center justify-between">
           <span class="flex items-center gap-2.5"><i data-lucide="book-open" class="w-4 h-4 text-brand-600"></i> Previous Year Papers (PYQ)</span>
           <i data-lucide="chevron-right" class="w-4 h-4 text-slate-400"></i>
         </a>
         <a href="#" data-page="syllabus.html" onclick="previewLink('syllabus.html')" class="px-3 py-2.5 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 flex items-center justify-between">
-          <span class="flex items-center gap-2.5"><i data-lucide="Compass" class="w-4 h-4 text-brand-600"></i> Exam Syllabus & Tracker</span>
+          <span class="flex items-center gap-2.5"><i data-lucide="compass" class="w-4 h-4 text-brand-600"></i> Exam Syllabus & Tracker</span>
           <i data-lucide="chevron-right" class="w-4 h-4 text-slate-400"></i>
         </a>
         <a href="#" data-page="coding.html" onclick="previewLink('coding.html')" class="px-3 py-2.5 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 flex items-center justify-between">
@@ -354,207 +330,186 @@
           <i data-lucide="chevron-right" class="w-4 h-4 text-slate-400"></i>
         </a>
       </div>
-
-      <div class="pt-4 mt-3 border-t border-slate-100 dark:border-slate-800">
-        <a href="#" data-page="login.html" onclick="previewLink('login.html')" class="w-full py-3 rounded-xl bg-brand-600 text-white font-bold text-center text-sm shadow-md block">
-          Login / Register Free
-        </a>
-      </div>
     </div>
   </header>
 
   <main>
-    <!-- ==================== 4. HERO BANNER SECTION (PW / KGS STYLE) ==================== -->
-    <section class="relative overflow-hidden bg-white dark:bg-[#090d16] bg-grid-pattern pt-10 pb-16 lg:py-20 border-b border-slate-200/80 dark:border-slate-800">
-      <!-- Ambient Background Glows -->
-      <div class="w-96 h-96 bg-blue-500/10 dark:bg-blue-500/15 rounded-full blur-3xl absolute -top-20 -left-20 pointer-events-none"></div>
-      <div class="w-96 h-96 bg-amber-500/10 dark:bg-amber-500/10 rounded-full blur-3xl absolute bottom-0 right-0 pointer-events-none"></div>
+    <!-- HERO SECTION -->
+    <section class="relative overflow-hidden bg-white dark:bg-[#090d16] bg-grid-pattern pt-6 pb-10 sm:py-14 lg:py-20 border-b border-slate-200/80 dark:border-slate-800">
+      <div class="w-72 h-72 bg-blue-500/10 rounded-full blur-3xl absolute -top-16 -left-16 pointer-events-none"></div>
 
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+      <div class="max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8 relative z-10">
+        
+        <!-- Mobile Quick Category Strip (For 85% Mobile Users) -->
+        <div class="flex md:hidden items-center gap-2 overflow-x-auto no-scrollbar pb-4 mb-2 -mx-1 px-1">
+          <a href="#" data-page="board-portal.html" onclick="previewLink('board-portal.html')" class="px-3 py-1.5 rounded-full bg-brand-600 text-white text-xs font-extrabold whitespace-nowrap shadow-sm flex items-center gap-1.5">
+            <i data-lucide="flame" class="w-3.5 h-3.5"></i> Class 10th & 12th
+          </a>
+          <a href="#" data-page="polytechnic.html" onclick="previewLink('polytechnic.html')" class="px-3 py-1.5 rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-xs font-bold whitespace-nowrap">
+            ⚡ Polytechnic & EE
+          </a>
+          <a href="#" data-page="notes.html" onclick="previewLink('notes.html')" class="px-3 py-1.5 rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-xs font-bold whitespace-nowrap">
+            📄 Free PDFs
+          </a>
+          <a href="#" data-page="pyq.html" onclick="previewLink('pyq.html')" class="px-3 py-1.5 rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-xs font-bold whitespace-nowrap">
+            📚 10-Yr PYQ
+          </a>
+          <a href="#" data-page="coding.html" onclick="previewLink('coding.html')" class="px-3 py-1.5 rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-xs font-bold whitespace-nowrap">
+            💻 Python Lab
+          </a>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           
-          <!-- Left Hero Column -->
-          <div class="lg:col-span-7 text-center lg:text-left space-y-6 reveal active">
-            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-50 dark:bg-slate-900 border border-brand-200 dark:border-slate-700 text-brand-700 dark:text-brand-300 text-xs font-extrabold">
+          <!-- Hero Content -->
+          <div class="lg:col-span-7 text-center lg:text-left space-y-4 sm:space-y-6 reveal active">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-50 dark:bg-slate-900 border border-brand-200 dark:border-slate-700 text-brand-700 dark:text-brand-300 text-[11px] font-extrabold">
               <span class="w-2 h-2 rounded-full bg-brand-600 animate-ping"></span>
-              <span>BHARAT KA APNA SMART CONCEPTUAL PLATFORM</span>
+              <span>INDIA'S SMART CONCEPTUAL LEARNING PORTAL</span>
             </div>
 
-            <h1 class="font-heading font-black text-4xl sm:text-5xl lg:text-[3.5rem] text-slate-900 dark:text-white tracking-tight leading-[1.12]">
+            <h1 class="font-heading font-black text-3xl sm:text-5xl lg:text-[3.4rem] text-slate-900 dark:text-white tracking-tight leading-[1.15]">
               Padhai Aisi Jo <br class="hidden sm:inline" />
               <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 via-indigo-600 to-amber-500 dark:from-sky-400 dark:via-brand-400 dark:to-amber-400">
                 Seedha Dimag Mein Utre!
               </span>
             </h1>
 
-            <p class="text-base sm:text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto lg:mx-0 font-medium leading-relaxed">
-              Prepare for <strong>Class 10th & 12th Boards, Polytechnic Diploma, Electrical Engineering</strong> & Coding Skills with <strong>Lalan Kumar</strong>. Get visual lectures, one-page formula maps, PYQ banks & daily test series.
+            <p class="text-sm sm:text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto lg:mx-0 font-medium leading-relaxed">
+              Master <strong>Class 10th & 12th Boards, Polytechnic Diploma, Electrical Engineering</strong> & Coding Skills with <strong>Lalan Kumar</strong>. Free PDF notes, formula maps, PYQ banks & daily live tests.
             </p>
 
-            <!-- Universal Smart Search Bar -->
+            <!-- Mobile-Friendly Search Bar -->
             <div class="max-w-xl mx-auto lg:mx-0">
-              <div class="flex items-center bg-white dark:bg-slate-900 p-2 rounded-2xl border-2 border-slate-200 dark:border-slate-700 focus-within:border-brand-600 shadow-lg shadow-slate-200/50 dark:shadow-none transition">
-                <i data-lucide="search" class="w-5 h-5 text-slate-400 ml-3 mr-2 flex-shrink-0"></i>
+              <div class="flex items-center bg-white dark:bg-slate-900 p-1.5 sm:p-2 rounded-2xl border-2 border-slate-200 dark:border-slate-700 focus-within:border-brand-600 shadow-md">
+                <i data-lucide="search" class="w-5 h-5 text-slate-400 ml-2.5 mr-2 flex-shrink-0"></i>
                 <input 
                   id="heroSearchInput"
                   type="text" 
-                  placeholder="Search 'notes.html', Polytechnic, Class 10 Science, Electrical..." 
-                  class="w-full text-sm font-medium text-slate-800 dark:text-slate-100 placeholder-slate-400 focus:outline-none bg-transparent py-2"
+                  placeholder="Search Notes, Polytechnic, Science, PYQ..." 
+                  class="w-full text-base sm:text-sm font-medium text-slate-800 dark:text-slate-100 placeholder-slate-400 focus:outline-none bg-transparent py-1.5"
                   onkeydown="if(event.key === 'Enter') handleSmartSearch()"
                 />
-                <button onclick="handleSmartSearch()" class="px-5 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs sm:text-sm transition flex-shrink-0">
+                <button onclick="handleSmartSearch()" class="px-4 sm:px-5 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs sm:text-sm transition flex-shrink-0">
                   Search
                 </button>
               </div>
-              <!-- Popular Search Tags (# Links) -->
-              <div class="flex flex-wrap items-center justify-center lg:justify-start gap-2 mt-3 text-xs font-semibold text-slate-500 dark:text-slate-400">
-                <span>Popular:</span>
-                <a href="#" data-page="notes.html" onclick="previewLink('notes.html')" class="px-2.5 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 hover:text-brand-600 transition">#FormulaNotes</a>
-                <a href="#" data-page="polytechnic.html" onclick="previewLink('polytechnic.html')" class="px-2.5 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 hover:text-brand-600 transition">#ElectricalEngg</a>
-                <a href="#" data-page="pyq.html" onclick="previewLink('pyq.html')" class="px-2.5 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 hover:text-brand-600 transition">#BoardPYQ2026</a>
-                <a href="#" data-page="coding.html" onclick="previewLink('coding.html')" class="px-2.5 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 hover:text-brand-600 transition">#PythonLab</a>
-              </div>
             </div>
 
-            <!-- Action Buttons -->
-            <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3.5 pt-2">
-              <a href="#" data-page="batches.html" onclick="previewLink('batches.html')" class="btn-shimmer w-full sm:w-auto px-7 py-4 rounded-2xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm shadow-xl shadow-brand-600/25 flex items-center justify-center gap-2 transition">
-                <span>Explore Live Batches</span>
+            <!-- Primary CTA Buttons -->
+            <div class="grid grid-cols-2 sm:flex sm:flex-row items-center justify-center lg:justify-start gap-2.5 sm:gap-3.5 pt-1">
+              <a href="#" data-page="batches.html" onclick="previewLink('batches.html')" class="btn-shimmer px-4 sm:px-7 py-3.5 sm:py-4 rounded-2xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs sm:text-sm shadow-lg shadow-brand-600/25 flex items-center justify-center gap-1.5 transition">
+                <span>Live Batches</span>
                 <i data-lucide="arrow-right" class="w-4 h-4"></i>
               </a>
-              <a href="#" data-page="notes.html" onclick="previewLink('notes.html')" class="w-full sm:w-auto px-7 py-4 rounded-2xl bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-100 font-bold text-sm flex items-center justify-center gap-2 transition">
-                <i data-lucide="folder-down" class="w-4 h-4 text-emerald-600"></i>
-                <span>Open Notes Library</span>
+              <a href="#" data-page="notes.html" onclick="previewLink('notes.html')" class="px-4 sm:px-7 py-3.5 sm:py-4 rounded-2xl bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-100 font-bold text-xs sm:text-sm flex items-center justify-center gap-1.5 transition">
+                <i data-lucide="folder-down" class="w-4 h-4 text-emerald-600 flex-shrink-0"></i>
+                <span>Free Notes PDF</span>
               </a>
             </div>
           </div>
 
-          <!-- Right Hero Column: PW/KGS Style Interactive Portal Switchboard -->
+          <!-- Quick Launchpad Card -->
           <div class="lg:col-span-5 relative reveal">
-            <!-- Floating Top Pill -->
-            <div class="hidden sm:flex items-center gap-2.5 bg-white dark:bg-slate-900 px-4 py-2.5 rounded-2xl shadow-xl border border-slate-200/80 dark:border-slate-800 absolute -top-5 -left-5 z-20 animate-float">
-              <div class="w-9 h-9 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center">
-                <i data-lucide="Flame" class="w-5 h-5"></i>
-              </div>
-              <div>
-                <p class="text-xs font-extrabold text-slate-900 dark:text-white">100% Free PDF Library</p>
-                <p class="text-[10px] font-bold text-emerald-600 dark:text-emerald-400">Zero Login Required</p>
-              </div>
-            </div>
-
-            <!-- Floating Bottom Pill -->
-            <div class="hidden sm:flex items-center gap-2.5 bg-white dark:bg-slate-900 px-4 py-2.5 rounded-2xl shadow-xl border border-slate-200/80 dark:border-slate-800 absolute -bottom-5 -right-4 z-20 animate-float-delay">
-              <div class="w-9 h-9 rounded-xl bg-amber-500/10 text-amber-500 flex items-center justify-center">
-                <i data-lucide="award" class="w-5 h-5"></i>
-              </div>
-              <div>
-                <p class="text-xs font-extrabold text-slate-900 dark:text-white">SBTE & Board Aligned</p>
-                <p class="text-[10px] font-bold text-slate-500 dark:text-slate-400">2026-27 Latest Pattern</p>
-              </div>
-            </div>
-
-            <!-- Main Portal Launchpad Card -->
-            <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-7 border border-slate-200/90 dark:border-slate-800 shadow-2xl">
-              <div class="flex items-center justify-between pb-4 border-b border-slate-100 dark:border-slate-800">
+            <div class="bg-white dark:bg-slate-900 rounded-3xl p-4 sm:p-6 border border-slate-200/90 dark:border-slate-800 shadow-xl">
+              <div class="flex items-center justify-between pb-3.5 border-b border-slate-100 dark:border-slate-800">
                 <div>
-                  <span class="text-[11px] font-extrabold uppercase tracking-wider text-brand-600 dark:text-brand-400">Quick Portal Access</span>
-                  <h2 class="font-heading font-black text-xl text-slate-900 dark:text-white">Direct Study Modules</h2>
+                  <span class="text-[10px] font-extrabold uppercase tracking-wider text-brand-600 dark:text-brand-400">Direct Access</span>
+                  <h2 class="font-heading font-black text-lg sm:text-xl text-slate-900 dark:text-white">Smart Study Modules</h2>
                 </div>
-                <span class="px-3 py-1 rounded-full text-xs font-extrabold bg-emerald-50 dark:bg-emerald-950/70 text-emerald-600 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800">
-                  ● Live Portal
+                <span class="px-2.5 py-1 rounded-full text-[11px] font-extrabold bg-emerald-50 dark:bg-emerald-950/70 text-emerald-600 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800">
+                  ● 100% Free PDFs
                 </span>
               </div>
 
-              <!-- 2x2 Portal File Links Grid (All using #) -->
-              <div class="grid grid-cols-2 gap-3.5 my-5">
-                <a href="#" data-page="notes.html" onclick="previewLink('notes.html')" class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/70 hover:bg-blue-50 dark:hover:bg-slate-800 border border-slate-200/70 dark:border-slate-700/80 group transition">
-                  <div class="w-10 h-10 rounded-xl bg-blue-600 text-white flex items-center justify-center mb-3 shadow-md shadow-blue-600/20 group-hover:scale-110 transition-transform">
+              <div class="grid grid-cols-2 gap-2.5 sm:gap-3.5 my-4">
+                <a href="#" data-page="notes.html" onclick="previewLink('notes.html')" class="p-3.5 sm:p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/70 active:scale-95 border border-slate-200/70 dark:border-slate-700/80 transition">
+                  <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-blue-600 text-white flex items-center justify-center mb-2.5 shadow-sm">
                     <i data-lucide="file-text" class="w-5 h-5"></i>
                   </div>
-                  <h3 class="font-heading font-extrabold text-sm text-slate-900 dark:text-white">Smart Notes</h3>
-                  <p class="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5 font-medium">Chapter PDFs & Maps</p>
+                  <h3 class="font-heading font-extrabold text-xs sm:text-sm text-slate-900 dark:text-white">Smart Notes</h3>
+                  <p class="text-[10px] sm:text-[11px] text-slate-500 dark:text-slate-400 mt-0.5 font-medium">Chapter PDFs & Maps</p>
                 </a>
 
-                <a href="#" data-page="test-series.html" onclick="previewLink('test-series.html')" class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/70 hover:bg-amber-50 dark:hover:bg-slate-800 border border-slate-200/70 dark:border-slate-700/80 group transition">
-                  <div class="w-10 h-10 rounded-xl bg-amber-500 text-white flex items-center justify-center mb-3 shadow-md shadow-amber-500/20 group-hover:scale-110 transition-transform">
+                <a href="#" data-page="test-series.html" onclick="previewLink('test-series.html')" class="p-3.5 sm:p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/70 active:scale-95 border border-slate-200/70 dark:border-slate-700/80 transition">
+                  <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-amber-500 text-white flex items-center justify-center mb-2.5 shadow-sm">
                     <i data-lucide="timer" class="w-5 h-5"></i>
                   </div>
-                  <h3 class="font-heading font-extrabold text-sm text-slate-900 dark:text-white">Live Mock Test</h3>
-                  <p class="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5 font-medium">OMR & CBT Practice</p>
+                  <h3 class="font-heading font-extrabold text-xs sm:text-sm text-slate-900 dark:text-white">Live Mock Test</h3>
+                  <p class="text-[10px] sm:text-[11px] text-slate-500 dark:text-slate-400 mt-0.5 font-medium">OMR & CBT Practice</p>
                 </a>
 
-                <a href="#" data-page="polytechnic.html" onclick="previewLink('polytechnic.html')" class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/70 hover:bg-emerald-50 dark:hover:bg-slate-800 border border-slate-200/70 dark:border-slate-700/80 group transition">
-                  <div class="w-10 h-10 rounded-xl bg-emerald-600 text-white flex items-center justify-center mb-3 shadow-md shadow-emerald-600/20 group-hover:scale-110 transition-transform">
+                <a href="#" data-page="polytechnic.html" onclick="previewLink('polytechnic.html')" class="p-3.5 sm:p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/70 active:scale-95 border border-slate-200/70 dark:border-slate-700/80 transition">
+                  <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-emerald-600 text-white flex items-center justify-center mb-2.5 shadow-sm">
                     <i data-lucide="zap" class="w-5 h-5"></i>
                   </div>
-                  <h3 class="font-heading font-extrabold text-sm text-slate-900 dark:text-white">Polytechnic Hub</h3>
-                  <p class="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5 font-medium">SBTE & Electrical Lab</p>
+                  <h3 class="font-heading font-extrabold text-xs sm:text-sm text-slate-900 dark:text-white">Polytechnic Hub</h3>
+                  <p class="text-[10px] sm:text-[11px] text-slate-500 dark:text-slate-400 mt-0.5 font-medium">SBTE & Electrical Lab</p>
                 </a>
 
-                <a href="#" data-page="pyq.html" onclick="previewLink('pyq.html')" class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/70 hover:bg-purple-50 dark:hover:bg-slate-800 border border-slate-200/70 dark:border-slate-700/80 group transition">
-                  <div class="w-10 h-10 rounded-xl bg-purple-600 text-white flex items-center justify-center mb-3 shadow-md shadow-purple-600/20 group-hover:scale-110 transition-transform">
+                <a href="#" data-page="pyq.html" onclick="previewLink('pyq.html')" class="p-3.5 sm:p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/70 active:scale-95 border border-slate-200/70 dark:border-slate-700/80 transition">
+                  <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-purple-600 text-white flex items-center justify-center mb-2.5 shadow-sm">
                     <i data-lucide="archive" class="w-5 h-5"></i>
                   </div>
-                  <h3 class="font-heading font-extrabold text-sm text-slate-900 dark:text-white">10-Year PYQs</h3>
-                  <p class="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5 font-medium">Solved Board Papers</p>
+                  <h3 class="font-heading font-extrabold text-xs sm:text-sm text-slate-900 dark:text-white">10-Year PYQs</h3>
+                  <p class="text-[10px] sm:text-[11px] text-slate-500 dark:text-slate-400 mt-0.5 font-medium">Solved Board Papers</p>
                 </a>
               </div>
 
-              <!-- Bottom Strip inside Hero Card -->
-              <a href="#" data-page="coding.html" onclick="previewLink('coding.html')" class="w-full p-3.5 rounded-2xl bg-gradient-to-r from-slate-900 via-brand-800 to-indigo-900 text-white flex items-center justify-between hover:opacity-95 transition">
-                <div class="flex items-center gap-3">
-                  <span class="p-2 rounded-xl bg-white/10"><i data-lucide="code-2" class="w-5 h-5 text-sky-400"></i></span>
+              <a href="#" data-page="coding.html" onclick="previewLink('coding.html')" class="w-full p-3 rounded-2xl bg-gradient-to-r from-slate-900 via-brand-800 to-indigo-900 text-white flex items-center justify-between">
+                <div class="flex items-center gap-2.5">
+                  <span class="p-2 rounded-xl bg-white/10"><i data-lucide="code-2" class="w-4 h-4 text-sky-400"></i></span>
                   <div class="text-left">
-                    <p class="text-xs font-extrabold">LK Python & Web Dev Playground</p>
-                    <p class="text-[11px] text-slate-300">Run Code Live + Practical Notes</p>
+                    <p class="text-xs font-extrabold">Python & Web Dev Lab</p>
+                    <p class="text-[10px] text-slate-300">Run Code Live + Practical Notes</p>
                   </div>
                 </div>
-                <i data-lucide="arrow-up-right" class="w-5 h-5 text-amber-400"></i>
+                <i data-lucide="arrow-up-right" class="w-4 h-4 text-amber-400"></i>
               </a>
             </div>
           </div>
 
         </div>
 
-        <!-- PW / KGS Style Trust Impact Bar -->
-        <div class="mt-14 pt-8 border-t border-slate-200/80 dark:border-slate-800 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 reveal">
-          <div class="bg-white dark:bg-slate-900 p-4 sm:p-5 rounded-2xl border border-slate-200/80 dark:border-slate-800 flex items-center gap-4 shadow-sm">
-            <div class="w-12 h-12 rounded-2xl bg-blue-50 dark:bg-blue-950/80 text-brand-600 dark:text-brand-400 flex items-center justify-center flex-shrink-0">
-              <i data-lucide="users" class="w-6 h-6"></i>
+        <!-- STATS BAR -->
+        <div class="mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-slate-200/80 dark:border-slate-800 grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-5 reveal">
+          <div class="bg-white dark:bg-slate-900 p-3.5 sm:p-5 rounded-2xl border border-slate-200/80 dark:border-slate-800 flex items-center gap-3 shadow-sm">
+            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-blue-50 dark:bg-blue-950/80 text-brand-600 dark:text-brand-400 flex items-center justify-center flex-shrink-0">
+              <i data-lucide="users" class="w-5 h-5 sm:w-6 sm:h-6"></i>
             </div>
             <div>
-              <p class="font-display text-2xl font-bold text-slate-900 dark:text-white"><span class="counter" data-target="25000">0</span>+</p>
-              <p class="text-xs text-slate-500 dark:text-slate-400 font-semibold">Active Learners</p>
+              <p class="font-display text-lg sm:text-2xl font-bold text-slate-900 dark:text-white"><span class="counter" data-target="25000">0</span>+</p>
+              <p class="text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 font-semibold">Active Learners</p>
             </div>
           </div>
 
-          <div class="bg-white dark:bg-slate-900 p-4 sm:p-5 rounded-2xl border border-slate-200/80 dark:border-slate-800 flex items-center gap-4 shadow-sm">
-            <div class="w-12 h-12 rounded-2xl bg-emerald-50 dark:bg-emerald-950/80 text-emerald-600 dark:text-emerald-400 flex items-center justify-center flex-shrink-0">
-              <i data-lucide="file-check-2" class="w-6 h-6"></i>
+          <div class="bg-white dark:bg-slate-900 p-3.5 sm:p-5 rounded-2xl border border-slate-200/80 dark:border-slate-800 flex items-center gap-3 shadow-sm">
+            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-emerald-50 dark:bg-emerald-950/80 text-emerald-600 dark:text-emerald-400 flex items-center justify-center flex-shrink-0">
+              <i data-lucide="file-check-2" class="w-5 h-5 sm:w-6 sm:h-6"></i>
             </div>
             <div>
-              <p class="font-display text-2xl font-bold text-slate-900 dark:text-white"><span class="counter" data-target="550">0</span>+</p>
-              <p class="text-xs text-slate-500 dark:text-slate-400 font-semibold">Free Smart PDFs</p>
+              <p class="font-display text-lg sm:text-2xl font-bold text-slate-900 dark:text-white"><span class="counter" data-target="550">0</span>+</p>
+              <p class="text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 font-semibold">Free Smart PDFs</p>
             </div>
           </div>
 
-          <div class="bg-white dark:bg-slate-900 p-4 sm:p-5 rounded-2xl border border-slate-200/80 dark:border-slate-800 flex items-center gap-4 shadow-sm">
-            <div class="w-12 h-12 rounded-2xl bg-amber-50 dark:bg-amber-950/80 text-amber-500 flex items-center justify-center flex-shrink-0">
-              <i data-lucide="video" class="w-6 h-6"></i>
+          <div class="bg-white dark:bg-slate-900 p-3.5 sm:p-5 rounded-2xl border border-slate-200/80 dark:border-slate-800 flex items-center gap-3 shadow-sm">
+            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-amber-50 dark:bg-amber-950/80 text-amber-500 flex items-center justify-center flex-shrink-0">
+              <i data-lucide="video" class="w-5 h-5 sm:w-6 sm:h-6"></i>
             </div>
             <div>
-              <p class="font-display text-2xl font-bold text-slate-900 dark:text-white"><span class="counter" data-target="1200">0</span>+</p>
-              <p class="text-xs text-slate-500 dark:text-slate-400 font-semibold">Concept Lectures</p>
+              <p class="font-display text-lg sm:text-2xl font-bold text-slate-900 dark:text-white"><span class="counter" data-target="1200">0</span>+</p>
+              <p class="text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 font-semibold">Concept Lectures</p>
             </div>
           </div>
 
-          <div class="bg-white dark:bg-slate-900 p-4 sm:p-5 rounded-2xl border border-slate-200/80 dark:border-slate-800 flex items-center gap-4 shadow-sm">
-            <div class="w-12 h-12 rounded-2xl bg-purple-50 dark:bg-purple-950/80 text-purple-600 dark:text-purple-400 flex items-center justify-center flex-shrink-0">
-              <i data-lucide="shield-check" class="w-6 h-6"></i>
+          <div class="bg-white dark:bg-slate-900 p-3.5 sm:p-5 rounded-2xl border border-slate-200/80 dark:border-slate-800 flex items-center gap-3 shadow-sm">
+            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-purple-50 dark:bg-purple-950/80 text-purple-600 dark:text-purple-400 flex items-center justify-center flex-shrink-0">
+              <i data-lucide="shield-check" class="w-5 h-5 sm:w-6 sm:h-6"></i>
             </div>
             <div>
-              <p class="font-display text-2xl font-bold text-slate-900 dark:text-white">4.9 / 5</p>
-              <p class="text-xs text-slate-500 dark:text-slate-400 font-semibold">Student Rating</p>
+              <p class="font-display text-lg sm:text-2xl font-bold text-slate-900 dark:text-white">4.9 / 5</p>
+              <p class="text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 font-semibold">Student Rating</p>
             </div>
           </div>
         </div>
@@ -562,115 +517,108 @@
       </div>
     </section>
 
-    <!-- ==================== 5. SLIDING TICKER MARQUEE ==================== -->
-    <div class="bg-slate-900 dark:bg-slate-950 text-white py-3 overflow-hidden border-b border-slate-800">
-      <div class="animate-marquee flex items-center gap-10 text-xs font-bold tracking-wide">
-        <span class="flex items-center gap-2"><i data-lucide="sparkles" class="w-4 h-4 text-amber-400"></i> Class 10th & 12th Board Booster Notes Uploaded</span>
-        <span class="flex items-center gap-2"><i data-lucide="cpu" class="w-4 h-4 text-sky-400"></i> SBTE Bihar Polytechnic Electrical Engineering Semester Notes</span>
-        <span class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-emerald-400"></i> Daily Free Online Quiz & Test Series Live Now</span>
-        <span class="flex items-center gap-2"><i data-lucide="code" class="w-4 h-4 text-purple-400"></i> Python Programming & Web Dev Practical Handbook</span>
-        <!-- Loop Duplicate -->
-        <span class="flex items-center gap-2"><i data-lucide="sparkles" class="w-4 h-4 text-amber-400"></i> Class 10th & 12th Board Booster Notes Uploaded</span>
-        <span class="flex items-center gap-2"><i data-lucide="cpu" class="w-4 h-4 text-sky-400"></i> SBTE Bihar Polytechnic Electrical Engineering Semester Notes</span>
-        <span class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-emerald-400"></i> Daily Free Online Quiz & Test Series Live Now</span>
-        <span class="flex items-center gap-2"><i data-lucide="code" class="w-4 h-4 text-purple-400"></i> Python Programming & Web Dev Practical Handbook</span>
+    <!-- UPDATES TICKER -->
+    <div class="bg-slate-900 dark:bg-slate-950 text-white py-2.5 overflow-hidden border-b border-slate-800">
+      <div class="animate-marquee flex items-center gap-8 text-[11px] sm:text-xs font-bold tracking-wide">
+        <span class="flex items-center gap-2"><i data-lucide="sparkles" class="w-3.5 h-3.5 text-amber-400"></i> Class 10th & 12th Board Booster Notes Uploaded</span>
+        <span class="flex items-center gap-2"><i data-lucide="cpu" class="w-3.5 h-3.5 text-sky-400"></i> SBTE Bihar Polytechnic Electrical Engineering Semester Notes</span>
+        <span class="flex items-center gap-2"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-400"></i> Daily Free Online Quiz & Test Series Live Now</span>
+        <span class="flex items-center gap-2"><i data-lucide="code" class="w-3.5 h-3.5 text-purple-400"></i> Python Programming & Web Dev Practical Handbook</span>
+        <span class="flex items-center gap-2"><i data-lucide="sparkles" class="w-3.5 h-3.5 text-amber-400"></i> Class 10th & 12th Board Booster Notes Uploaded</span>
+        <span class="flex items-center gap-2"><i data-lucide="cpu" class="w-3.5 h-3.5 text-sky-400"></i> SBTE Bihar Polytechnic Electrical Engineering Semester Notes</span>
       </div>
     </div>
 
-    <!-- ==================== 6. EXAM CATEGORIES (PW "SELECT YOUR GOAL" STYLE) ==================== -->
-    <section id="categories" class="py-16 sm:py-20 bg-white dark:bg-[#090d16] transition-colors">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4 reveal">
+    <!-- EXAM CATEGORIES -->
+    <section id="categories" class="py-12 sm:py-16 bg-white dark:bg-[#090d16] transition-colors">
+      <div class="max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-8 sm:mb-10 gap-2 reveal">
           <div>
-            <span class="text-xs font-extrabold uppercase tracking-widest text-brand-600 dark:text-brand-400">Select Your Exam Goal</span>
-            <h2 class="font-heading font-black text-3xl sm:text-4xl text-slate-900 dark:text-white mt-1 tracking-tight">
+            <span class="text-[11px] font-extrabold uppercase tracking-widest text-brand-600 dark:text-brand-400">Choose Your Stream</span>
+            <h2 class="font-heading font-black text-2xl sm:text-4xl text-slate-900 dark:text-white mt-0.5 tracking-tight">
               Explore Exam Categories
             </h2>
-            <p class="text-slate-600 dark:text-slate-400 text-sm sm:text-base mt-1 font-medium">
-              Dedicated portals for School Boards, Polytechnic Diploma, and Modern Tech Skills.
-            </p>
           </div>
-          <a href="#" data-page="all-categories.html" onclick="previewLink('all-categories.html')" class="text-xs sm:text-sm font-extrabold text-brand-600 dark:text-brand-400 hover:underline flex items-center gap-1 self-start md:self-auto">
-            <span>View All Categories</span>
-            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          <a href="#" data-page="all-categories.html" onclick="previewLink('all-categories.html')" class="text-xs font-extrabold text-brand-600 dark:text-brand-400 flex items-center gap-1">
+            <span>View All Streams</span>
+            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
           </a>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
           
-          <!-- Category Card 1: Board Exams -->
-          <div class="p-6 rounded-3xl bg-slate-50/70 dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 hover:border-brand-500 ed-card flex flex-col justify-between reveal">
+          <!-- Category 1 -->
+          <div class="p-5 sm:p-6 rounded-3xl bg-slate-50/80 dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 ed-card flex flex-col justify-between reveal">
             <div>
-              <div class="flex items-start justify-between gap-4 mb-4">
+              <div class="flex items-start justify-between gap-3 mb-3">
                 <div>
-                  <span class="px-2.5 py-1 rounded-md bg-blue-100 dark:bg-blue-950 text-brand-700 dark:text-brand-300 text-[11px] font-extrabold uppercase">BSEB & CBSE</span>
-                  <h3 class="font-heading font-black text-xl text-slate-900 dark:text-white mt-2">Class 9th & 10th Boards</h3>
+                  <span class="px-2.5 py-0.5 rounded-md bg-blue-100 dark:bg-blue-950 text-brand-700 dark:text-brand-300 text-[10px] font-extrabold uppercase">BSEB & CBSE</span>
+                  <h3 class="font-heading font-black text-lg sm:text-xl text-slate-900 dark:text-white mt-1.5">Class 9th & 10th Boards</h3>
                 </div>
-                <div class="w-14 h-14 rounded-2xl bg-blue-600/10 text-brand-600 dark:text-brand-400 flex items-center justify-center flex-shrink-0">
-                  <i data-lucide="book-open-check" class="w-7 h-7"></i>
+                <div class="w-12 h-12 rounded-2xl bg-blue-600/10 text-brand-600 dark:text-brand-400 flex items-center justify-center flex-shrink-0">
+                  <i data-lucide="book-open-check" class="w-6 h-6"></i>
                 </div>
               </div>
-              <!-- Sub-tags linking with # -->
-              <div class="flex flex-wrap gap-2 my-4">
-                <a href="#" data-page="class10-science.html" onclick="previewLink('class10-science.html')" class="px-3 py-1.5 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-bold hover:border-brand-500 transition">Science</a>
-                <a href="#" data-page="class10-maths.html" onclick="previewLink('class10-maths.html')" class="px-3 py-1.5 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-bold hover:border-brand-500 transition">Mathematics</a>
-                <a href="#" data-page="class10-sst.html" onclick="previewLink('class10-sst.html')" class="px-3 py-1.5 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-bold hover:border-brand-500 transition">SST & Hindi</a>
-                <a href="#" data-page="class10-pyq.html" onclick="previewLink('class10-pyq.html')" class="px-3 py-1.5 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-bold hover:border-brand-500 transition">Question Bank</a>
+              <div class="flex flex-wrap gap-1.5 my-3">
+                <a href="#" data-page="class10-science.html" onclick="previewLink('class10-science.html')" class="px-3 py-1.5 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-bold">Science</a>
+                <a href="#" data-page="class10-maths.html" onclick="previewLink('class10-maths.html')" class="px-3 py-1.5 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-bold">Mathematics</a>
+                <a href="#" data-page="class10-sst.html" onclick="previewLink('class10-sst.html')" class="px-3 py-1.5 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-bold">SST & Hindi</a>
+                <a href="#" data-page="class10-pyq.html" onclick="previewLink('class10-pyq.html')" class="px-3 py-1.5 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-bold">Question Bank</a>
               </div>
             </div>
-            <a href="#" data-page="board-portal.html" onclick="previewLink('board-portal.html')" class="mt-4 pt-4 border-t border-slate-200/70 dark:border-slate-800 flex items-center justify-between text-xs font-extrabold text-brand-600 dark:text-brand-400 group">
-              <span>Explore Board Portal</span>
-              <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+            <a href="#" data-page="board-portal.html" onclick="previewLink('board-portal.html')" class="mt-3 pt-3.5 border-t border-slate-200/70 dark:border-slate-800 flex items-center justify-between text-xs font-extrabold text-brand-600 dark:text-brand-400">
+              <span>Enter Board Portal</span>
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
             </a>
           </div>
 
-          <!-- Category Card 2: Polytechnic & Electrical Engineering -->
-          <div class="p-6 rounded-3xl bg-slate-50/70 dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 hover:border-amber-500 ed-card flex flex-col justify-between reveal">
+          <!-- Category 2 -->
+          <div class="p-5 sm:p-6 rounded-3xl bg-slate-50/80 dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 ed-card flex flex-col justify-between reveal">
             <div>
-              <div class="flex items-start justify-between gap-4 mb-4">
+              <div class="flex items-start justify-between gap-3 mb-3">
                 <div>
-                  <span class="px-2.5 py-1 rounded-md bg-amber-100 dark:bg-amber-950 text-amber-700 dark:text-amber-300 text-[11px] font-extrabold uppercase">SBTE Diploma & Entrance</span>
-                  <h3 class="font-heading font-black text-xl text-slate-900 dark:text-white mt-2">Polytechnic & Electrical</h3>
+                  <span class="px-2.5 py-0.5 rounded-md bg-amber-100 dark:bg-amber-950 text-amber-700 dark:text-amber-300 text-[10px] font-extrabold uppercase">SBTE Diploma & JE</span>
+                  <h3 class="font-heading font-black text-lg sm:text-xl text-slate-900 dark:text-white mt-1.5">Polytechnic & Electrical</h3>
                 </div>
-                <div class="w-14 h-14 rounded-2xl bg-amber-500/10 text-amber-500 flex items-center justify-center flex-shrink-0">
-                  <i data-lucide="cpu" class="w-7 h-7"></i>
+                <div class="w-12 h-12 rounded-2xl bg-amber-500/10 text-amber-500 flex items-center justify-center flex-shrink-0">
+                  <i data-lucide="cpu" class="w-6 h-6"></i>
                 </div>
               </div>
-              <div class="flex flex-wrap gap-2 my-4">
-                <a href="#" data-page="electrical-circuits.html" onclick="previewLink('electrical-circuits.html')" class="px-3 py-1.5 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-bold hover:border-amber-500 transition">Circuit Theory</a>
-                <a href="#" data-page="dc-motors-transformers.html" onclick="previewLink('dc-motors-transformers.html')" class="px-3 py-1.5 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-bold hover:border-amber-500 transition">Machines & Transformers</a>
-                <a href="#" data-page="measurements.html" onclick="previewLink('measurements.html')" class="px-3 py-1.5 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-bold hover:border-amber-500 transition">Measurements</a>
-                <a href="#" data-page="sbte-syllabus.html" onclick="previewLink('sbte-syllabus.html')" class="px-3 py-1.5 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-bold hover:border-amber-500 transition">SBTE Syllabus</a>
+              <div class="flex flex-wrap gap-1.5 my-3">
+                <a href="#" data-page="electrical-circuits.html" onclick="previewLink('electrical-circuits.html')" class="px-3 py-1.5 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-bold">Circuit Theory</a>
+                <a href="#" data-page="dc-motors-transformers.html" onclick="previewLink('dc-motors-transformers.html')" class="px-3 py-1.5 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-bold">Machines</a>
+                <a href="#" data-page="measurements.html" onclick="previewLink('measurements.html')" class="px-3 py-1.5 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-bold">Measurements</a>
+                <a href="#" data-page="sbte-syllabus.html" onclick="previewLink('sbte-syllabus.html')" class="px-3 py-1.5 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-bold">SBTE Syllabus</a>
               </div>
             </div>
-            <a href="#" data-page="polytechnic.html" onclick="previewLink('polytechnic.html')" class="mt-4 pt-4 border-t border-slate-200/70 dark:border-slate-800 flex items-center justify-between text-xs font-extrabold text-amber-600 dark:text-amber-400 group">
-              <span>Explore Polytechnic Hub</span>
-              <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+            <a href="#" data-page="polytechnic.html" onclick="previewLink('polytechnic.html')" class="mt-3 pt-3.5 border-t border-slate-200/70 dark:border-slate-800 flex items-center justify-between text-xs font-extrabold text-amber-600 dark:text-amber-400">
+              <span>Enter Polytechnic Hub</span>
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
             </a>
           </div>
 
-          <!-- Category Card 3: Class 11th & 12th Science (PCM) -->
-          <div class="p-6 rounded-3xl bg-slate-50/70 dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 hover:border-purple-500 ed-card flex flex-col justify-between reveal">
+          <!-- Category 3 -->
+          <div class="p-5 sm:p-6 rounded-3xl bg-slate-50/80 dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 ed-card flex flex-col justify-between reveal">
             <div>
-              <div class="flex items-start justify-between gap-4 mb-4">
+              <div class="flex items-start justify-between gap-3 mb-3">
                 <div>
-                  <span class="px-2.5 py-1 rounded-md bg-purple-100 dark:bg-purple-950 text-purple-700 dark:text-purple-300 text-[11px] font-extrabold uppercase">Senior Secondary</span>
-                  <h3 class="font-heading font-black text-xl text-slate-900 dark:text-white mt-2">Class 11th & 12th PCM</h3>
+                  <span class="px-2.5 py-0.5 rounded-md bg-purple-100 dark:bg-purple-950 text-purple-700 dark:text-purple-300 text-[10px] font-extrabold uppercase">Class 11th & 12th</span>
+                  <h3 class="font-heading font-black text-lg sm:text-xl text-slate-900 dark:text-white mt-1.5">Intermediate PCM & Tech</h3>
                 </div>
-                <div class="w-14 h-14 rounded-2xl bg-purple-600/10 text-purple-600 dark:text-purple-400 flex items-center justify-center flex-shrink-0">
-                  <i data-lucide="atom" class="w-7 h-7"></i>
+                <div class="w-12 h-12 rounded-2xl bg-purple-600/10 text-purple-600 dark:text-purple-400 flex items-center justify-center flex-shrink-0">
+                  <i data-lucide="atom" class="w-6 h-6"></i>
                 </div>
               </div>
-              <div class="flex flex-wrap gap-2 my-4">
-                <a href="#" data-page="physics-12.html" onclick="previewLink('physics-12.html')" class="px-3 py-1.5 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-bold hover:border-purple-500 transition">Physics Derivations</a>
-                <a href="#" data-page="maths-12.html" onclick="previewLink('maths-12.html')" class="px-3 py-1.5 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-bold hover:border-purple-500 transition">Calculus & Vectors</a>
-                <a href="#" data-page="chemistry-12.html" onclick="previewLink('chemistry-12.html')" class="px-3 py-1.5 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-bold hover:border-purple-500 transition">Chemistry</a>
-                <a href="#" data-page="model-papers-12.html" onclick="previewLink('model-papers-12.html')" class="px-3 py-1.5 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-bold hover:border-purple-500 transition">Model Sets</a>
+              <div class="flex flex-wrap gap-1.5 my-3">
+                <a href="#" data-page="physics-12.html" onclick="previewLink('physics-12.html')" class="px-3 py-1.5 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-bold">Physics</a>
+                <a href="#" data-page="maths-12.html" onclick="previewLink('maths-12.html')" class="px-3 py-1.5 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-bold">Calculus & Vectors</a>
+                <a href="#" data-page="chemistry-12.html" onclick="previewLink('chemistry-12.html')" class="px-3 py-1.5 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-bold">Chemistry</a>
+                <a href="#" data-page="coding.html" onclick="previewLink('coding.html')" class="px-3 py-1.5 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-bold">Python</a>
               </div>
             </div>
-            <a href="#" data-page="science-portal.html" onclick="previewLink('science-portal.html')" class="mt-4 pt-4 border-t border-slate-200/70 dark:border-slate-800 flex items-center justify-between text-xs font-extrabold text-purple-600 dark:text-purple-400 group">
-              <span>Explore Science Portal</span>
-              <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+            <a href="#" data-page="science-portal.html" onclick="previewLink('science-portal.html')" class="mt-3 pt-3.5 border-t border-slate-200/70 dark:border-slate-800 flex items-center justify-between text-xs font-extrabold text-purple-600 dark:text-purple-400">
+              <span>Enter Science Portal</span>
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
             </a>
           </div>
 
@@ -678,141 +626,138 @@
       </div>
     </section>
 
-    <!-- ==================== 7. MULTI-PAGE DIGITAL RESOURCE HUB (NEW KGS / PW STYLE DOCK) ==================== -->
-    <section class="py-14 bg-gradient-to-b from-slate-100/80 to-white dark:from-slate-900/60 dark:to-[#090d16] border-y border-slate-200/70 dark:border-slate-800">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
-        <div class="text-center max-w-2xl mx-auto mb-10">
-          <span class="text-xs font-extrabold uppercase tracking-widest text-brand-600 dark:text-brand-400">One-Click Study Ecosystem</span>
-          <h2 class="font-heading font-black text-2xl sm:text-3xl text-slate-900 dark:text-white mt-1">
-            Everything You Need in Separate Portals
+    <!-- DEDICATED PORTAL SHORTCUTS -->
+    <section class="py-10 sm:py-14 bg-slate-100/80 dark:bg-slate-900/50 border-y border-slate-200/70 dark:border-slate-800">
+      <div class="max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8 reveal">
+        <div class="text-center max-w-2xl mx-auto mb-6 sm:mb-8">
+          <span class="text-[11px] font-extrabold uppercase tracking-widest text-brand-600 dark:text-brand-400">Fast Mobile Access</span>
+          <h2 class="font-heading font-black text-xl sm:text-3xl text-slate-900 dark:text-white mt-0.5">
+            One-Tap Study Portals
           </h2>
         </div>
 
-        <!-- 6 Dedicated Portal Cards (All using #) -->
-        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
-          <a href="#" data-page="notes.html" onclick="previewLink('notes.html')" class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-brand-500 ed-card text-center group">
-            <div class="w-12 h-12 mx-auto rounded-2xl bg-blue-50 dark:bg-blue-950/80 text-brand-600 dark:text-brand-400 flex items-center justify-center mb-3 group-hover:bg-brand-600 group-hover:text-white transition">
-              <i data-lucide="file-text" class="w-6 h-6"></i>
+        <div class="grid grid-cols-3 sm:grid-cols-3 lg:grid-cols-6 gap-2.5 sm:gap-4">
+          <a href="#" data-page="notes.html" onclick="previewLink('notes.html')" class="p-3.5 sm:p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 active:scale-95 ed-card text-center">
+            <div class="w-10 h-10 sm:w-12 sm:h-12 mx-auto rounded-2xl bg-blue-50 dark:bg-blue-950/80 text-brand-600 dark:text-brand-400 flex items-center justify-center mb-2">
+              <i data-lucide="file-text" class="w-5 h-5 sm:w-6 sm:h-6"></i>
             </div>
-            <h3 class="font-heading font-extrabold text-sm text-slate-900 dark:text-white">PDF Notes</h3>
-            <p class="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">notes.html</p>
+            <h3 class="font-heading font-extrabold text-xs sm:text-sm text-slate-900 dark:text-white">PDF Notes</h3>
+            <p class="text-[10px] text-slate-500 hidden sm:block mt-0.5">notes.html</p>
           </a>
 
-          <a href="#" data-page="pyq.html" onclick="previewLink('pyq.html')" class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-brand-500 ed-card text-center group">
-            <div class="w-12 h-12 mx-auto rounded-2xl bg-purple-50 dark:bg-purple-950/80 text-purple-600 dark:text-purple-400 flex items-center justify-center mb-3 group-hover:bg-purple-600 group-hover:text-white transition">
-              <i data-lucide="layers" class="w-6 h-6"></i>
+          <a href="#" data-page="pyq.html" onclick="previewLink('pyq.html')" class="p-3.5 sm:p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 active:scale-95 ed-card text-center">
+            <div class="w-10 h-10 sm:w-12 sm:h-12 mx-auto rounded-2xl bg-purple-50 dark:bg-purple-950/80 text-purple-600 dark:text-purple-400 flex items-center justify-center mb-2">
+              <i data-lucide="layers" class="w-5 h-5 sm:w-6 sm:h-6"></i>
             </div>
-            <h3 class="font-heading font-extrabold text-sm text-slate-900 dark:text-white">PYQ Archives</h3>
-            <p class="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">pyq.html</p>
+            <h3 class="font-heading font-extrabold text-xs sm:text-sm text-slate-900 dark:text-white">PYQ Bank</h3>
+            <p class="text-[10px] text-slate-500 hidden sm:block mt-0.5">pyq.html</p>
           </a>
 
-          <a href="#" data-page="test-series.html" onclick="previewLink('test-series.html')" class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-brand-500 ed-card text-center group">
-            <div class="w-12 h-12 mx-auto rounded-2xl bg-amber-50 dark:bg-amber-950/80 text-amber-600 dark:text-amber-400 flex items-center justify-center mb-3 group-hover:bg-amber-500 group-hover:text-white transition">
-              <i data-lucide="check-circle-2" class="w-6 h-6"></i>
+          <a href="#" data-page="test-series.html" onclick="previewLink('test-series.html')" class="p-3.5 sm:p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 active:scale-95 ed-card text-center">
+            <div class="w-10 h-10 sm:w-12 sm:h-12 mx-auto rounded-2xl bg-amber-50 dark:bg-amber-950/80 text-amber-600 dark:text-amber-400 flex items-center justify-center mb-2">
+              <i data-lucide="check-circle-2" class="w-5 h-5 sm:w-6 sm:h-6"></i>
             </div>
-            <h3 class="font-heading font-extrabold text-sm text-slate-900 dark:text-white">Mock Tests</h3>
-            <p class="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">test-series.html</p>
+            <h3 class="font-heading font-extrabold text-xs sm:text-sm text-slate-900 dark:text-white">Mock Tests</h3>
+            <p class="text-[10px] text-slate-500 hidden sm:block mt-0.5">test-series.html</p>
           </a>
 
-          <a href="#" data-page="formulas.html" onclick="previewLink('formulas.html')" class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-brand-500 ed-card text-center group">
-            <div class="w-12 h-12 mx-auto rounded-2xl bg-emerald-50 dark:bg-emerald-950/80 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mb-3 group-hover:bg-emerald-600 group-hover:text-white transition">
-              <i data-lucide="compass" class="w-6 h-6"></i>
+          <a href="#" data-page="formulas.html" onclick="previewLink('formulas.html')" class="p-3.5 sm:p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 active:scale-95 ed-card text-center">
+            <div class="w-10 h-10 sm:w-12 sm:h-12 mx-auto rounded-2xl bg-emerald-50 dark:bg-emerald-950/80 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mb-2">
+              <i data-lucide="compass" class="w-5 h-5 sm:w-6 sm:h-6"></i>
             </div>
-            <h3 class="font-heading font-extrabold text-sm text-slate-900 dark:text-white">Formula Maps</h3>
-            <p class="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">formulas.html</p>
+            <h3 class="font-heading font-extrabold text-xs sm:text-sm text-slate-900 dark:text-white">Formulas</h3>
+            <p class="text-[10px] text-slate-500 hidden sm:block mt-0.5">formulas.html</p>
           </a>
 
-          <a href="#" data-page="coding.html" onclick="previewLink('coding.html')" class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-brand-500 ed-card text-center group">
-            <div class="w-12 h-12 mx-auto rounded-2xl bg-sky-50 dark:bg-sky-950/80 text-sky-600 dark:text-sky-400 flex items-center justify-center mb-3 group-hover:bg-sky-600 group-hover:text-white transition">
-              <i data-lucide="terminal" class="w-6 h-6"></i>
+          <a href="#" data-page="coding.html" onclick="previewLink('coding.html')" class="p-3.5 sm:p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 active:scale-95 ed-card text-center">
+            <div class="w-10 h-10 sm:w-12 sm:h-12 mx-auto rounded-2xl bg-sky-50 dark:bg-sky-950/80 text-sky-600 dark:text-sky-400 flex items-center justify-center mb-2">
+              <i data-lucide="terminal" class="w-5 h-5 sm:w-6 sm:h-6"></i>
             </div>
-            <h3 class="font-heading font-extrabold text-sm text-slate-900 dark:text-white">Python Lab</h3>
-            <p class="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">coding.html</p>
+            <h3 class="font-heading font-extrabold text-xs sm:text-sm text-slate-900 dark:text-white">Python Lab</h3>
+            <p class="text-[10px] text-slate-500 hidden sm:block mt-0.5">coding.html</p>
           </a>
 
-          <a href="#" data-page="results.html" onclick="previewLink('results.html')" class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-brand-500 ed-card text-center group">
-            <div class="w-12 h-12 mx-auto rounded-2xl bg-rose-50 dark:bg-rose-950/80 text-rose-600 dark:text-rose-400 flex items-center justify-center mb-3 group-hover:bg-rose-600 group-hover:text-white transition">
-              <i data-lucide="trophy" class="w-6 h-6"></i>
+          <a href="#" data-page="results.html" onclick="previewLink('results.html')" class="p-3.5 sm:p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 active:scale-95 ed-card text-center">
+            <div class="w-10 h-10 sm:w-12 sm:h-12 mx-auto rounded-2xl bg-rose-50 dark:bg-rose-950/80 text-rose-600 dark:text-rose-400 flex items-center justify-center mb-2">
+              <i data-lucide="trophy" class="w-5 h-5 sm:w-6 sm:h-6"></i>
             </div>
-            <h3 class="font-heading font-extrabold text-sm text-slate-900 dark:text-white">Hall of Fame</h3>
-            <p class="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">results.html</p>
+            <h3 class="font-heading font-extrabold text-xs sm:text-sm text-slate-900 dark:text-white">Toppers</h3>
+            <p class="text-[10px] text-slate-500 hidden sm:block mt-0.5">results.html</p>
           </a>
         </div>
       </div>
     </section>
 
-    <!-- ==================== 8. POPULAR LIVE BATCHES (PW / KGS CARD LAYOUT) ==================== -->
-    <section id="courses" class="py-20 bg-white dark:bg-[#090d16] transition-colors">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- FEATURED BATCHES -->
+    <section id="courses" class="py-12 sm:py-20 bg-white dark:bg-[#090d16] transition-colors">
+      <div class="max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8">
         
-        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4 reveal">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-12 gap-4 reveal">
           <div>
-            <span class="text-xs font-extrabold uppercase tracking-widest text-brand-600 dark:text-brand-400">2026-27 Academic Session</span>
-            <h2 class="font-heading font-black text-3xl sm:text-4xl text-slate-900 dark:text-white mt-1 tracking-tight">
-              Trending Live & Recorded Batches
+            <span class="text-[11px] font-extrabold uppercase tracking-widest text-brand-600 dark:text-brand-400">2026-27 Academic Session</span>
+            <h2 class="font-heading font-black text-2xl sm:text-4xl text-slate-900 dark:text-white mt-0.5 tracking-tight">
+              Featured Live & Recorded Batches
             </h2>
           </div>
           
-          <!-- Filter Tabs -->
-          <div class="flex items-center gap-2 overflow-x-auto pb-2 md:pb-0">
-            <button onclick="filterBatches('all', this)" class="batch-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-brand-600 text-white shadow-sm transition">All Batches</button>
-            <button onclick="filterBatches('board', this)" class="batch-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 transition">Board Exams</button>
-            <button onclick="filterBatches('technical', this)" class="batch-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 transition">Polytechnic & EE</button>
-            <button onclick="filterBatches('skills', this)" class="batch-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 transition">Python & Tech</button>
+          <div class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1">
+            <button onclick="filterBatches('all', this)" class="batch-tab px-4 py-2 rounded-xl text-xs font-bold bg-brand-600 text-white whitespace-nowrap transition">All Batches</button>
+            <button onclick="filterBatches('board', this)" class="batch-tab px-4 py-2 rounded-xl text-xs font-bold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 whitespace-nowrap transition">Board Exams</button>
+            <button onclick="filterBatches('technical', this)" class="batch-tab px-4 py-2 rounded-xl text-xs font-bold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 whitespace-nowrap transition">Polytechnic & EE</button>
+            <button onclick="filterBatches('skills', this)" class="batch-tab px-4 py-2 rounded-xl text-xs font-bold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 whitespace-nowrap transition">Python & Tech</button>
           </div>
         </div>
 
-        <div id="batchesGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
+        <div id="batchesGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-7">
           
-          <!-- PW Style Batch Card 1 -->
+          <!-- Batch 1 -->
           <div class="batch-card board bg-white dark:bg-slate-900 rounded-3xl overflow-hidden border border-slate-200/90 dark:border-slate-800 shadow-sm ed-card flex flex-col reveal">
-            <div class="relative h-48 bg-gradient-to-br from-blue-700 via-brand-600 to-indigo-900 p-6 flex flex-col justify-between text-white">
+            <div class="relative h-40 sm:h-44 bg-gradient-to-br from-blue-700 via-brand-600 to-indigo-900 p-5 flex flex-col justify-between text-white">
               <div class="flex items-center justify-between">
-                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-500 text-white text-[11px] font-extrabold uppercase tracking-wider">
+                <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-red-500 text-white text-[10px] font-extrabold uppercase tracking-wider">
                   <span class="w-1.5 h-1.5 rounded-full bg-white animate-ping"></span> LIVE + RECORDED
                 </span>
-                <span class="px-2.5 py-1 rounded-lg bg-white/20 backdrop-blur-md text-xs font-bold">Hinglish</span>
+                <span class="px-2.5 py-0.5 rounded-lg bg-white/20 backdrop-blur-md text-xs font-bold">Hinglish</span>
               </div>
               <div>
-                <span class="text-xs font-bold text-sky-200 uppercase tracking-wider">Class 10th Full Preparation</span>
-                <h3 class="font-heading font-black text-2xl mt-0.5">Sankalp Board Topper 2.0</h3>
+                <span class="text-[11px] font-bold text-sky-200 uppercase tracking-wider">Class 10th Complete Prep</span>
+                <h3 class="font-heading font-black text-xl sm:text-2xl mt-0.5">Sankalp Board Topper 2.0</h3>
               </div>
             </div>
 
-            <div class="p-6 flex-1 flex flex-col justify-between space-y-5">
-              <div class="space-y-2.5 text-xs sm:text-sm text-slate-600 dark:text-slate-300 font-medium">
-                <div class="flex items-center gap-2.5">
+            <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
+              <div class="space-y-2 text-xs text-slate-600 dark:text-slate-300 font-medium">
+                <div class="flex items-center gap-2">
                   <i data-lucide="calendar" class="w-4 h-4 text-brand-600 dark:text-brand-400 flex-shrink-0"></i>
                   <span><strong>Validity:</strong> Full Session till Board Exams 2027</span>
                 </div>
-                <div class="flex items-center gap-2.5">
+                <div class="flex items-center gap-2">
                   <i data-lucide="book-open" class="w-4 h-4 text-brand-600 dark:text-brand-400 flex-shrink-0"></i>
                   <span><strong>Subjects:</strong> Science, Maths, SST, English & Hindi</span>
                 </div>
-                <div class="flex items-center gap-2.5">
+                <div class="flex items-center gap-2">
                   <i data-lucide="file-check" class="w-4 h-4 text-emerald-500 flex-shrink-0"></i>
                   <span><strong>Includes:</strong> Chapter PDF Notes + 25 Mock Tests</span>
                 </div>
               </div>
 
-              <div class="pt-4 border-t border-slate-100 dark:border-slate-800">
-                <div class="flex items-center justify-between mb-4">
+              <div class="pt-3.5 border-t border-slate-100 dark:border-slate-800">
+                <div class="flex items-center justify-between mb-3.5">
                   <div>
                     <span class="text-xs text-slate-400 line-through font-bold">₹1,999</span>
                     <div class="flex items-center gap-2">
                       <span class="font-display text-2xl font-bold text-slate-900 dark:text-white">₹499</span>
-                      <span class="px-2 py-0.5 rounded bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-400 text-[11px] font-extrabold">75% OFF</span>
+                      <span class="px-2 py-0.5 rounded bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-400 text-[10px] font-extrabold">75% OFF</span>
                     </div>
                   </div>
                   <span class="text-[11px] font-bold text-slate-500">Full Year Access</span>
                 </div>
 
-                <!-- Dual PW Style Buttons with # -->
-                <div class="grid grid-cols-2 gap-3">
-                  <a href="#" data-page="batch-details-10.html" onclick="previewLink('batch-details-10.html')" class="py-2.5 px-4 rounded-xl border border-brand-600 text-brand-600 dark:text-brand-400 font-extrabold text-xs sm:text-sm text-center hover:bg-brand-50 dark:hover:bg-slate-800 transition">
+                <div class="grid grid-cols-2 gap-2.5">
+                  <a href="#" data-page="batch-details-10.html" onclick="previewLink('batch-details-10.html')" class="py-2.5 px-3 rounded-xl border border-brand-600 text-brand-600 dark:text-brand-400 font-extrabold text-xs text-center">
                     EXPLORE
                   </a>
-                  <a href="#" data-page="checkout.html" onclick="previewLink('checkout.html')" class="py-2.5 px-4 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-extrabold text-xs sm:text-sm text-center shadow-md transition">
+                  <a href="#" data-page="checkout.html" onclick="previewLink('checkout.html')" class="py-2.5 px-3 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-extrabold text-xs text-center shadow-sm">
                     BUY NOW
                   </a>
                 </div>
@@ -820,54 +765,54 @@
             </div>
           </div>
 
-          <!-- PW Style Batch Card 2 -->
+          <!-- Batch 2 -->
           <div class="batch-card technical bg-white dark:bg-slate-900 rounded-3xl overflow-hidden border border-slate-200/90 dark:border-slate-800 shadow-sm ed-card flex flex-col reveal">
-            <div class="relative h-48 bg-gradient-to-br from-emerald-700 via-teal-700 to-slate-900 p-6 flex flex-col justify-between text-white">
+            <div class="relative h-40 sm:h-44 bg-gradient-to-br from-emerald-700 via-teal-700 to-slate-900 p-5 flex flex-col justify-between text-white">
               <div class="flex items-center justify-between">
-                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-400 text-slate-950 text-[11px] font-extrabold uppercase tracking-wider">
+                <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-amber-400 text-slate-950 text-[10px] font-extrabold uppercase tracking-wider">
                   ★ BESTSELLER
                 </span>
-                <span class="px-2.5 py-1 rounded-lg bg-white/20 backdrop-blur-md text-xs font-bold">SBTE & JE</span>
+                <span class="px-2.5 py-0.5 rounded-lg bg-white/20 backdrop-blur-md text-xs font-bold">SBTE & JE</span>
               </div>
               <div>
-                <span class="text-xs font-bold text-emerald-200 uppercase tracking-wider">Diploma Electrical Engineering</span>
-                <h3 class="font-heading font-black text-2xl mt-0.5">Chanakya Polytechnic Batch</h3>
+                <span class="text-[11px] font-bold text-emerald-200 uppercase tracking-wider">Diploma Electrical Engineering</span>
+                <h3 class="font-heading font-black text-xl sm:text-2xl mt-0.5">Chanakya Polytechnic Batch</h3>
               </div>
             </div>
 
-            <div class="p-6 flex-1 flex flex-col justify-between space-y-5">
-              <div class="space-y-2.5 text-xs sm:text-sm text-slate-600 dark:text-slate-300 font-medium">
-                <div class="flex items-center gap-2.5">
+            <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
+              <div class="space-y-2 text-xs text-slate-600 dark:text-slate-300 font-medium">
+                <div class="flex items-center gap-2">
                   <i data-lucide="cpu" class="w-4 h-4 text-emerald-600 dark:text-emerald-400 flex-shrink-0"></i>
                   <span><strong>Core:</strong> Network Theorems, Star-Delta, DC Motors</span>
                 </div>
-                <div class="flex items-center gap-2.5">
+                <div class="flex items-center gap-2">
                   <i data-lucide="gauge" class="w-4 h-4 text-emerald-600 dark:text-emerald-400 flex-shrink-0"></i>
                   <span><strong>Lab & Practical:</strong> Transformers & Measurements</span>
                 </div>
-                <div class="flex items-center gap-2.5">
+                <div class="flex items-center gap-2">
                   <i data-lucide="file-check" class="w-4 h-4 text-emerald-500 flex-shrink-0"></i>
                   <span><strong>Includes:</strong> SBTE Semester Notes & PYQ Solutions</span>
                 </div>
               </div>
 
-              <div class="pt-4 border-t border-slate-100 dark:border-slate-800">
-                <div class="flex items-center justify-between mb-4">
+              <div class="pt-3.5 border-t border-slate-100 dark:border-slate-800">
+                <div class="flex items-center justify-between mb-3.5">
                   <div>
                     <span class="text-xs text-slate-400 line-through font-bold">₹2,499</span>
                     <div class="flex items-center gap-2">
                       <span class="font-display text-2xl font-bold text-slate-900 dark:text-white">₹699</span>
-                      <span class="px-2 py-0.5 rounded bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-400 text-[11px] font-extrabold">72% OFF</span>
+                      <span class="px-2 py-0.5 rounded bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-400 text-[10px] font-extrabold">72% OFF</span>
                     </div>
                   </div>
                   <span class="text-[11px] font-bold text-slate-500">Complete Pack</span>
                 </div>
 
-                <div class="grid grid-cols-2 gap-3">
-                  <a href="#" data-page="polytechnic.html" onclick="previewLink('polytechnic.html')" class="py-2.5 px-4 rounded-xl border border-brand-600 text-brand-600 dark:text-brand-400 font-extrabold text-xs sm:text-sm text-center hover:bg-brand-50 dark:hover:bg-slate-800 transition">
+                <div class="grid grid-cols-2 gap-2.5">
+                  <a href="#" data-page="polytechnic.html" onclick="previewLink('polytechnic.html')" class="py-2.5 px-3 rounded-xl border border-brand-600 text-brand-600 dark:text-brand-400 font-extrabold text-xs text-center">
                     EXPLORE
                   </a>
-                  <a href="#" data-page="checkout.html" onclick="previewLink('checkout.html')" class="py-2.5 px-4 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-extrabold text-xs sm:text-sm text-center shadow-md transition">
+                  <a href="#" data-page="checkout.html" onclick="previewLink('checkout.html')" class="py-2.5 px-3 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-extrabold text-xs text-center shadow-sm">
                     BUY NOW
                   </a>
                 </div>
@@ -875,54 +820,54 @@
             </div>
           </div>
 
-          <!-- PW Style Batch Card 3 -->
+          <!-- Batch 3 -->
           <div class="batch-card board skills bg-white dark:bg-slate-900 rounded-3xl overflow-hidden border border-slate-200/90 dark:border-slate-800 shadow-sm ed-card flex flex-col reveal">
-            <div class="relative h-48 bg-gradient-to-br from-purple-700 via-indigo-800 to-slate-900 p-6 flex flex-col justify-between text-white">
+            <div class="relative h-40 sm:h-44 bg-gradient-to-br from-purple-700 via-indigo-800 to-slate-900 p-5 flex flex-col justify-between text-white">
               <div class="flex items-center justify-between">
-                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-sky-400 text-slate-950 text-[11px] font-extrabold uppercase tracking-wider">
+                <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-sky-400 text-slate-950 text-[10px] font-extrabold uppercase tracking-wider">
                   TECH + SCIENCE
                 </span>
-                <span class="px-2.5 py-1 rounded-lg bg-white/20 backdrop-blur-md text-xs font-bold">Bilingual</span>
+                <span class="px-2.5 py-0.5 rounded-lg bg-white/20 backdrop-blur-md text-xs font-bold">Bilingual</span>
               </div>
               <div>
-                <span class="text-xs font-bold text-purple-200 uppercase tracking-wider">Class 12th + Coding Foundation</span>
-                <h3 class="font-heading font-black text-2xl mt-0.5">Prahaar PCM & Python Pro</h3>
+                <span class="text-[11px] font-bold text-purple-200 uppercase tracking-wider">Class 12th + Coding Foundation</span>
+                <h3 class="font-heading font-black text-xl sm:text-2xl mt-0.5">Prahaar PCM & Python Pro</h3>
               </div>
             </div>
 
-            <div class="p-6 flex-1 flex flex-col justify-between space-y-5">
-              <div class="space-y-2.5 text-xs sm:text-sm text-slate-600 dark:text-slate-300 font-medium">
-                <div class="flex items-center gap-2.5">
+            <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
+              <div class="space-y-2 text-xs text-slate-600 dark:text-slate-300 font-medium">
+                <div class="flex items-center gap-2">
                   <i data-lucide="atom" class="w-4 h-4 text-purple-600 dark:text-purple-400 flex-shrink-0"></i>
                   <span><strong>Science:</strong> Class 12 Physics & Maths Numericals</span>
                 </div>
-                <div class="flex items-center gap-2.5">
+                <div class="flex items-center gap-2">
                   <i data-lucide="terminal" class="w-4 h-4 text-purple-600 dark:text-purple-400 flex-shrink-0"></i>
                   <span><strong>Coding:</strong> Python Syntax, Control Flow, NumPy & Web</span>
                 </div>
-                <div class="flex items-center gap-2.5">
+                <div class="flex items-center gap-2">
                   <i data-lucide="file-check" class="w-4 h-4 text-emerald-500 flex-shrink-0"></i>
                   <span><strong>Includes:</strong> Codebooks, CheatSheets & Live Tests</span>
                 </div>
               </div>
 
-              <div class="pt-4 border-t border-slate-100 dark:border-slate-800">
-                <div class="flex items-center justify-between mb-4">
+              <div class="pt-3.5 border-t border-slate-100 dark:border-slate-800">
+                <div class="flex items-center justify-between mb-3.5">
                   <div>
                     <span class="text-xs text-slate-400 line-through font-bold">₹2,999</span>
                     <div class="flex items-center gap-2">
                       <span class="font-display text-2xl font-bold text-slate-900 dark:text-white">₹799</span>
-                      <span class="px-2 py-0.5 rounded bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-400 text-[11px] font-extrabold">73% OFF</span>
+                      <span class="px-2 py-0.5 rounded bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-400 text-[10px] font-extrabold">73% OFF</span>
                     </div>
                   </div>
                   <span class="text-[11px] font-bold text-slate-500">Combo Access</span>
                 </div>
 
-                <div class="grid grid-cols-2 gap-3">
-                  <a href="#" data-page="coding.html" onclick="previewLink('coding.html')" class="py-2.5 px-4 rounded-xl border border-brand-600 text-brand-600 dark:text-brand-400 font-extrabold text-xs sm:text-sm text-center hover:bg-brand-50 dark:hover:bg-slate-800 transition">
+                <div class="grid grid-cols-2 gap-2.5">
+                  <a href="#" data-page="coding.html" onclick="previewLink('coding.html')" class="py-2.5 px-3 rounded-xl border border-brand-600 text-brand-600 dark:text-brand-400 font-extrabold text-xs text-center">
                     EXPLORE
                   </a>
-                  <a href="#" data-page="checkout.html" onclick="previewLink('checkout.html')" class="py-2.5 px-4 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-extrabold text-xs sm:text-sm text-center shadow-md transition">
+                  <a href="#" data-page="checkout.html" onclick="previewLink('checkout.html')" class="py-2.5 px-3 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-extrabold text-xs text-center shadow-sm">
                     BUY NOW
                   </a>
                 </div>
@@ -934,104 +879,98 @@
       </div>
     </section>
 
-    <!-- ==================== 9. FREE NOTES & PDF LIBRARY PREVIEW (LINKS TO notes.html via #) ==================== -->
-    <section id="notes" class="py-20 bg-slate-50 dark:bg-slate-900/50 border-t border-slate-200/80 dark:border-slate-800 transition-colors">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- FREE NOTES LIBRARY -->
+    <section id="notes" class="py-12 sm:py-20 bg-slate-50 dark:bg-slate-900/50 border-t border-slate-200/80 dark:border-slate-800 transition-colors">
+      <div class="max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8">
         
-        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4 reveal">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-10 gap-3 reveal">
           <div>
-            <span class="text-xs font-extrabold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">100% Free Digital Library</span>
-            <h2 class="font-heading font-black text-3xl sm:text-4xl text-slate-900 dark:text-white mt-1 tracking-tight">
+            <span class="text-[11px] font-extrabold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">100% Free Digital Library</span>
+            <h2 class="font-heading font-black text-2xl sm:text-4xl text-slate-900 dark:text-white mt-0.5 tracking-tight">
               Smart PDF Notes & Formula Sheets
             </h2>
-            <p class="text-slate-600 dark:text-slate-400 text-sm sm:text-base mt-1 font-medium">
-              Direct download links and dedicated preview pages for every subject.
-            </p>
           </div>
 
-          <div class="flex items-center gap-3">
-            <div class="relative w-full sm:w-64">
-              <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2"></i>
+          <div class="flex items-center gap-2">
+            <div class="relative flex-1 sm:w-60">
+              <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2"></i>
               <input 
                 type="text" 
                 id="notesFilterInput"
                 onkeyup="filterNoteCards()"
                 placeholder="Filter PDF notes..." 
-                class="w-full pl-9 pr-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 text-xs sm:text-sm font-medium bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-brand-500"
+                class="w-full pl-9 pr-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 text-xs sm:text-sm font-medium bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-brand-500"
               />
             </div>
-            <a href="#" data-page="notes.html" onclick="previewLink('notes.html')" class="px-4 py-2.5 rounded-xl bg-slate-900 dark:bg-brand-600 text-white font-bold text-xs sm:text-sm whitespace-nowrap hover:opacity-90 transition">
-              Open Full Library →
+            <a href="#" data-page="notes.html" onclick="previewLink('notes.html')" class="px-3.5 py-2 rounded-xl bg-slate-900 dark:bg-brand-600 text-white font-bold text-xs whitespace-nowrap">
+              View All →
             </a>
           </div>
         </div>
 
-        <div id="notesGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div id="notesGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           
-          <!-- Note Item 1 -->
-          <div class="note-item p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-brand-500 ed-card flex flex-col justify-between reveal">
-            <div class="flex items-start gap-4">
-              <div class="w-12 h-12 rounded-2xl bg-red-50 dark:bg-red-950/70 text-red-600 dark:text-red-400 flex items-center justify-center flex-shrink-0">
-                <i data-lucide="file-text" class="w-6 h-6"></i>
+          <div class="note-item p-5 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 ed-card flex flex-col justify-between reveal">
+            <div class="flex items-start gap-3.5">
+              <div class="w-11 h-11 rounded-2xl bg-red-50 dark:bg-red-950/70 text-red-600 dark:text-red-400 flex items-center justify-center flex-shrink-0">
+                <i data-lucide="file-text" class="w-5 h-5"></i>
               </div>
               <div>
-                <span class="font-display text-[10px] font-bold text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950 px-2.5 py-0.5 rounded uppercase">FREE PDF • 4.2 MB</span>
-                <h3 class="font-heading font-extrabold text-slate-900 dark:text-white text-base mt-1.5">Class 10 Science Formula Handbook</h3>
+                <span class="font-display text-[10px] font-bold text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950 px-2 py-0.5 rounded uppercase">FREE PDF • 4.2 MB</span>
+                <h3 class="font-heading font-extrabold text-slate-900 dark:text-white text-sm sm:text-base mt-1">Class 10 Science Formula Handbook</h3>
                 <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">All Physics ray diagrams, Electricity laws & Chemical equations.</p>
               </div>
             </div>
-            <div class="mt-5 pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
+            <div class="mt-4 pt-3.5 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
               <a href="#" data-page="notes.html" onclick="previewLink('notes.html')" class="text-xs font-bold text-slate-500 hover:text-brand-600 flex items-center gap-1">
                 <i data-lucide="eye" class="w-3.5 h-3.5"></i> Read Online
               </a>
-              <a href="#" data-page="notes.html" onclick="previewLink('notes.html')" class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-brand-50 dark:bg-slate-800 text-brand-600 dark:text-brand-400 font-extrabold text-xs hover:bg-brand-600 hover:text-white transition">
-                <span>Download PDF</span>
+              <a href="#" data-page="notes.html" onclick="previewLink('notes.html')" class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-brand-50 dark:bg-slate-800 text-brand-600 dark:text-brand-400 font-extrabold text-xs">
+                <span>Download</span>
                 <i data-lucide="download" class="w-3.5 h-3.5"></i>
               </a>
             </div>
           </div>
 
-          <!-- Note Item 2 -->
-          <div class="note-item p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-brand-500 ed-card flex flex-col justify-between reveal">
-            <div class="flex items-start gap-4">
-              <div class="w-12 h-12 rounded-2xl bg-amber-50 dark:bg-amber-950/70 text-amber-600 dark:text-amber-400 flex items-center justify-center flex-shrink-0">
-                <i data-lucide="zap" class="w-6 h-6"></i>
+          <div class="note-item p-5 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 ed-card flex flex-col justify-between reveal">
+            <div class="flex items-start gap-3.5">
+              <div class="w-11 h-11 rounded-2xl bg-amber-50 dark:bg-amber-950/70 text-amber-600 dark:text-amber-400 flex items-center justify-center flex-shrink-0">
+                <i data-lucide="zap" class="w-5 h-5"></i>
               </div>
               <div>
-                <span class="font-display text-[10px] font-bold text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950 px-2.5 py-0.5 rounded uppercase">SBTE SPECIAL • 3.1 MB</span>
-                <h3 class="font-heading font-extrabold text-slate-900 dark:text-white text-base mt-1.5">Network Theorems & Star-Delta Notes</h3>
+                <span class="font-display text-[10px] font-bold text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950 px-2 py-0.5 rounded uppercase">SBTE SPECIAL • 3.1 MB</span>
+                <h3 class="font-heading font-extrabold text-slate-900 dark:text-white text-sm sm:text-base mt-1">Network Theorems & Star-Delta Notes</h3>
                 <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">KCL, KVL, Thevenin, Norton, Superposition & AC Power Factor.</p>
               </div>
             </div>
-            <div class="mt-5 pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
+            <div class="mt-4 pt-3.5 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
               <a href="#" data-page="notes.html" onclick="previewLink('notes.html')" class="text-xs font-bold text-slate-500 hover:text-brand-600 flex items-center gap-1">
                 <i data-lucide="eye" class="w-3.5 h-3.5"></i> Read Online
               </a>
-              <a href="#" data-page="notes.html" onclick="previewLink('notes.html')" class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-brand-50 dark:bg-slate-800 text-brand-600 dark:text-brand-400 font-extrabold text-xs hover:bg-brand-600 hover:text-white transition">
-                <span>Download PDF</span>
+              <a href="#" data-page="notes.html" onclick="previewLink('notes.html')" class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-brand-50 dark:bg-slate-800 text-brand-600 dark:text-brand-400 font-extrabold text-xs">
+                <span>Download</span>
                 <i data-lucide="download" class="w-3.5 h-3.5"></i>
               </a>
             </div>
           </div>
 
-          <!-- Note Item 3 -->
-          <div class="note-item p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-brand-500 ed-card flex flex-col justify-between reveal">
-            <div class="flex items-start gap-4">
-              <div class="w-12 h-12 rounded-2xl bg-emerald-50 dark:bg-emerald-950/70 text-emerald-600 dark:text-emerald-400 flex items-center justify-center flex-shrink-0">
-                <i data-lucide="terminal" class="w-6 h-6"></i>
+          <div class="note-item p-5 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 ed-card flex flex-col justify-between reveal">
+            <div class="flex items-start gap-3.5">
+              <div class="w-11 h-11 rounded-2xl bg-emerald-50 dark:bg-emerald-950/70 text-emerald-600 dark:text-emerald-400 flex items-center justify-center flex-shrink-0">
+                <i data-lucide="terminal" class="w-5 h-5"></i>
               </div>
               <div>
-                <span class="font-display text-[10px] font-bold text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950 px-2.5 py-0.5 rounded uppercase">CODING GUIDE • 2.4 MB</span>
-                <h3 class="font-heading font-extrabold text-slate-900 dark:text-white text-base mt-1.5">Python Programming Codebook</h3>
+                <span class="font-display text-[10px] font-bold text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950 px-2 py-0.5 rounded uppercase">CODING GUIDE • 2.4 MB</span>
+                <h3 class="font-heading font-extrabold text-slate-900 dark:text-white text-sm sm:text-base mt-1">Python Programming Codebook</h3>
                 <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">SBTE 3rd Sem aligned Python syntax, loops, functions & NumPy.</p>
               </div>
             </div>
-            <div class="mt-5 pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
+            <div class="mt-4 pt-3.5 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
               <a href="#" data-page="notes.html" onclick="previewLink('notes.html')" class="text-xs font-bold text-slate-500 hover:text-brand-600 flex items-center gap-1">
                 <i data-lucide="eye" class="w-3.5 h-3.5"></i> Read Online
               </a>
-              <a href="#" data-page="notes.html" onclick="previewLink('notes.html')" class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-brand-50 dark:bg-slate-800 text-brand-600 dark:text-brand-400 font-extrabold text-xs hover:bg-brand-600 hover:text-white transition">
-                <span>Download PDF</span>
+              <a href="#" data-page="notes.html" onclick="previewLink('notes.html')" class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-brand-50 dark:bg-slate-800 text-brand-600 dark:text-brand-400 font-extrabold text-xs">
+                <span>Download</span>
                 <i data-lucide="download" class="w-3.5 h-3.5"></i>
               </a>
             </div>
@@ -1041,80 +980,80 @@
       </div>
     </section>
 
-    <!-- ==================== 10. LIVE INTERACTIVE QUIZ & DAILY TIMETABLE ==================== -->
-    <section id="quiz" class="py-20 bg-white dark:bg-[#090d16] border-t border-slate-200/80 dark:border-slate-800 transition-colors">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+    <!-- QUIZ & LIVE SCHEDULE -->
+    <section id="quiz" class="py-12 sm:py-20 bg-white dark:bg-[#090d16] border-t border-slate-200/80 dark:border-slate-800 transition-colors">
+      <div class="max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-10 items-start">
           
-          <!-- Left 7 Cols: Interactive Quiz Engine -->
-          <div class="lg:col-span-7 bg-slate-50/70 dark:bg-slate-900 rounded-3xl p-6 sm:p-8 border border-slate-200 dark:border-slate-800 shadow-lg reveal">
-            <div class="flex flex-wrap items-center justify-between gap-3 pb-5 border-b border-slate-200/80 dark:border-slate-800">
-              <div class="flex items-center gap-3">
-                <div class="w-11 h-11 rounded-2xl bg-brand-600 text-white flex items-center justify-center">
-                  <i data-lucide="brain-circuit" class="w-6 h-6"></i>
+          <!-- Quiz Box -->
+          <div class="lg:col-span-7 bg-slate-50/80 dark:bg-slate-900 rounded-3xl p-5 sm:p-8 border border-slate-200 dark:border-slate-800 shadow-md reveal">
+            <div class="flex flex-wrap items-center justify-between gap-2 pb-4 border-b border-slate-200/80 dark:border-slate-800">
+              <div class="flex items-center gap-2.5">
+                <div class="w-10 h-10 rounded-2xl bg-brand-600 text-white flex items-center justify-center">
+                  <i data-lucide="brain-circuit" class="w-5 h-5"></i>
                 </div>
                 <div>
-                  <span class="text-[11px] font-extrabold uppercase tracking-wider text-brand-600 dark:text-brand-400">Daily Rapid Fire</span>
-                  <h3 class="font-heading font-black text-xl text-slate-900 dark:text-white">Live Concept Quiz</h3>
+                  <span class="text-[10px] font-extrabold uppercase tracking-wider text-brand-600 dark:text-brand-400">Daily Practice</span>
+                  <h3 class="font-heading font-black text-lg sm:text-xl text-slate-900 dark:text-white">Live Concept Quiz</h3>
                 </div>
               </div>
               <div class="flex items-center gap-2 font-display">
-                <span id="quizCounterBadge" class="px-3 py-1 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-bold">Q 1/3</span>
-                <span id="quizScoreBadge" class="px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-400 text-xs font-bold">Score: 0</span>
+                <span id="quizCounterBadge" class="px-2.5 py-1 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-bold">Q 1/3</span>
+                <span id="quizScoreBadge" class="px-2.5 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-400 text-xs font-bold">Score: 0</span>
               </div>
             </div>
 
-            <div class="my-6">
-              <p id="quizQuestionText" class="font-heading text-base sm:text-lg font-bold text-slate-900 dark:text-white leading-relaxed"></p>
-              <div id="quizOptionsContainer" class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-5"></div>
-              <div id="quizFeedbackBox" class="hidden mt-4 p-4 rounded-2xl text-xs sm:text-sm font-medium"></div>
+            <div class="my-5">
+              <p id="quizQuestionText" class="font-heading text-sm sm:text-lg font-bold text-slate-900 dark:text-white leading-relaxed"></p>
+              <div id="quizOptionsContainer" class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mt-4"></div>
+              <div id="quizFeedbackBox" class="hidden mt-4 p-3.5 rounded-2xl text-xs font-medium"></div>
             </div>
 
-            <div class="pt-4 border-t border-slate-200/80 dark:border-slate-800 flex items-center justify-between">
-              <a href="#" data-page="test-series.html" onclick="previewLink('test-series.html')" class="text-xs font-extrabold text-brand-600 dark:text-brand-400 hover:underline flex items-center gap-1">
-                <span>Open Full Test Portal</span>
+            <div class="pt-3.5 border-t border-slate-200/80 dark:border-slate-800 flex items-center justify-between">
+              <a href="#" data-page="test-series.html" onclick="previewLink('test-series.html')" class="text-xs font-extrabold text-brand-600 dark:text-brand-400 flex items-center gap-1">
+                <span>Full Test Portal</span>
                 <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
               </a>
-              <button onclick="nextQuizQuestion()" class="px-5 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs sm:text-sm transition flex items-center gap-1.5">
+              <button onclick="nextQuizQuestion()" class="px-4 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs transition flex items-center gap-1.5">
                 <span>Next Question</span>
-                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
               </button>
             </div>
           </div>
 
-          <!-- Right 5 Cols: Live Class Schedule -->
-          <div class="lg:col-span-5 bg-slate-50/70 dark:bg-slate-900 rounded-3xl p-6 sm:p-8 border border-slate-200 dark:border-slate-800 shadow-lg reveal">
-            <div class="flex items-center justify-between pb-5 border-b border-slate-200/80 dark:border-slate-800">
+          <!-- Routine Box -->
+          <div class="lg:col-span-5 bg-slate-50/80 dark:bg-slate-900 rounded-3xl p-5 sm:p-8 border border-slate-200 dark:border-slate-800 shadow-md reveal">
+            <div class="flex items-center justify-between pb-4 border-b border-slate-200/80 dark:border-slate-800">
               <div>
-                <span class="text-[11px] font-extrabold uppercase tracking-wider text-amber-600 dark:text-amber-400">Mon – Sat Routine</span>
-                <h3 class="font-heading font-black text-xl text-slate-900 dark:text-white">Live Class Schedule</h3>
+                <span class="text-[10px] font-extrabold uppercase tracking-wider text-amber-600 dark:text-amber-400">Mon – Sat Routine</span>
+                <h3 class="font-heading font-black text-lg sm:text-xl text-slate-900 dark:text-white">Live Class Schedule</h3>
               </div>
-              <a href="#" data-page="schedule.html" onclick="previewLink('schedule.html')" class="text-xs font-extrabold text-brand-600 dark:text-brand-400 hover:underline">Full Routine →</a>
+              <a href="#" data-page="schedule.html" onclick="previewLink('schedule.html')" class="text-xs font-extrabold text-brand-600 dark:text-brand-400">Full Routine →</a>
             </div>
 
-            <div class="space-y-3.5 my-5">
-              <a href="#" data-page="live-class.html" onclick="previewLink('live-class.html')" class="block p-4 rounded-2xl bg-white dark:bg-slate-800/90 border border-slate-200/80 dark:border-slate-700 hover:border-brand-500 transition">
+            <div class="space-y-3 my-4">
+              <a href="#" data-page="live-class.html" onclick="previewLink('live-class.html')" class="block p-3.5 rounded-2xl bg-white dark:bg-slate-800/90 border border-slate-200/80 dark:border-slate-700">
                 <div class="flex items-center justify-between text-xs font-bold">
                   <span class="text-brand-600 dark:text-brand-400 font-display">07:00 AM – 08:30 AM</span>
-                  <span class="px-2 py-0.5 rounded bg-emerald-50 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-400">Class 10th</span>
+                  <span class="px-2 py-0.5 rounded bg-emerald-50 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-400 text-[11px]">Class 10th</span>
                 </div>
-                <p class="font-heading font-extrabold text-sm text-slate-900 dark:text-white mt-1">Mathematics & Science Numericals</p>
+                <p class="font-heading font-extrabold text-xs sm:text-sm text-slate-900 dark:text-white mt-1">Mathematics & Science Numericals</p>
               </a>
 
-              <a href="#" data-page="live-class.html" onclick="previewLink('live-class.html')" class="block p-4 rounded-2xl bg-white dark:bg-slate-800/90 border border-slate-200/80 dark:border-slate-700 hover:border-brand-500 transition">
+              <a href="#" data-page="live-class.html" onclick="previewLink('live-class.html')" class="block p-3.5 rounded-2xl bg-white dark:bg-slate-800/90 border border-slate-200/80 dark:border-slate-700">
                 <div class="flex items-center justify-between text-xs font-bold">
                   <span class="text-brand-600 dark:text-brand-400 font-display">10:30 AM – 12:00 PM</span>
-                  <span class="px-2 py-0.5 rounded bg-amber-50 dark:bg-amber-950 text-amber-600 dark:text-amber-400">Polytechnic</span>
+                  <span class="px-2 py-0.5 rounded bg-amber-50 dark:bg-amber-950 text-amber-600 dark:text-amber-400 text-[11px]">Polytechnic</span>
                 </div>
-                <p class="font-heading font-extrabold text-sm text-slate-900 dark:text-white mt-1">Electrical Circuits, Motors & Transformers</p>
+                <p class="font-heading font-extrabold text-xs sm:text-sm text-slate-900 dark:text-white mt-1">Electrical Circuits, Motors & Transformers</p>
               </a>
 
-              <a href="#" data-page="live-class.html" onclick="previewLink('live-class.html')" class="block p-4 rounded-2xl bg-white dark:bg-slate-800/90 border border-slate-200/80 dark:border-slate-700 hover:border-brand-500 transition">
+              <a href="#" data-page="live-class.html" onclick="previewLink('live-class.html')" class="block p-3.5 rounded-2xl bg-white dark:bg-slate-800/90 border border-slate-200/80 dark:border-slate-700">
                 <div class="flex items-center justify-between text-xs font-bold">
                   <span class="text-brand-600 dark:text-brand-400 font-display">07:30 PM – 08:30 PM</span>
-                  <span class="px-2 py-0.5 rounded bg-purple-50 dark:bg-purple-950 text-purple-600 dark:text-purple-400">Open Live</span>
+                  <span class="px-2 py-0.5 rounded bg-purple-50 dark:bg-purple-950 text-purple-600 dark:text-purple-400 text-[11px]">Open Live</span>
                 </div>
-                <p class="font-heading font-extrabold text-sm text-slate-900 dark:text-white mt-1">Top 30 MCQ Rapid Fire & Python Lab</p>
+                <p class="font-heading font-extrabold text-xs sm:text-sm text-slate-900 dark:text-white mt-1">Top 30 MCQ Rapid Fire & Python Lab</p>
               </a>
             </div>
           </div>
@@ -1123,14 +1062,14 @@
       </div>
     </section>
 
-    <!-- ==================== 11. FOUNDER & MENTOR BANNER (PW / KGS STYLE) ==================== -->
-    <section class="py-16 bg-slate-50 dark:bg-slate-900/50 border-t border-slate-200/80 dark:border-slate-800">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
-        <div class="bg-gradient-to-r from-slate-900 via-brand-900 to-indigo-950 rounded-3xl p-8 sm:p-12 text-white shadow-2xl relative overflow-hidden">
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
+    <!-- FOUNDER BANNER -->
+    <section class="py-12 sm:py-16 bg-slate-50 dark:bg-slate-900/50 border-t border-slate-200/80 dark:border-slate-800">
+      <div class="max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8 reveal">
+        <div class="bg-gradient-to-r from-slate-900 via-brand-900 to-indigo-950 rounded-3xl p-6 sm:p-10 text-white shadow-xl">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
             
             <div class="lg:col-span-4 flex flex-col items-center text-center">
-              <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-3xl bg-white/10 backdrop-blur-md p-2 border-2 border-sky-400/40 shadow-xl flex items-center justify-center">
+              <div class="w-20 h-20 sm:w-28 sm:h-28 rounded-3xl bg-white/10 p-2 border-2 border-sky-400/40 shadow-lg flex items-center justify-center">
                 <img 
                   src="logo.gif" 
                   alt="Lalan Kumar" 
@@ -1138,26 +1077,26 @@
                   onerror="this.onerror=null; this.src='https://placehold.co/120x120/2563eb/ffffff?text=LK';"
                 />
               </div>
-              <h3 class="font-heading font-black text-2xl mt-4">Lalan Kumar</h3>
-              <p class="font-display text-xs font-bold uppercase tracking-widest text-amber-400 mt-0.5">Founder • LK SMART STUDIES</p>
+              <h3 class="font-heading font-black text-xl sm:text-2xl mt-3">Lalan Kumar</h3>
+              <p class="font-display text-[11px] font-bold uppercase tracking-widest text-amber-400 mt-0.5">Founder • LK SMART STUDIES</p>
             </div>
 
-            <div class="lg:col-span-8 space-y-4 text-center lg:text-left">
-              <span class="px-3.5 py-1 rounded-full bg-white/10 text-sky-300 text-xs font-extrabold uppercase tracking-wider">
+            <div class="lg:col-span-8 space-y-3 text-center lg:text-left">
+              <span class="px-3 py-1 rounded-full bg-white/10 text-sky-300 text-[10px] font-extrabold uppercase tracking-wider">
                 Our Educational Mission
               </span>
-              <h2 class="font-heading font-black text-2xl sm:text-3xl leading-snug">
+              <h2 class="font-heading font-black text-lg sm:text-3xl leading-snug">
                 "Har Student Tak Smart Notes, Practical Concepts Aur Quality Education Pahunchana Hi Hamara Lakshya Hai."
               </h2>
-              <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
-                Whether you are preparing for Board Exams, pursuing a Diploma in Electrical Engineering, or learning Python & Web Development, <strong>LK SMART STUDIES</strong> provides structured, exam-oriented resources completely hassle-free.
+              <p class="text-slate-300 text-xs sm:text-base leading-relaxed">
+                Whether you are preparing for Board Exams, pursuing a Diploma in Electrical Engineering, or learning Python & Web Development, <strong>LK SMART STUDIES</strong> provides structured, exam-oriented resources on any device.
               </p>
-              <div class="pt-2 flex flex-wrap items-center justify-center lg:justify-start gap-3">
-                <a href="#" data-page="about.html" onclick="previewLink('about.html')" class="px-5 py-2.5 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-950 font-extrabold text-xs sm:text-sm transition">
-                  Read Founder's Message
+              <div class="pt-2 flex flex-wrap items-center justify-center lg:justify-start gap-2.5">
+                <a href="#" data-page="about.html" onclick="previewLink('about.html')" class="px-4 py-2.5 rounded-xl bg-amber-400 text-slate-950 font-extrabold text-xs">
+                  Founder's Message
                 </a>
-                <a href="#" data-page="contact.html" onclick="previewLink('contact.html')" class="px-5 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-xs sm:text-sm border border-white/15 transition">
-                  Request Academic Guidance
+                <a href="#" data-page="contact.html" onclick="previewLink('contact.html')" class="px-4 py-2.5 rounded-xl bg-white/10 text-white font-bold text-xs border border-white/15">
+                  Academic Helpdesk
                 </a>
               </div>
             </div>
@@ -1168,15 +1107,14 @@
     </section>
   </main>
 
-  <!-- ==================== 12. MULTI-LINK FOOTER (ALL LINKS SET TO #) ==================== -->
-  <footer class="bg-white dark:bg-[#050811] text-slate-600 dark:text-slate-400 pt-16 pb-12 border-t border-slate-200 dark:border-slate-800/80 transition-colors">
+  <!-- FOOTER -->
+  <footer class="bg-white dark:bg-[#050811] text-slate-600 dark:text-slate-400 pt-12 pb-10 border-t border-slate-200 dark:border-slate-800/80 transition-colors">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
+      <div class="grid grid-cols-2 lg:grid-cols-5 gap-6 sm:gap-8 mb-10">
         
-        <!-- Brand Info -->
-        <div class="lg:col-span-2 space-y-4">
-          <a href="#" class="flex items-center gap-3">
-            <div class="w-11 h-11 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-700 bg-white flex items-center justify-center shadow-sm">
+        <div class="col-span-2 space-y-3">
+          <a href="#" class="flex items-center gap-2.5">
+            <div class="w-10 h-10 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-700 bg-white flex items-center justify-center">
               <img 
                 src="logo.gif" 
                 alt="LK Smart Studies" 
@@ -1185,89 +1123,101 @@
               />
             </div>
             <div>
-              <span class="font-heading font-black text-lg text-slate-900 dark:text-white block leading-none">LK SMART STUDIES</span>
+              <span class="font-heading font-black text-base sm:text-lg text-slate-900 dark:text-white block leading-none">LK SMART STUDIES</span>
               <span class="font-display text-[10px] font-bold text-brand-600 dark:text-brand-400 uppercase tracking-wider">By Lalan Kumar</span>
             </div>
           </a>
-          <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 max-w-sm leading-relaxed font-medium">
+          <p class="text-xs text-slate-500 dark:text-slate-400 max-w-sm leading-relaxed font-medium">
             Premier conceptual learning portal for Class 10th & 12th Boards, Polytechnic Diploma, Electrical Engineering, and Python Coding skills.
           </p>
-          <div class="flex items-center gap-2.5 pt-1">
-            <a href="#" aria-label="YouTube" class="w-9 h-9 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-red-600 hover:text-white flex items-center justify-center transition"><i data-lucide="youtube" class="w-4 h-4"></i></a>
-            <a href="#" aria-label="Telegram" class="w-9 h-9 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-sky-500 hover:text-white flex items-center justify-center transition"><i data-lucide="send" class="w-4 h-4"></i></a>
-            <a href="#" aria-label="GitHub" class="w-9 h-9 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-900 hover:text-white flex items-center justify-center transition"><i data-lucide="github" class="w-4 h-4"></i></a>
-            <a href="#" aria-label="Contact" class="w-9 h-9 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-emerald-600 hover:text-white flex items-center justify-center transition"><i data-lucide="mail" class="w-4 h-4"></i></a>
-          </div>
         </div>
 
-        <!-- Column 1: Portal Pages -->
         <div>
-          <h4 class="font-heading font-extrabold text-sm text-slate-900 dark:text-white mb-4 uppercase tracking-wider">Study Portals</h4>
-          <ul class="text-xs space-y-2.5 font-semibold">
-            <li><a href="#" data-page="batches.html" onclick="previewLink('batches.html')" class="hover:text-brand-600 dark:hover:text-brand-400 transition">Live Batches (batches.html)</a></li>
-            <li><a href="#" data-page="notes.html" onclick="previewLink('notes.html')" class="hover:text-brand-600 dark:hover:text-brand-400 transition">PDF Notes (notes.html)</a></li>
-            <li><a href="#" data-page="test-series.html" onclick="previewLink('test-series.html')" class="hover:text-brand-600 dark:hover:text-brand-400 transition">Test Series (test-series.html)</a></li>
-            <li><a href="#" data-page="pyq.html" onclick="previewLink('pyq.html')" class="hover:text-brand-600 dark:hover:text-brand-400 transition">PYQ Bank (pyq.html)</a></li>
-            <li><a href="#" data-page="formulas.html" onclick="previewLink('formulas.html')" class="hover:text-brand-600 dark:hover:text-brand-400 transition">Formula Maps (formulas.html)</a></li>
+          <h4 class="font-heading font-extrabold text-xs sm:text-sm text-slate-900 dark:text-white mb-3 uppercase tracking-wider">Portals</h4>
+          <ul class="text-xs space-y-2 font-semibold">
+            <li><a href="#" data-page="batches.html" onclick="previewLink('batches.html')" class="hover:text-brand-600">Live Batches</a></li>
+            <li><a href="#" data-page="notes.html" onclick="previewLink('notes.html')" class="hover:text-brand-600">PDF Notes</a></li>
+            <li><a href="#" data-page="test-series.html" onclick="previewLink('test-series.html')" class="hover:text-brand-600">Test Series</a></li>
+            <li><a href="#" data-page="pyq.html" onclick="previewLink('pyq.html')" class="hover:text-brand-600">PYQ Bank</a></li>
           </ul>
         </div>
 
-        <!-- Column 2: Technical & Streams -->
         <div>
-          <h4 class="font-heading font-extrabold text-sm text-slate-900 dark:text-white mb-4 uppercase tracking-wider">Exam Streams</h4>
-          <ul class="text-xs space-y-2.5 font-semibold">
-            <li><a href="#" data-page="polytechnic.html" onclick="previewLink('polytechnic.html')" class="hover:text-brand-600 dark:hover:text-brand-400 transition">Polytechnic Hub</a></li>
-            <li><a href="#" data-page="electrical.html" onclick="previewLink('electrical.html')" class="hover:text-brand-600 dark:hover:text-brand-400 transition">Electrical Engineering</a></li>
-            <li><a href="#" data-page="board-10.html" onclick="previewLink('board-10.html')" class="hover:text-brand-600 dark:hover:text-brand-400 transition">Class 10th Board Prep</a></li>
-            <li><a href="#" data-page="science-12.html" onclick="previewLink('science-12.html')" class="hover:text-brand-600 dark:hover:text-brand-400 transition">Class 12th Science PCM</a></li>
-            <li><a href="#" data-page="coding.html" onclick="previewLink('coding.html')" class="hover:text-brand-600 dark:hover:text-brand-400 transition">Python & Web Dev Lab</a></li>
+          <h4 class="font-heading font-extrabold text-xs sm:text-sm text-slate-900 dark:text-white mb-3 uppercase tracking-wider">Streams</h4>
+          <ul class="text-xs space-y-2 font-semibold">
+            <li><a href="#" data-page="polytechnic.html" onclick="previewLink('polytechnic.html')" class="hover:text-brand-600">Polytechnic Hub</a></li>
+            <li><a href="#" data-page="electrical.html" onclick="previewLink('electrical.html')" class="hover:text-brand-600">Electrical Engg</a></li>
+            <li><a href="#" data-page="board-10.html" onclick="previewLink('board-10.html')" class="hover:text-brand-600">Class 10th Board</a></li>
+            <li><a href="#" data-page="coding.html" onclick="previewLink('coding.html')" class="hover:text-brand-600">Python Lab</a></li>
           </ul>
         </div>
 
-        <!-- Column 3: Quick Links -->
-        <div>
-          <h4 class="font-heading font-extrabold text-sm text-slate-900 dark:text-white mb-4 uppercase tracking-wider">Support & Info</h4>
-          <ul class="text-xs space-y-2.5 font-semibold">
-            <li><a href="#" data-page="about.html" onclick="previewLink('about.html')" class="hover:text-brand-600 dark:hover:text-brand-400 transition">About LK Smart Studies</a></li>
-            <li><a href="#" data-page="schedule.html" onclick="previewLink('schedule.html')" class="hover:text-brand-600 dark:hover:text-brand-400 transition">Live Class Timetable</a></li>
-            <li><a href="#" data-page="scholarship.html" onclick="previewLink('scholarship.html')" class="hover:text-brand-600 dark:hover:text-brand-400 transition">Scholarship Portal</a></li>
-            <li><a href="#" data-page="contact.html" onclick="previewLink('contact.html')" class="hover:text-brand-600 dark:hover:text-brand-400 transition">Contact & Helpdesk</a></li>
-            <li><a href="#" data-page="login.html" onclick="previewLink('login.html')" class="hover:text-brand-600 dark:hover:text-brand-400 transition">Student Login</a></li>
+        <div class="col-span-2 sm:col-span-1">
+          <h4 class="font-heading font-extrabold text-xs sm:text-sm text-slate-900 dark:text-white mb-3 uppercase tracking-wider">Support</h4>
+          <ul class="text-xs space-y-2 font-semibold">
+            <li><a href="#" data-page="about.html" onclick="previewLink('about.html')" class="hover:text-brand-600">About Us</a></li>
+            <li><a href="#" data-page="schedule.html" onclick="previewLink('schedule.html')" class="hover:text-brand-600">Class Schedule</a></li>
+            <li><a href="#" data-page="contact.html" onclick="previewLink('contact.html')" class="hover:text-brand-600">Helpdesk</a></li>
+            <li><a href="#" data-page="login.html" onclick="previewLink('login.html')" class="hover:text-brand-600">Student Login</a></li>
           </ul>
         </div>
 
       </div>
 
-      <div class="pt-8 border-t border-slate-200/80 dark:border-slate-800 text-xs text-slate-500 flex flex-col sm:flex-row items-center justify-between gap-4 font-semibold">
+      <div class="pt-6 border-t border-slate-200/80 dark:border-slate-800 text-[11px] sm:text-xs text-slate-500 flex flex-col sm:flex-row items-center justify-between gap-3 font-semibold text-center">
         <p>© 2026 <strong>LK SMART STUDIES</strong> • Built by Lalan Kumar. All rights reserved.</p>
-        <div class="flex gap-5">
-          <a href="#" data-page="privacy.html" onclick="previewLink('privacy.html')" class="hover:text-brand-600">Privacy Policy</a>
-          <a href="#" data-page="terms.html" onclick="previewLink('terms.html')" class="hover:text-brand-600">Terms of Use</a>
+        <div class="flex gap-4">
+          <a href="#" data-page="privacy.html" onclick="previewLink('privacy.html')">Privacy Policy</a>
+          <a href="#" data-page="terms.html" onclick="previewLink('terms.html')">Terms of Use</a>
         </div>
       </div>
     </div>
   </footer>
 
-  <!-- ==================== TOAST NOTIFICATION FOR # LINKS ==================== -->
-  <div id="toastMessage" class="fixed bottom-6 right-6 z-50 hidden bg-slate-900 dark:bg-slate-800 text-white px-5 py-3.5 rounded-2xl shadow-2xl flex items-center gap-3 text-xs sm:text-sm font-bold border border-slate-700">
+  <!-- MOBILE STICKY BOTTOM NAVIGATION BAR (FOR 85% MOBILE USERS) -->
+  <nav class="fixed bottom-0 inset-x-0 z-40 md:hidden bg-white/95 dark:bg-[#090d16]/95 backdrop-blur-md border-t border-slate-200 dark:border-slate-800 px-2 py-1.5 shadow-2xl">
+    <div class="grid grid-cols-5 gap-1 text-center">
+      <a href="#" class="flex flex-col items-center justify-center py-1 text-brand-600 dark:text-brand-400">
+        <i data-lucide="home" class="w-5 h-5"></i>
+        <span class="text-[10px] font-extrabold mt-0.5">Home</span>
+      </a>
+      <a href="#" data-page="batches.html" onclick="previewLink('batches.html')" class="flex flex-col items-center justify-center py-1 text-slate-600 dark:text-slate-400">
+        <i data-lucide="tv" class="w-5 h-5"></i>
+        <span class="text-[10px] font-bold mt-0.5">Batches</span>
+      </a>
+      <a href="#" data-page="notes.html" onclick="previewLink('notes.html')" class="flex flex-col items-center justify-center py-1 text-emerald-600 dark:text-emerald-400">
+        <i data-lucide="file-text" class="w-5 h-5"></i>
+        <span class="text-[10px] font-extrabold mt-0.5">Free PDF</span>
+      </a>
+      <a href="#quiz" class="flex flex-col items-center justify-center py-1 text-slate-600 dark:text-slate-400">
+        <i data-lucide="brain-circuit" class="w-5 h-5"></i>
+        <span class="text-[10px] font-bold mt-0.5">Quiz</span>
+      </a>
+      <a href="#" data-page="login.html" onclick="previewLink('login.html')" class="flex flex-col items-center justify-center py-1 text-slate-600 dark:text-slate-400">
+        <i data-lucide="user" class="w-5 h-5"></i>
+        <span class="text-[10px] font-bold mt-0.5">Account</span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- TOAST NOTIFICATION -->
+  <div id="toastMessage" class="fixed bottom-20 md:bottom-6 right-4 left-4 sm:left-auto z-50 hidden bg-slate-900 dark:bg-slate-800 text-white px-4 py-3 rounded-2xl shadow-2xl flex items-center gap-2.5 text-xs font-bold border border-slate-700">
     <i data-lucide="link" class="w-4 h-4 text-sky-400 flex-shrink-0"></i>
     <span id="toastText">Link Ready!</span>
   </div>
 
-  <!-- ==================== JAVASCRIPT ENGINE ==================== -->
+  <!-- MAIN SCRIPTS -->
   <script>
     lucide.createIcons();
 
-    // 1. Splash Screen Controller
     window.addEventListener('DOMContentLoaded', () => {
       const splash = document.getElementById('splashScreen');
       setTimeout(() => {
         if (splash) splash.classList.add('hide-splash');
         startCounters();
-      }, 1500);
+      }, 1100);
     });
 
-    // 2. White / Dark Mode Switcher
     const htmlEl = document.documentElement;
     const themeColorMeta = document.getElementById('themeColorMeta');
 
@@ -1292,34 +1242,30 @@
       const isDark = htmlEl.classList.toggle('dark');
       localStorage.setItem('lk_theme', isDark ? 'dark' : 'light');
       updateThemeUI(isDark);
-      showToast(isDark ? 'Dark Mode Activated 🌙' : 'Clean White Mode Activated ☀️');
+      showToast(isDark ? 'Dark Mode Activated' : 'Light Mode Activated');
     }
 
-    // 3. Mobile Menu Toggle
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const mobileMenu = document.getElementById('mobileMenu');
     mobileMenuBtn.addEventListener('click', () => {
       mobileMenu.classList.toggle('hidden');
     });
 
-    // 4. Top Scroll Progress Bar
     const scrollProgress = document.getElementById('scrollProgress');
     window.addEventListener('scroll', () => {
       const scrollTop = window.scrollY;
       const docHeight = document.documentElement.scrollHeight - window.innerHeight;
       const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
       scrollProgress.style.width = progress + '%';
-    });
+    }, { passive: true });
 
-    // 5. Scroll Reveal Observer
     const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) entry.target.classList.add('active');
       });
-    }, { threshold: 0.1 });
+    }, { threshold: 0.08 });
     document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-    // 6. Animated Counters
     let countersStarted = false;
     function startCounters() {
       if (countersStarted) return;
@@ -1327,7 +1273,7 @@
       document.querySelectorAll('.counter').forEach(counter => {
         const target = +counter.getAttribute('data-target');
         let current = 0;
-        const inc = target / 60;
+        const inc = target / 45;
         const timer = setInterval(() => {
           current += inc;
           if (current >= target) {
@@ -1340,12 +1286,10 @@
       });
     }
 
-    // 7. Preview Handler for "#" Multi-File Links
     function previewLink(targetFile) {
-      showToast(`Link Ready (# → ${targetFile}) — Jab aap ${targetFile} banayenge tab href="#" me जोड़ sakte hain!`);
+      showToast(`Target Page: ${targetFile} (Ready to link in href="#")`);
     }
 
-    // 8. Batch Category Filter
     function filterBatches(category, btnEl) {
       document.querySelectorAll('.batch-tab').forEach(t => {
         t.classList.remove('bg-brand-600', 'text-white');
@@ -1359,7 +1303,6 @@
       });
     }
 
-    // 9. Smart Search & Notes Filter
     function handleSmartSearch() {
       const val = document.getElementById('heroSearchInput').value.trim();
       if (!val) return;
@@ -1376,7 +1319,6 @@
       });
     }
 
-    // 10. Interactive Quiz Engine
     const quizQuestions = [
       {
         q: "Q1. According to Ohm's Law, if Voltage (V) is constant and Resistance (R) is halved, the Electric Current (I) will:",
@@ -1426,7 +1368,7 @@
 
       item.options.forEach(opt => {
         const btn = document.createElement('button');
-        btn.className = "text-left p-3.5 rounded-2xl border border-slate-200 dark:border-slate-700 hover:border-brand-500 font-bold text-xs sm:text-sm text-slate-700 dark:text-slate-200 bg-white dark:bg-slate-800 transition";
+        btn.className = "text-left p-3.5 rounded-2xl border border-slate-200 dark:border-slate-700 font-bold text-xs sm:text-sm text-slate-700 dark:text-slate-200 bg-white dark:bg-slate-800 active:scale-[0.99] transition";
         btn.textContent = opt.text;
         btn.onclick = () => checkQuiz(btn, opt.correct, item.exp);
         box.appendChild(btn);
@@ -1458,14 +1400,13 @@
 
     loadQuiz();
 
-    // 11. Toast Helper
     let toastTimer;
     function showToast(msg) {
       const toast = document.getElementById('toastMessage');
       document.getElementById('toastText').textContent = msg;
       toast.classList.remove('hidden');
       clearTimeout(toastTimer);
-      toastTimer = setTimeout(() => toast.classList.add('hidden'), 3200);
+      toastTimer = setTimeout(() => toast.classList.add('hidden'), 2800);
     }
   </script>
 </body>
